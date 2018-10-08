@@ -14,6 +14,12 @@
     {% endblock %}
 </head>
 <body>
+{# Load the tag library #}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_css %}
 
 {% block content %}
 {% endblock %}
