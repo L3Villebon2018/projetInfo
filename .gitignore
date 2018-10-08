@@ -363,3 +363,8 @@ $RECYCLE.BIN/
 
 # Visio autosave temporary files
 *.~vsd*
+.idea/misc.xml
+.idea/modules.xml
+.idea/projetInfo.iml
+.idea/vcs.xml
+ProjetInfoL3/templates/registration/
