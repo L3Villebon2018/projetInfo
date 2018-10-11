@@ -53,6 +53,9 @@ class PostFilActu(models.Model):
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.titre}"
+
 
 class Commentaire(models.Model):
     post = models.ForeignKey(PostFilActu, on_delete=models.CASCADE, related_name='comments')
@@ -61,3 +64,6 @@ class Commentaire(models.Model):
 
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
+
+    def __str__(self):
+        return f"Commentaire sur {self.post.titre}"
