@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Ecole(models.Model):
@@ -20,6 +21,8 @@ class Formation(models.Model):
 
 
 class Etudiant(models.Model):
+    user = models.OneToOneField(User, related_name='user', on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
+
     nom = models.CharField(max_length=150)
     prenom = models.CharField(max_length=150)
     photo = models.ImageField()
