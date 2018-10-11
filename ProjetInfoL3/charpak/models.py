@@ -18,6 +18,7 @@ class Formation(models.Model):
     def __str__(self):
         return str(self.type) + ' | ' + str(self.nom)
 
+
 class Etudiant(models.Model):
     nom = models.CharField(max_length=150)
     prenom = models.CharField(max_length=150)
