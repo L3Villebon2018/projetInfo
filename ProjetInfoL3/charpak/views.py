@@ -7,3 +7,6 @@ def index(request):
 
 def index_arborescence(request):
     return render(request, 'arborescence/index_arborescence.html')
+
+def index_FAQ(request):
+    return render(request, 'FAQ/index_FAQ.html')
