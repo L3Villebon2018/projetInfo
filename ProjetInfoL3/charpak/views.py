@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'public/index.html')
+
+def index_arborescence(request):
+    return render(request, 'arborescence/index_arborescence.html')
