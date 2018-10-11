@@ -30,6 +30,9 @@ class Etudiant(models.Model):
     prenom = models.CharField(max_length=150)
     photo = models.ImageField()
 
+    email = models.CharField(max_length=512)
+    telephone = models.CharField(max_length=15)
+
     promo = models.PositiveSmallIntegerField()
     parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True)
 
