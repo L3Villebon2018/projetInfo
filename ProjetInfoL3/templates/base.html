@@ -21,46 +21,56 @@
 {% bootstrap_css %}
 <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
 {% bootstrap_javascript jquery='full' %}
+
 <div class="wrapper">
-<nav class="sidebar navbar-expand-lg navbar-light bg-light navbar-static-top">
-    <a  id=icone class="navbar-brand" href="/"><img src="{% static "images/charpak2.png" %}" class="d-inline-block" alt=""></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <a><img id="icone" src="{% static "images/charpak2.png" %}" class="d-inline-block" alt=""></a>
+        </div>
         <ul class="list-unstyled components">
-            <li >
-                <a class="nav-link" href="/">Accueil</a>
+            <li class="active">
+                <a href="#">Fil d'actualité</a>
             </li>
-            <li class="nav-item bg-light">
-                <a class="nav-link" href="/">Fil d'actus</a>
+            <li>
+                <a href="/arborescence">Réseaux des anciens</a>
             </li>
-            <li class="nav-item bg-light">
-                <a class="nav-link" href="../templates/arborescence/base_arborescence.html">Réseaux des anciens</a>
+            <li>
+                <a href="#">Espace de travail</a>
             </li>
-            <li class="nav-item bg-light">
-                <a class="nav-link" href="/">Espace de travail</a>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">U.E : Que choisir ?</a>
+                    </li>
+                    <li>
+                        <a href="#">Master ou école d'inégnieur ?</a>
+                    </li>
+                    <li>
+                        <a href="#">Où faire du sport ?</a>
+                    </li>
+                    <li>
+                        <a href="#">Où faire du sport ?</a>
+                    </li>
+                    <li>
+                        <a href="#">Le BDE, Kezako ?</a>
+                    </li>
+                    <li>
+                        <a href="#">Infos utiles</a>
+                    </li>
+                </ul>
             </li>
-            <li class="nav-item bg-light">
-                <a class="nav-link" href="/">FAQ</a>
+            <li>
+                <a href="#">Photos</a>
             </li>
-            <li class="nav-item bg-light">
-                <a class="nav-link" href="/">Liens utiles</a>
-            </li>
-            <li class="nav-item bg-light">
-                <a class="nav-link" href="/">Photos</a>
+            <li>
+                <a href="#">Liens utiles</a>
             </li>
         </ul>
-        <span class="navbar-text">
-{% if user.is_authenticated %}
-    Bonjour {{ user.username }}! — <a href="/accounts/logout">Déconnexion</a>
-{% else %}
-    Vous n'etes pas connecté — <a href="/accounts/login">Connexion</a>
-{% endif %}    </span>
-    </div>
-</nav>
+    </nav>
 </div>
+
 {% block content %}
 {% endblock %}
 </body>
