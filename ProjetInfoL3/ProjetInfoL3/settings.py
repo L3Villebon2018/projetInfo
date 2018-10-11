@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'hijack',
+    'hijack_admin',
+    'compat'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +128,8 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'static/'),
 )
+
+HIJACK_USE_BOOTSTRAP = True
+HIJACK_ALLOW_GET_REQUESTS = True
+
+LOGIN_REDIRECT_URL = '/' # TODO: Changer l'URL vers laquelle les utilisateurs sont redirigés au login. Une sorte de *page d'acceuil* serait sympa, a voir :)

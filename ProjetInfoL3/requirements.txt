@@ -10,3 +10,5 @@ Pillow
 
 # Extensions pour django
 django-bootstrap4
+django-hijack
+django-hijack-admin
