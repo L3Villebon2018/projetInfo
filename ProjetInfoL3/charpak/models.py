@@ -46,7 +46,7 @@ class Etudiant(models.Model):
 
 
 class PostFilActu(models.Model):
-    supprime = models.BooleanField()
+    supprime = models.BooleanField(default=False)
 
     auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
 
