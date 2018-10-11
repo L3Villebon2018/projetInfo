@@ -38,7 +38,7 @@ class Etudiant(models.Model):
 
     profil_bac = models.CharField(max_length=50)
 
-    formation = models.ForeignKey(Formation, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    formation = models.ForeignKey(Formation, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
     statut = models.CharField(max_length=50)
 
     def __str__(self):
