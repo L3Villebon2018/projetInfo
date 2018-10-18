@@ -18,64 +18,53 @@
             text-align: center;
         }
     </style>
-{%endblock}
+{%endblock%}
 
 {% block content %}
     Liste des étudiants
 
-<ul>
-    <div1 class="grid-container">
-        <div class="grid-item">
-            <input type="button" onclick="window.location.href=\'http://127.0.0.1:8000/arborescence" value="afficher les promos actuelles">
-        </div>
-        <div class="grid-item">
-            <FORM>
-                <SELECT name="promo" size="1">
-                    <OPTION selected> Promo 2019
-                    <OPTION>Promo 2018
-                    <OPTION>Promo 2017
-                    <OPTION>Promo 2016
-                    <OPTION>Promo 2015
-                </SELECT>
-            </FORM>
-        </div>
-        <div class="grid-item">
-            <FORM>
-                <SELECT name="formation" size="1">
-                    <OPTION selected> Charpak
-                    <OPTION> formation 1
-                    <OPTION> formation 2
-                    <OPTION> formation 3
-                    <OPTION> formation 4
-                </SELECT>
-            </FORM>
-        </div>
-    </div1>
-    <section >
-        <h1>
-            Promo 2019
-        </h1>
-        <p>
-            test
-        </p>
-    </section>
-    <section>
-        <h1>
-            Promo 2018
-        </h1>
-        <p>
-            test
-        </p>
-    </section>
-    <section>
-        <h1>
-            Promo 2017
-        </h1>
-        <p>
-            test
-        </p>
-    </section>
-    <div1>
+    <ul>
+        <div1 class="grid-container">
+            <div class="grid-item">
+                <input type="button" onclick="window.location.href=\'http://127.0.0.1:8000/arborescence" value="afficher les promos actuelles">
+            </div>
+            <div class="grid-item">
+                <FORM>
+                    <SELECT name="promo" size="1">
+                        <OPTION selected> Promo 2019
+                        <OPTION>Promo 2018
+                        <OPTION>Promo 2017
+                        <OPTION>Promo 2016
+                        <OPTION>Promo 2015
+                    </SELECT>
+                </FORM>
+            </div>
+            <div class="grid-item">
+                <FORM>
+                    <SELECT name="formation" size="1">
+                        <OPTION selected> Charpak
+                        <OPTION> formation 1
+                        <OPTION> formation 2
+                        <OPTION> formation 3
+                        <OPTION> formation 4
+                    </SELECT>
+                </FORM>
+            </div>
+        </div1>
+            {% for promo, etudiants in etudiants_dict.items %}
 
-    </div1>
-    {% endblock %}
+            <section>
+                <h3>
+                    Promo {{promo}}
+                </h3>
+                <p>
+
+                    {%for etudiant in etudiants%}
+                    {{etudiant.nom}} {{etudiant.prenom}}
+                    {% endfor %}
+                </p>
+
+            </section>
+            {% endfor %}
+        </div1>
+        {% endblock %}

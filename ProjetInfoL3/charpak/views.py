@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
-from .models import PostFilActu
+from collections import defaultdict
+from .models import PostFilActu, Etudiant
 from .forms import FilActu_PostForm
 # Create your views here.
 
@@ -10,7 +10,14 @@ def index(request):
     return render(request, 'public/index.html')
 
 def index_arborescence(request):
-    return render(request, 'arborescence/index_arborescence.html')
+    etudiants = defaultdict(list)
+    for etudiant in Etudiant.objects.all():
+        etudiants[etudiant.promo].append(etudiant)
+
+    etudiants = dict(etudiants)
+    print(etudiants)
+
+    return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants})
 
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
@@ -18,6 +25,7 @@ def index_FAQ(request):
 def index_fil_actu(request):
     posts = PostFilActu.objects.all()
     return render(request, 'fil_actu/index_fil_actu.html', {'posts' : posts})
+
 
 @login_required()
 def nouveau_post_fil_actu(request):
