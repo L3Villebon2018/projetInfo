@@ -8,9 +8,7 @@
 
 
 {% block content %}
-    <a> <img rel="Plus qu'un Institut...une famille" src="/ProjetInfoL3/ProjetInfoL3/static/images/FA2.PNG" ></a>
-    <div>
-        <a class="button-link" href="nouveau_post" target="_blank">Poster</a>
-    </div>
-    {% block sous_content%} {% endblock %}
+    <a> <img rel="Plus qu'un Institut...une famille" src="{% static 'images/FA2.PNG' %}" ></a>
+    {% block sous_content%}
+    {% endblock %}
 {% endblock %}
