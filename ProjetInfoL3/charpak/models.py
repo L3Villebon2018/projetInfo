@@ -4,6 +4,13 @@ import datetime
 
 from django.utils import timezone
 
+class Promo(models.Model):
+    nom = models.CharField(max_length=150)
+    couleur = models.CharField(max_length=150)
+
+    icone = models.ImageField()
+
+
 
 class Ecole(models.Model):
     nom = models.CharField(max_length=150)
@@ -33,7 +40,7 @@ class Etudiant(models.Model):
     email = models.CharField(max_length=512)
     telephone = models.CharField(max_length=15)
 
-    promo = models.PositiveSmallIntegerField()
+    promo = models.ForeignKey(Promo, on_delete=models.CASCADE)
     parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True)
 
     profil_bac = models.CharField(max_length=50)
