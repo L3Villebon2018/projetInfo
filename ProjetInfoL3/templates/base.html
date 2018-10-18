@@ -9,12 +9,14 @@
         {% endblock %}
     </title>
 
+
     <link rel="stylesheet" type="text/css" href="{% static 'hijack/hijack-styles.css' %}" />
     <link rel="shortcut icon" href="{% static "images/charpak.png" %}">
     <script src="{% static "js/jquery-3.3.1.js" %}" type="text/javascript" ></script>
 
     {% block head %}
     {% endblock %}
+
 </head>
 <body>
 {% hijack_notification %}

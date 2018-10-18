@@ -1,9 +1,4 @@
-{%extends 'base.html'%}
-{% load bootstrap4 %}
-
-{% block head %}
-    <style>
-    .button-link {
+.button-link {
     height:60px;
     padding: 10px 15px;
     background: #4479BA;
@@ -16,22 +11,9 @@
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    }
-    .button-link:hover {
+}
+.button-link:hover {
     background: #356094;
     border: solid 1px #2A4E77;
     text-decoration: none;
-    }
-    </style>
-
-{% endblock %}
-
-
-{% block content %}
-    <a> <img rel="Plus qu'un Institut...une famille" src="/ProjetInfoL3/ProjetInfoL3/static/images/FA2.PNG" ></a>
-    <div>
-        <link rel="stylesheet" type="text/css" href="/ProjetInfoL3/ProjetInfoL3/static/css/fil_actu_css.css " />
-        <a class="button-link" href="//nouveau_post" target="_blank">Poster</a>
-    </div>
-    {% block sous_content%} {% endblock %}
-{% endblock %}
+}
