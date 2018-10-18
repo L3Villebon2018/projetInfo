@@ -26,7 +26,7 @@
     <ul>
         <div1 class="grid-container">
             <div class="grid-item">
-                <input type="button" onclick="window.location.href=\'http://127.0.0.1:8000/arborescence" value="afficher les promos actuelles">
+                <input type="button" onclick='window.location.reload(false)' value="afficher les promos actuelles" />
             </div>
             <div class="grid-item">
                 <FORM>
@@ -62,8 +62,8 @@
                     {{etudiant.nom}} {{etudiant.prenom}}
                     {% endfor %}
                 </p>
-
             </section>
             {% endfor %}
         </div1>
+        Cliquez sur une photo pour obtenir les détails du profil
         {% endblock %}

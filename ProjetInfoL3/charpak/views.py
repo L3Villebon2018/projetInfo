@@ -19,6 +19,10 @@ def index_arborescence(request):
 
     return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants})
 
+def index_profil(request):
+    etudiant = list(Etudiant.objects.all())
+    return render(request, 'profil/index_profil.html', {'etudiant' : etudiant[0]})
+
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
 
