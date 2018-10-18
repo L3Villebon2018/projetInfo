@@ -1,13 +1,12 @@
 ﻿{%extends 'arborescence/base_arborescence.html' %}
 
-{% block content %}
-
-<head>
+{%block head%}
     <style>
         .div1 {
             background-color: crimson
         }
-            .grid-container {
+
+        .grid-container {
             display: grid;
             grid-template-columns: auto auto auto;
             padding: 10px;
@@ -19,8 +18,9 @@
             text-align: center;
         }
     </style>
-</head>
+{%endblock}
 
+{% block content %}
     Liste des étudiants
 
 <ul>
