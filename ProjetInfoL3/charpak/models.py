@@ -10,6 +10,8 @@ class Promo(models.Model):
 
     icone = models.ImageField()
 
+    def __str__(self):
+        return f"Promo {self.nom}"
 
 
 class Ecole(models.Model):
@@ -49,7 +51,7 @@ class Etudiant(models.Model):
     statut = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"{self.prenom} {self.nom} - Promo {self.promo}"
+        return f"{self.prenom} {self.nom} - Promo {self.promo.nom}"
 
 
 class PostFilActu(models.Model):
