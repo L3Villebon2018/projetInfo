@@ -68,6 +68,8 @@ a, a:hover, a:focus {
     /* don't forget to add all the previously mentioned styles here too */
     background: #4a494a;
     color: #fff;
+    float: left;
+    width: 25%;
     transition: all 0.3s;
 }
 
@@ -113,6 +115,5 @@ ul ul a {
 
 content{
     float: right;
-    top: -50px;
-    margin-top: 50px;
+    width: 75%;
 }
