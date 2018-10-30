@@ -1,67 +1,55 @@
 ﻿{% extends 'arborescence/base_arborescence.html' %}
+{% load static %}
 
 {% block head %}
-    <style>
-        #boutons_haut {
-            background-color: crimson
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            padding: 10px;
-        }
-
-        .grid-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}" />
 {% endblock %}
 
 {% block content %}
-    Liste des étudiants
+    <header>
+        <div class="grid-container" id="boutons_haut">
+            <div class="grid-item">
+                <input type="button" value="afficher les promos actuelles" />
+            </div>
+            <div class="grid-item">
+                <form>
+                    <select name="promo" size="1">
+                        <option selected> Promo 2019
+                        <option>Promo 2018
+                        <option>Promo 2017
+                        <option>Promo 2016
+                        <option>Promo 2015
+                    </select>
+                </form>
+            </div>
+            <div class="grid-item">
+                <form>
+                    <select name="formation" size="1">
+                        <option selected> Charpak
+                        <option> formation 1
+                        <option> formation 2
+                        <option> formation 3
+                        <option> formation 4
+                    </select>
+                </form>
+            </div>
+        </div>
+    </header>
 
-    <div class="grid-container" id="boutons_haut">
-        <div class="grid-item">
-            <input type="button" value="afficher les promos actuelles"/>
-        </div>
-        <div class="grid-item">
-            <form>
-                <select name="promo" size="1">
-                    <option selected> Promo 2019
-                    <option>Promo 2018
-                    <option>Promo 2017
-                    <option>Promo 2016
-                    <option>Promo 2015
-                </select>
-            </form>
-        </div>
-        <div class="grid-item">
-            <form>
-                <select name="formation" size="1">
-                    <option selected> Charpak
-                    <option> formation 1
-                    <option> formation 2
-                    <option> formation 3
-                    <option> formation 4
-                </select>
-            </form>
-        </div>
-    </div>
-    {% for promo, etudiants in etudiants_dict.items %}
-
+    <div>
+        {% for promo, etudiants in etudiants_dict.items %}
         <section>
             <h3>
                 Promo {{ promo.nom }}
             </h3>
             <p>
                 {% for etudiant in etudiants %}
-                    <a href="profil">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                <a href="profil">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
                 {% endfor %}
             </p>
         </section>
-    {% endfor %}
-    Cliquez sur une photo pour obtenir les détails du profil
+        {% endfor %}
+        Cliquez sur une photo pour obtenir les détails du profil
+    </div>
+
 {% endblock %}
