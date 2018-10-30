@@ -28,6 +28,41 @@
 {% bootstrap_javascript jquery='full' %}
 
 <div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -47,16 +82,16 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">U.E : Que choisir ?</a>
+                        <a href="/FAQ">Astuces pour les devoirs</a>
                     </li>
                     <li>
-                        <a href="#">Master ou école d'inégnieur ?</a>
-                    </li>
-                    <li>
-                        <a href="#">Où faire du sport ?</a>
+                        <a href="#">Astuces à l'institut</a>
                     </li>
                     <li>
                         <a href="#">Où faire du sport ?</a>
+                    </li>
+                    <li>
+                        <a href="#">Que faire après Charpak</a>
                     </li>
                     <li>
                         <a href="#">Le BDE, Kezako ?</a>
@@ -73,6 +108,12 @@
                 <a href="#">Liens utiles</a>
             </li>
         </ul>
+        <span class="navbar-text">
+{% if user.is_authenticated %}
+    Bonjour {{ user.username }} ! <a class= "button" href="/accounts/logout">Déconnexion</a>
+{% else %}
+    Vous n'etes pas connecté <a class= "button" href="/accounts/login">Connexion</a>
+{% endif %}    </span>
     </nav>
 </div>
 {% block content %}
