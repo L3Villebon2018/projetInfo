@@ -115,5 +115,6 @@ ul ul a {
 
 content{
     float: right;
+    text-align: justify;
     width: 75%;
 }
