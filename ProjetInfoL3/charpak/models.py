@@ -8,7 +8,7 @@ class Promo(models.Model):
     nom = models.CharField(max_length=150)
     couleur = models.CharField(max_length=150)
 
-    icone = models.ImageField()
+    icone = models.ImageField(default=None, blank=True, null=True)
 
     def __str__(self):
         return f"Promo {self.nom}"
@@ -37,18 +37,18 @@ class Etudiant(models.Model):
 
     nom = models.CharField(max_length=150)
     prenom = models.CharField(max_length=150)
-    photo = models.ImageField()
+    photo = models.ImageField(default=None, blank=True, null=True)
 
-    email = models.CharField(max_length=512)
-    telephone = models.CharField(max_length=15)
+    email = models.CharField(max_length=512, default=None, blank=True, null=True)
+    telephone = models.CharField(max_length=15, default=None, blank=True, null=True)
 
     promo = models.ForeignKey(Promo, on_delete=models.CASCADE)
     parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True)
 
-    profil_bac = models.CharField(max_length=50)
+    profil_bac = models.CharField(max_length=50, default=None, blank=True, null=True)
 
     formation = models.ForeignKey(Formation, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
-    statut = models.CharField(max_length=50)
+    statut = models.CharField(max_length=50, default=None, blank=True, null=True)
 
     def __str__(self):
         return f"{self.prenom} {self.nom} - Promo {self.promo.nom}"
