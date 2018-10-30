@@ -8,7 +8,7 @@ class Promo(models.Model):
     nom = models.CharField(max_length=150)
     couleur = models.CharField(max_length=150)
 
-    icone = models.ImageField(default=None, blank=True, null=True)
+    icone = models.ImageField(default=None, blank=True, null=True, upload_to='images/icones/')
 
     def __str__(self):
         return f"Promo {self.nom}"
@@ -37,7 +37,7 @@ class Etudiant(models.Model):
 
     nom = models.CharField(max_length=150)
     prenom = models.CharField(max_length=150)
-    photo = models.ImageField(default=None, blank=True, null=True)
+    photo = models.ImageField(default=None, blank=True, null=True, upload_to='images/profils/')
 
     email = models.CharField(max_length=512, default=None, blank=True, null=True)
     telephone = models.CharField(max_length=15, default=None, blank=True, null=True)

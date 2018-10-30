@@ -1,0 +1,24 @@
+.header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+h4 {
+    color: green;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
