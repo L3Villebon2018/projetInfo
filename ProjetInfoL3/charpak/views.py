@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from collections import defaultdict
-from .models import PostFilActu, Etudiant
+from .models import PostFilActu, Etudiant, Formation
 from .forms import FilActu_PostForm
 # Create your views here.
 
@@ -15,9 +15,11 @@ def index_arborescence(request):
         etudiants[etudiant.promo].append(etudiant)
 
     etudiants = dict(etudiants)
-    print(etudiants)
+    formations = []
+    for formation in Formation.objects.all():
+        formations.append(formation)
 
-    return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants})
+    return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants}, {'formations' : formations})
 
 def index_profil(request):
     etudiant = list(Etudiant.objects.all())

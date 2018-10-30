@@ -14,42 +14,39 @@
             <div class="grid-item">
                 <form>
                     <select name="promo" size="1">
-                        <option selected> Promo 2019
-                        <option>Promo 2018
-                        <option>Promo 2017
-                        <option>Promo 2016
-                        <option>Promo 2015
+                        <option selected> toutes les promos</option>
+                            {% for promo, etudiants in etudiants_dict.items %}
+                        <option>
+                            Promo {{ promo.nom }}
+                        </option>
+                            {% endfor %}
                     </select>
                 </form>
             </div>
             <div class="grid-item">
                 <form>
                     <select name="formation" size="1">
-                        <option selected> Charpak
-                        <option> formation 1
-                        <option> formation 2
-                        <option> formation 3
-                        <option> formation 4
+                        <option selected> Charpak </option>
+                        {% for formation in formations %}
+                        <option> {{ formation.nom }} </option>
+                        {% endfor %}
                     </select>
                 </form>
             </div>
         </div>
     </header>
 
-    <div>
-        {% for promo, etudiants in etudiants_dict.items %}
-        <section>
-            <h3>
-                Promo {{ promo.nom }}
-            </h3>
-            <p>
-                {% for etudiant in etudiants %}
-                <a href="profil">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
-                {% endfor %}
-            </p>
-        </section>
-        {% endfor %}
-        Cliquez sur une photo pour obtenir les détails du profil
-    </div>
+{% for promo, etudiants in etudiants_dict.items %}
 
+    <section>
+        <h3>
+            Promo {{ promo.nom }}
+        </h3>
+        <p>
+            {% for etudiant in etudiants %}
+            <a href="profil">{{ etudiant.nom }} {{ etudiant.prenom }} |</a>
+            {% endfor %}
+        </p>
+    </section>
+{% endfor %}
 {% endblock %}
