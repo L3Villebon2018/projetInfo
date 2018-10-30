@@ -2,14 +2,15 @@
 
 {% block sous_content %}
     <div>
-        <a class="button-link" href="{% url 'fil-actu-nouveau-post' %}" target="_blank">Poster</a>
+        <a class="btn btn-info" href="{% url 'fil-actu-nouveau-post' %}" target="_blank">Poster</a>
     </div>
-
-    Coucou c'est moi lepoj* bg du <b>jour</b>
-
-    <ul>
     {% for post in posts %}
-        <li>{{ post.titre }} - {{ post.auteur.username }}</li>
+            <div class="tab_container">
+                    <div class="post">
+                        <h3>{{ post.titre }}</h3>
+                        <p id="postInfo">poster par<span id="text"> {{ post.auteur.username }}</span></p>
+                        <p>{{ post.contenu}}</p>
+                    </div>
+            </div>
     {% endfor %}
-    </ul>
 {% endblock %}
