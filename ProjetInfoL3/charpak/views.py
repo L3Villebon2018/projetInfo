@@ -4,10 +4,13 @@ from django.shortcuts import render
 from collections import defaultdict
 from .models import PostFilActu, Etudiant, Formation
 from .forms import FilActu_PostForm
+
+
 # Create your views here.
 
 def index(request):
     return render(request, 'public/index.html')
+
 
 def index_arborescence(request):
     etudiants = defaultdict(list)
@@ -19,18 +22,21 @@ def index_arborescence(request):
     for formation in Formation.objects.all():
         formations.append(formation)
 
-    return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants}, {'formations' : formations})
+    return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants, 'formations': formations})
+
 
 def index_profil(request):
     etudiant = list(Etudiant.objects.all())
-    return render(request, 'profil/index_profil.html', {'etudiant' : etudiant[0]})
+    return render(request, 'profil/index_profil.html', {'etudiant': etudiant[0]})
+
 
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
 
+
 def index_fil_actu(request):
     posts = PostFilActu.objects.all()
-    return render(request, 'fil_actu/index_fil_actu.html', {'posts' : posts})
+    return render(request, 'fil_actu/index_fil_actu.html', {'posts': posts})
 
 
 @login_required()
@@ -49,7 +55,7 @@ def nouveau_post_fil_actu(request):
             post.auteur = request.user
             post.save()
 
-            #form.save()
+            # form.save()
             return HttpResponseRedirect('/fil_actu')
 
     # if a GET (or any other method) we'll create a blank form
