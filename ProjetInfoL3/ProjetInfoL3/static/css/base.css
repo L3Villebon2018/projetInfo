@@ -4,6 +4,8 @@
 }
 
 .wrapper {
+    float: left;
+    width: 100%;
 }
 
 #sidebar {
@@ -102,4 +104,15 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #6d7fcc;
+}
+
+.btn {
+    color: #47748b;
+    outline-color: #2A4E77;
+}
+
+content{
+    float: right;
+    top: -50px;
+    margin-top: 50px;
 }
