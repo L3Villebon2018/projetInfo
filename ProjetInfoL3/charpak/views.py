@@ -4,7 +4,7 @@ from django.shortcuts import render
 from collections import defaultdict
 from .models import PostFilActu, Etudiant, Formation
 from .forms import FilActu_PostForm
-
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -25,9 +25,9 @@ def index_arborescence(request):
     return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants, 'formations': formations})
 
 
-def index_profil(request):
-    etudiant = list(Etudiant.objects.all())
-    return render(request, 'profil/index_profil.html', {'etudiant': etudiant[0]})
+def index_profil(request, etudiant_id):
+    etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
+    return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
 
 
 def index_FAQ(request):

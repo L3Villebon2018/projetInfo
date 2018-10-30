@@ -15,20 +15,17 @@
                 <form>
                     <select name="promo" size="1">
                         <option selected> toutes les promos</option>
-                            {% for promo, etudiants in etudiants_dict.items %}
-                        <option>
-                            Promo {{ promo.nom }}
-                        </option>
-                            {% endfor %}
+                        {% for promo, etudiants in etudiants_dict.items %}
+                            <option> Promo {{ promo.nom }} </option>
+                        {% endfor %}
                     </select>
                 </form>
             </div>
             <div class="grid-item">
                 <form>
                     <select name="formation" size="1">
-                        <option selected> Charpak </option>
                         {% for formation in formations %}
-                        <option> {{ formation.nom }} </option>
+                            <option> {{ formation.nom }} </option>
                         {% endfor %}
                     </select>
                 </form>
@@ -44,7 +41,7 @@
         </h3>
         <p>
             {% for etudiant in etudiants %}
-            <a href="profil">{{ etudiant.nom }} {{ etudiant.prenom }} |</a>
+            <a href="/profil/{{etudiant.id}}">{{ etudiant.nom }} {{ etudiant.prenom }} |</a>
             {% endfor %}
         </p>
     </section>

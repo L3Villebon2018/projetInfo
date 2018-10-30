@@ -1,1 +1,7 @@
 ﻿{%extends 'profil/base_profil.html' %}
+
+{%block content%}
+<img src="{{etudiant.photo}}" alt="photo">
+{{etudiant.nom}} {{etudiant.prenom}} |
+{{etudiant.promo}}
+{%endblock%}
