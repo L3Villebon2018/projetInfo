@@ -43,7 +43,7 @@
         </h3>
         <p>
             {% for etudiant in etudiants %}
-            <a href="profil">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+            <a href="/profil/{{etudiant.id}}">{{ etudiant.nom }} {{ etudiant.prenom }} |</a>
             {% endfor %}
         </p>
     </section>
