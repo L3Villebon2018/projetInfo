@@ -129,6 +129,11 @@ STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'static/'),
 )
 
+
+FIXTURE_DIRS = (
+    os.path.join(SITE_ROOT, 'fixtures/'),
+)
+
 HIJACK_USE_BOOTSTRAP = True
 HIJACK_ALLOW_GET_REQUESTS = True
 
