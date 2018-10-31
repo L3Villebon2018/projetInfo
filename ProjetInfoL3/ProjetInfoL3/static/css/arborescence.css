@@ -1,15 +1,18 @@
-﻿#boutons_haut {
-    background-color: deepskyblue
-}
-
-.grid-container {
+﻿.grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+    grid-template-columns: 40% 20% 20%;
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    text-align: center;
+    padding-left: 80%
+}
+section{
+    padding-left: 20%;
+}
+h3 {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight:bold;
+}
+a {
+    padding-right: 10px;
 }
