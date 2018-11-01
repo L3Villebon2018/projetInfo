@@ -1,14 +1,32 @@
 ﻿.grid-container {
     display: grid;
     grid-template-columns: 40% 20% 20%;
+    padding-top: 20px;
 }
 
 .grid-item {
-    padding-left: 80%
+    padding-left: 80%;
 }
-section{
-    padding-left: 20%;
+
+#div-promo {
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
 }
+
+#div-promo-bleu {
+    background-color: cornflowerblue;
+}
+
+#div-promo-rouge {
+    background-color: indianred;
+}
+
+#div-promo-jaune {
+    background-color: burlywood;
+}
+
 h3 {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight:bold;

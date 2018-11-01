@@ -35,7 +35,7 @@
 
 {% for promo, etudiants in etudiants_dict.items %}
 
-    <section>
+    <div class="div-promo div-promo-{{promo.couleur}}">
         <h3>
             Promo {{ promo.nom }}
         </h3>
@@ -44,6 +44,6 @@
             <a href="/profil/{{etudiant.id}}">{{ etudiant.nom }} {{ etudiant.prenom }} |</a>
             {% endfor %}
         </p>
-    </section>
+    </div>
 {% endfor %}
 {% endblock %}

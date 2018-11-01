@@ -3,40 +3,24 @@
     height: 52px;
 }
 
-.wrapper {
-    float: left;
+.content{
     width: 100%;
 }
 
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
-}
-
-#sidebar.active {
-    margin-left: -250px;
+.wrapper {
+    width: 100%;
 }
 
 a[data-toggle="collapse"] {
-    position: relative;
+    position: absolute;
 }
 
 .dropdown-toggle::after {
     display: block;
     position: absolute;
     top: 50%;
-    right: 20px;
+    left: 50px;
     transform: translateY(-50%);
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
 }
 
 /*
@@ -47,7 +31,7 @@ a[data-toggle="collapse"] {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #d5d2d5;
 }
 
 p {
@@ -64,44 +48,6 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
-#sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    background: #4a494a;
-    color: #fff;
-    float: left;
-    width: 25%;
-    transition: all 0.3s;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #fafafa;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -109,12 +55,12 @@ ul ul a {
 }
 
 .btn {
-    color: #47748b;
-    outline-color: #2A4E77;
+    color: #1c8b1e;
+    border-color: #1c8b1e;
 }
 
-#content{
-    float: right;
-    text-align: justify;
-    width: 75%;
+.btn:hover{
+    background: #1c8b1e;
+    color: #fff;
+    border-color: #1c8b1e;
 }
