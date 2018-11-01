@@ -6,7 +6,11 @@
 .grid-item {
     padding-left: 80%;
 }
-section{
+
+#section_promo {
+    background-color: cornflowerblue
+}
+section {
     padding-left: 20%;
 }
 h3 {

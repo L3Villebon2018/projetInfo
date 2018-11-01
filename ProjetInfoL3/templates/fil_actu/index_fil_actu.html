@@ -5,12 +5,32 @@
         <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank">Poster</a>
     </div>
     {% for post in posts %}
-            <div class="tab_container">
-                    <div class="post">
+            <section class="tab_container" >
+                    <div class = "padding-post">
                         <h3>{{ post.titre }}</h3>
-                        <p id="postInfo">poster par<span id="text"> {{ post.auteur.username }}</span></p>
-                        <p>{{ post.contenu}}</p>
+                        <p id="postInfo">posté par<span id="text"> {{ post.auteur.username }}</span></p>
                     </div>
-            </div>
+                    <article class="contenu">
+                        <p>{{ post.contenu}}</p>
+                    </article>
+
+
+                    <div>
+                        <h4>Commentaires</h4>
+                        {%  if  post.commentaires.all|length == 0 %}
+                            <p id="postInfo">Aucun commentaire pour le moment</p>
+                        {%  else %}
+                            {% for commentaire in post.commentaires.all %}
+                                <div>
+                                <h5> Commentaire de {{ commentaire.auteur }}</h5>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                <div>
+                    <a class="btn btn-primary btn-lg" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button" target="_blank">Ajouter un commentaire</a>
+                </div>
+
+            </section>
     {% endfor %}
 {% endblock %}
