@@ -4,9 +4,17 @@ import datetime
 
 from django.utils import timezone
 
+
 class Promo(models.Model):
+
+    CHOIX_COULEURS = (
+        ('bleu', 'Bleu'),
+        ('rouge', 'Rouge'),
+        ('jaune', 'Jaune'),
+    )
+
     nom = models.CharField(max_length=150)
-    couleur = models.CharField(max_length=150)
+    couleur = models.CharField(max_length=150, choices=CHOIX_COULEURS)
 
     icone = models.ImageField(default=None, blank=True, null=True, upload_to='images/icones/')
 
