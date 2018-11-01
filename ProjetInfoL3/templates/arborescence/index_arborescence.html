@@ -40,15 +40,22 @@
             Promo {{ promo.nom }}
         </h3>
         <p>
-            {% for etudiant in etudiants %}
-            {% if etudiant.photo %}
-                <img src="{{etudiant.photo}}" alt="image de profil" width="40" height="40">
-            {%else%}
-                <img src={% static 'images/no_image.png' %} alt="image de profil" width="40" height="40">
-            {% endif %}
-            <a href="/profil/{{etudiant.id}}">{{ etudiant.nom }} {{ etudiant.prenom }} |</a>
-
-            {% endfor %}
+            <ul class="flex-container">
+                {% for etudiant in etudiants %}
+                <li class="flex-item">
+                    <p>
+                        {% if etudiant.photo %}
+                        <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" /></a>
+                        {%else%}
+                        <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
+                        {% endif %}
+                    </p>
+                    <p>
+                        <a href="/profil/{{etudiant.id}}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                    </p>
+                </li>
+                {% endfor %}
+            </ul>
         </p>
     </div>
 {% endfor %}
