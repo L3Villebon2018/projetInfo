@@ -3,13 +3,9 @@
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/FAQ.css' %}" />
 
-    <html>
-
-    <body>
     <header>
         <div class="header">
             <h1>Astuces pour les devoirs</h1>
-            <p>Voici quelques petits conseil qui vous seront utils lors de ses 3 années</p>
         </div>
     </header>
 
@@ -117,19 +113,19 @@
     </div>
 
     <div class="card">
+    <ul>
         <li>On envoie l'email à la/les personnes principales (celles qui vont évaluer), et on met en copie les membres de son groupe.</li>
         <li>On n'oublie pas la piece jointe, que l'on nomme ainsi (comme le sujet) <code>[N° GROUPE]-[Date]-[Type] - [sujet].ext</code> (Par exemple <code>4-231018-Diapo - APP_Les vacances.pdf</code>)</li>
         <li>On envoie si possible un PDF en plus du document éditable</li>
         <li>Si les pièces jointes sont trop lourdes, utilisez <a href="https://wetransfer.com/">WeTransfer</a> ou <a href="https://transfert.u-psud.fr/">le service d'u-psud</a></li>
         <li>On n'oublie pas de remercier, et on envoie une bonne poignée de minutes avant, afin d’être sur que ça part sans problèmes (vérifiez que vous ne recevez pas de réponses du serveur de mail disant que l'adresse du destinataire est fausse)</li>
+    </ul>
     </div>
 
     <div class="card">
        Si vous voulez plus d'information sur ce sujet, n'hésitez pas à aller voir le site crée par l'un des étudiants de l'institut qui vous donnera plus de détails sur ses sujets !
         <a href="https://paris-ci.github.io/FAQ-L1/vos-etudes" target="_blank">Cliquez ici ! </a>
     </div>
-    </body>
-    </html>
 
 
 {% endblock %}
