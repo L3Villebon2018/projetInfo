@@ -11,5 +11,5 @@ urlpatterns = [
     path('fil_actu/nouveau_post', views.nouveau_post_fil_actu, name="fil-actu-nouveau-post"),
     #path('fil_actu/<int:post_id>', views.nouveau_commentaire, name="fil-actu-details-post"),
     path('fil_actu/<int:post_id>/nouveau_commentaire', views.nouveau_commentaire, name="fil-actu-nouveau-commentaire"),
-    path('login', views.index_login),
+    path('accounts/login', views.index_login),
 ]
