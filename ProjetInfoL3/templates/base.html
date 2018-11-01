@@ -75,7 +75,7 @@
 {% if user.is_authenticated %}
     Bonjour {{ user.username }} ! <a class= "button" href="/accounts/logout">Déconnexion</a>
 {% else %}
-    Vous n'etes pas connecté <a class= "button" href="/login">Connexion</a>
+    Vous n'etes pas connecté <a class= "button" href="/accounts/login">Connexion</a>
 {% endif %}    </span>
         </div>
     </nav>
