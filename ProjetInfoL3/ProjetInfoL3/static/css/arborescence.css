@@ -8,32 +8,36 @@
     padding-left: 80%;
 }
 
-#div-promo {
+.div-promo {
+    border-top-color : black;
     margin-top: 10px;
     padding-top: 30px;
     padding-left: 30px;
     padding-bottom: 30px;
 }
 
-#div-promo-bleu {
-    background-color: cornflowerblue;
+.div-promo a {
+    color: black;
 }
 
-#div-promo-rouge {
-    background-color: indianred;
+.div-promo-bleu {
+    background-color: rgba(100, 149, 237, 0.5);
 }
 
-#div-promo-jaune {
-    background-color: burlywood;
+.div-promo-rouge {
+    background-color: rgba(205, 92, 92, 0.75);
+}
+
+.div-promo-jaune {
+    background-color: rgba(222, 184, 135, 0.75);
 }
 
 h3 {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight:bold;
+    text-align:center;
 }
-a {
-    padding-right: 10px;
-}
+
 
 .flex-container {
     padding: 0;
@@ -56,6 +60,8 @@ a {
     line-height: 150px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
+    color: black;
+
 }
