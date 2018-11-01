@@ -15,11 +15,9 @@
                 <form>
                     <select name="promo" size="1">
                         <option selected> Toutes les promos</option>
-                            {% for promo, etudiants in etudiants_dict.items %}
-                        <option>
-                            Promo {{ promo.nom }}
-                        </option>
-                            {% endfor %}
+                        {% for promo, etudiants in etudiants_dict.items %}
+                            <option>Promo {{ promo.nom }}</option>
+                        {% endfor %}
                     </select>
                 </form>
             </div>
