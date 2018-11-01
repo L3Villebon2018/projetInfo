@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from collections import defaultdict
-from .models import PostFilActu, Etudiant, Formation
+from .models import PostFilActu, Etudiant, Promo, Formation
 from .forms import FilActu_PostForm
 from django.shortcuts import get_object_or_404
 
@@ -13,6 +13,7 @@ def index(request):
 
 
 def index_arborescence(request):
+    promo = list(Promo.objects.all())
     etudiants = defaultdict(list)
     for etudiant in Etudiant.objects.all():
         etudiants[etudiant.promo].append(etudiant)
@@ -23,7 +24,6 @@ def index_arborescence(request):
         formations.append(formation)
 
     return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants, 'formations': formations})
-
 
 def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
