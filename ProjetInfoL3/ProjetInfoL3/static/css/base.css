@@ -55,6 +55,12 @@ ul ul a {
 }
 
 .btn {
-    color: #47748b;
-    outline-color: #2A4E77;
+    color: #1c8b1e;
+    border-color: #1c8b1e;
+}
+
+.btn:hover{
+    background: #1c8b1e;
+    color: #fff;
+    border-color: #1c8b1e;
 }
