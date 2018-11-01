@@ -1,5 +1,6 @@
 {% load static %}
 {% load hijack_tags %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +20,6 @@
 <body>
 
 {% hijack_notification %}
-{# Load the tag library #}
-{% load bootstrap4 %}
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
@@ -35,10 +34,10 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/fil_actu">Fil d'actualité</a>
+                    <a class="nav-link" href="{% url 'fil-actu-index' %}">Fil d'actualité</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/arborescence">Réseaux des anciens</a>
+                    <a class="nav-link" href="{% url 'arborescence-index' %}">Réseaux des anciens</a>
                 </li>
             </ul>
             <li class="nav-item dropdown list-unstyled">
@@ -48,7 +47,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Mon profil</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/FAQ">Mon espace de travail</a>
+                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Mon espace de travail</a>
                     <a class="dropdown-item" href="#">Ma boîte mail</a>
                     <a class="dropdown-item" href="#">Mon emploi du temps</a>
                 </div>
@@ -58,11 +57,11 @@
                     FAQ
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/FAQ">Astuces pour les devoirs</a>
-                    <a class="dropdown-item" href="#">Astuces à l'institut</a>
-                    <a class="dropdown-item" href="#">Où faire du sport ?</a>
-                    <a class="dropdown-item" href="#">Que faire après Charpak ?</a>
-                    <a class="dropdown-item" href="#">Le BDE, Kezako ?</a>
+                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Astuces pour les devoirs</a>
+                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Astuces à l'institut</a>
+                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Où faire du sport ?</a>
+                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Que faire après Charpak ?</a>
+                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Le BDE, Kezako ?</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Infos utiles</a>
                 </div>
@@ -73,9 +72,9 @@
             </form>
             <span class="navbar-text">
 {% if user.is_authenticated %}
-    Bonjour {{ user.username }} ! <a class= "button" href="/accounts/logout">Déconnexion</a>
+    Bonjour {{ user.username }} ! <a class= "button" href="#">Déconnexion</a>
 {% else %}
-    Vous n'etes pas connecté <a class= "button" href="/accounts/login">Connexion</a>
+    Vous n'etes pas connecté <a class= "button" href="{% url 'login' %}">Connexion</a>
 {% endif %}    </span>
         </div>
     </nav>
