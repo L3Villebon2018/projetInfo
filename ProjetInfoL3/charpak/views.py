@@ -33,6 +33,9 @@ def index_profil(request, etudiant_id):
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
 
+def index_login(request):
+    return render(request, 'login/login.html')
+
 
 def index_fil_actu(request):
     posts = PostFilActu.objects.all()
