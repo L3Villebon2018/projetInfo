@@ -26,84 +26,63 @@
 <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
 {% bootstrap_javascript jquery='full' %}
 
-<div class="wrapper">
+<div class="wrapper sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="sidebar-header">
             <a><img id="icone" src="{% static "images/charpak2.png" %}" class="d-inline-block" alt=""></a>
         </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Accéder à ma boîte mail</a>
+                    <a class="nav-link" href="/fil_actu">Fil d'actualité</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Emploi du temps</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mon profil</a>
+                    <a class="nav-link" href="/arborescence">Réseaux des anciens</a>
                 </li>
             </ul>
+            <li class="nav-item dropdown list-unstyled">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Moi
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Mon profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/FAQ">Mon espace de travail</a>
+                    <a class="dropdown-item" href="#">Ma boîte mail</a>
+                    <a class="dropdown-item" href="#">Mon emploi du temps</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown list-unstyled">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    FAQ
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/FAQ">Astuces pour les devoirs</a>
+                    <a class="dropdown-item" href="#">Astuces à l'institut</a>
+                    <a class="dropdown-item" href="#">Où faire du sport ?</a>
+                    <a class="dropdown-item" href="#">Que faire après Charpak ?</a>
+                    <a class="dropdown-item" href="#">Le BDE, Kezako ?</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Infos utiles</a>
+                </div>
+            </li>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Trouver" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Trouver</button>
             </form>
-        </div>
-    </nav>
-    <!-- Sidebar -->
-    <nav id="sidebar" class="position-fixed">
-        <ul class="list-unstyled components">
-            <li>
-                <a href="/fil_actu">Fil d'actualité</a>
-            </li>
-            <li>
-                <a href="/arborescence">Réseaux des anciens</a>
-            </li>
-            <li>
-                <a href="#">Espace de travail</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="/FAQ">Astuces pour les devoirs</a>
-                    </li>
-                    <li>
-                        <a href="#">Astuces à l'institut</a>
-                    </li>
-                    <li>
-                        <a href="#">Où faire du sport ?</a>
-                    </li>
-                    <li>
-                        <a href="#">Que faire après Charpak</a>
-                    </li>
-                    <li>
-                        <a href="#">Le BDE, Kezako ?</a>
-                    </li>
-                    <li>
-                        <a href="#">Infos utiles</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Photos</a>
-            </li>
-            <li>
-                <a href="#">Liens utiles</a>
-            </li>
-        </ul>
-        <span class="navbar-text">
+            <span class="navbar-text">
 {% if user.is_authenticated %}
     Bonjour {{ user.username }} ! <a class= "button" href="/accounts/logout">Déconnexion</a>
 {% else %}
-    Vous n'etes pas connecté <a class= "button" href="/accounts/login">Connexion</a>
+    Vous n'etes pas connecté <a class= "button" href="/login">Connexion</a>
 {% endif %}    </span>
+        </div>
     </nav>
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
 </div>
-
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
 </body>
 </html>
