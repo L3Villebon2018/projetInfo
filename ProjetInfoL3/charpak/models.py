@@ -87,7 +87,6 @@ class Commentaire(models.Model):
     post = models.ForeignKey(PostFilActu, on_delete=models.CASCADE, related_name='commentaires')
     auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True, related_name='commentaires')
     contenu = models.TextField()
-
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
 

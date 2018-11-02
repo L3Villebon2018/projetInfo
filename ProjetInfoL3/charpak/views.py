@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from collections import defaultdict
-from .models import PostFilActu, Etudiant, Formation, Promo
+from .models import PostFilActu, Etudiant, Formation, Promo, Commentaire
 from .forms import FilActu_PostForm, FilActu_CommentsForm
 from django.shortcuts import get_object_or_404
 
@@ -109,3 +109,11 @@ def nouveau_commentaire(request, post_id):
         form = FilActu_CommentsForm()
 
     return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form})
+
+
+@login_required()
+def supprime_commentaire(request,post_id,commentaire_id):
+    commentaire = get_object_or_404(Commentaire, pk=commentaire_id)
+    commentaire.supprime = True
+    commentaire.save()
+    return HttpResponseRedirect(f'/fil_actu#post-{post_id}')

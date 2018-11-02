@@ -1,46 +1,51 @@
 {%extends 'fil_actu/base_fil_actu.html' %}
 {% load bootstrap4 %}
 {% block sous_content %}
-    <div id ="position">
+    <div class="position">
         <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank">Ajouter un Post</a>
     </div>
     {% for post in posts reversed %}
-        <section class="big_tab_container">
+        <section class="big_tab_container" id="post-{{ post.id }}">
             <section class="tab_container" >
                     <div class = "padding-post">
                         <h3><b>{{ post.titre }}</b></h3>
-                        <p id="postInfo">posté par<span id="text"> {{ post.auteur.username }}</span></p>
+                        <p class="postInfo">posté par<span class="text"> {{ post.auteur.username }}</span></p>
                     </div>
                     <article class="contenu">
                         <p>{{ post.contenu}}</p>
                     </article>
-                <div id="ligne"></div>
+                <div class="ligne"></div>
                 <br>
                     <section class="big_tab_comments">
                         <h4><b>Commentaires</b></h4>
                         {%  if post.commentaires_visibles|length == 0 %}
-                            <p id="postInfo">Aucun commentaire pour le moment</p>
+                            <p class="postInfo">Aucun commentaire pour le moment</p>
                         {%  else %}
                             {% for commentaire in post.commentaires_visibles reversed %}
-                                <section class="commentaire">
-
-                                    <section>
-                                        <h5> De <span id="text">{{ commentaire.auteur }}</span></h5>
-                                        <div id="contenu_commentaire">
-                                            {{ commentaire.contenu }}
-                                        </div>
+                                {%  if  not commentaire.supprime%}
+                                    <section class="commentaire">
+                                        <section>
+                                            {%  if user == commentaire.auteur %}
+                                                    <a type="button" class="close" aria-label="Close"  role="button" href={%url 'fil-actu-supprime-commentaire' post_id=post.id commentaire_id=commentaire.id%}>
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </a>
+                                            {% endif %}
+                                            <h5> De <span class="text">{{ commentaire.auteur }}</span></h5>
+                                            <div class="contenu_commentaire">
+                                                {{ commentaire.contenu }}
+                                            </div>
+                                        </section>
                                     </section>
-                                </section>
+                                {% endif %}
                             {% endfor %}
                         {% endif %}
                     </section>
-                <div id="ligne"></div>
+                <div class="ligne"></div>
                 <section class="footer_comments">
                     <div>
                         <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button" target="_blank">Ajouter un commentaire</a>
                     </div>
                 </section>
-
             </section>
         </section>
     {% endfor %}
