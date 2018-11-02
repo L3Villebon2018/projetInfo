@@ -77,6 +77,8 @@ class PostFilActu(models.Model):
 
 
 class Commentaire(models.Model):
+    supprime = models.BooleanField(default=False)
+
     post = models.ForeignKey(PostFilActu, on_delete=models.CASCADE, related_name='commentaires')
     auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
     contenu = models.TextField()
