@@ -33,7 +33,7 @@ class Formation(models.Model):
     domaine = models.CharField(max_length=150)
     type = models.CharField(max_length=150)
 
-    ecole = models.ForeignKey(Ecole, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    ecole = models.ForeignKey(Ecole, on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='formations')
 
     def __str__(self):
         return str(self.type) + ' | ' + str(self.nom)
@@ -49,12 +49,12 @@ class Etudiant(models.Model):
     email = models.CharField(max_length=512, default=None, blank=True, null=True)
     telephone = models.CharField(max_length=15, default=None, blank=True, null=True)
 
-    promo = models.ForeignKey(Promo, on_delete=models.CASCADE)
-    parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True)
+    promo = models.ForeignKey(Promo, on_delete=models.CASCADE, related_name='etudiants')
+    parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='filleuls')
 
     profil_bac = models.CharField(max_length=50, default=None, blank=True, null=True)
 
-    formation = models.ForeignKey(Formation, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
+    formation = models.ForeignKey(Formation, on_delete=models.DO_NOTHING, default=None, blank=True, null=True, related_name='etudiants')
     statut = models.CharField(max_length=50, default=None, blank=True, null=True)
 
     def __str__(self):
@@ -64,7 +64,7 @@ class Etudiant(models.Model):
 class PostFilActu(models.Model):
     supprime = models.BooleanField(default=False)
 
-    auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
+    auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True, related_name='posts')
 
     titre = models.CharField(max_length=512)
     contenu = models.TextField()
@@ -80,7 +80,7 @@ class Commentaire(models.Model):
     supprime = models.BooleanField(default=False)
 
     post = models.ForeignKey(PostFilActu, on_delete=models.CASCADE, related_name='commentaires')
-    auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
+    auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True, related_name='commentaires')
     contenu = models.TextField()
 
     heure_creation = models.DateTimeField(default=timezone.now)
