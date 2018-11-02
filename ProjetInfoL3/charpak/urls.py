@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('arborescence', views.index_arborescence, name="arborescence-index"),
     path('profil/<int:etudiant_id>', views.index_profil, name="profil-etudiant"),
+    path('promo/<int:promo_id>', views.index_promo, name="profil-promo"),
     path('FAQ', views.index_FAQ, name="FAQ-index"),
     path('FAQ/astuces', views.astuces_FAQ, name="FAQ-astuces"),
     path('FAQ/extra', views.extra_FAQ, name="FAQ-extra"),

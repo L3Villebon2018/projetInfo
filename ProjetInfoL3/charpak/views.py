@@ -29,6 +29,10 @@ def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
 
+def index_promo(request, promo_id):
+    promo = get_object_or_404(Promo, pk=promo_id)
+    return render(request, 'promo/index_promo.html', {'promo': promo})
+
 
 
 def index_FAQ(request):

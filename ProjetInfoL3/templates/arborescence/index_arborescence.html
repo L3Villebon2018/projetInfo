@@ -37,7 +37,9 @@
 
         <div class="div-promo div-promo-{{ promo.couleur }}">
             <h3>
-                Promo {{ promo.nom }}
+                <a href="{% url "profil-promo" promo_id=promo.id %}"> 
+                    Promo {{ promo.nom }}
+                </a>
             </h3>
             <p>
                 <ul class="flex-container"> {# TODO : What ?! #}
@@ -54,7 +56,7 @@
                             </a>
                         </p>
                         <p>
-                            <a href="/profil/{{ etudiant.id }}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                            <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
                         </p>
                         </li> {# TODO : Balises en trop #}
                     {% endfor %}
