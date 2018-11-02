@@ -3,9 +3,9 @@
 
 {%block content%}
 {% if etudiant.photo %}
-    <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" /></a>
+    <<img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" />
 {%else%}
-    <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
+    <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" />
 {% endif %}
 {{etudiant.nom}} {{etudiant.prenom}} |
 <a href="{% url "profil-promo" promo_id=etudiant.promo.id %}">
