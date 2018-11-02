@@ -1,7 +1,12 @@
 ﻿{%extends 'profil/base_profil.html' %}
+{%load static%}
 
 {%block content%}
-<img src="{{etudiant.photo}}" alt="photo">
+{% if etudiant.photo %}
+    <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" /></a>
+{%else%}
+    <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
+{% endif %}
 {{etudiant.nom}} {{etudiant.prenom}} |
 {{etudiant.promo}}
 {%endblock%}

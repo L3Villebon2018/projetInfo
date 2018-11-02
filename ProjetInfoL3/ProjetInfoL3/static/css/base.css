@@ -4,6 +4,7 @@
 }
 
 .content{
+    margin-top: 10px;
     width: 100%;
 }
 
@@ -54,13 +55,15 @@ ul ul a {
     background: #6d7fcc;
 }
 
-.btn {
+#buttonTrouver {
     color: #1c8b1e;
-    border-color: #1c8b1e;
 }
 
-.btn:hover{
+#buttonTrouver:hover{
     background: #1c8b1e;
     color: #fff;
-    border-color: #1c8b1e;
+}
+
+#footer {
+    margin: 20px;
 }

@@ -2,9 +2,10 @@
 {% load bootstrap4 %}
 {% block sous_content %}
     <div id ="position">
-        <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank">Poster</a>
+        <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank">Ajouter un Post</a>
     </div>
     {% for post in posts %}
+        <section class="big_tab_container">
             <section class="tab_container" >
                     <div class = "padding-post">
                         <h3>{{ post.titre }}</h3>
@@ -13,24 +14,31 @@
                     <article class="contenu">
                         <p>{{ post.contenu}}</p>
                     </article>
-
-
-                    <div>
-                        <h4>Commentaires</h4>
+                <div id="ligne"></div>
+                <br>
+                    <section class="big_tab_comments">
+                        <h4><b>Commentaires</b></h4>
                         {%  if  post.commentaires.all|length == 0 %}
                             <p id="postInfo">Aucun commentaire pour le moment</p>
                         {%  else %}
                             {% for commentaire in post.commentaires.all %}
-                                <div>
-                                <h5> Commentaire de {{ commentaire.auteur }}</h5>
-                                </div>
+                                <section class="commentaire">
+                                    <h5> Commentaire de <span id="text">{{ commentaire.auteur }}</span></h5>
+                                    <div id="contenu_commentaire">
+                                        {{ commentaire.contenu }}
+                                    </div>
+                                </section>
                             {% endfor %}
                         {% endif %}
+                    </section>
+                <div id="ligne"></div>
+                <section class="footer_comments">
+                    <div>
+                        <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button" target="_blank">Ajouter un commentaire</a>
                     </div>
-                <div>
-                    <a class="btn btn-primary btn-lg" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button" target="_blank">Ajouter un commentaire</a>
-                </div>
+                </section>
 
             </section>
+        </section>
     {% endfor %}
 {% endblock %}

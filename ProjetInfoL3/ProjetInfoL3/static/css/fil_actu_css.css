@@ -29,16 +29,23 @@ p{
 /*-----------------------------------------------------------------------------------*/
 
 #position{
-    position:relative;
-    margin:100px auto 0;
+    position:fixed;
+    width: 10%;
+    margin:auto 0;
 }
+
+.big_tab_container{
+    margin:0 auto ;
+    width: 50%;
+    padding:10px;
+    background-color: #e9ebee;
+}
+
 .tab_container {
-    position: relative;
-    margin:20px auto 0;
-    width: 900px;
+    width: 100%;
     border-radius: 15px;
     border-style: solid;
-    border-width: 8px;
+    border-width: 5px;
     border-color: gray;
 }
 
@@ -47,7 +54,7 @@ p{
     background-color: white;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
-    border-bottom-style: solid;
+    border-bottom-style: dotted;
     border-width: 2px;
     border-bottom-color: black;
 
@@ -56,8 +63,36 @@ p{
 .contenu{
     margin:5px;
     padding:10px;
-    border-bottom-style: solid;
-    border-width: 2px;
+
+}
+
+.big_tab_comments{
+    margin-left: 3%;
+}
+.commentaire{
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.footer_comments{
+    margin-left:1%;
+    margin-bottom: 1%;
+    margin-top:1%;
+}
+#contenu_commentaire{
+    margin-left: 5%;
+}
+#text{
+    color: #6d7fcc;
+}
+#ligne{
+    border-style: solid;
+    border-width:1px;
     border-color: black;
 }
 
