@@ -38,6 +38,9 @@ def index_FAQ(request):
 def astuces_FAQ(request):
     return render(request, 'FAQ/astuces_FAQ.html')
 
+def extra_FAQ(request):
+    return render(request, 'FAQ/extra_FAQ.html')
+
 def index_login(request):
     return render(request, 'login/login.html')
 
