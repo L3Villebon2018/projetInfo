@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}"/>
 {% endblock %}
 
 {% block content %}
     <header>
         <div class="grid-container" id="boutons_haut">
             <div class="grid-item">
-                <input type="button" value="Afficher les promos actuelles" />
+                <input type="button" value="Afficher les promos actuelles"/>
             </div>
             <div class="grid-item">
                 <form>
@@ -33,30 +33,33 @@
         </div>
     </header>
 
-{% for promo, etudiants in etudiants_dict.items %}
+    {% for promo, etudiants in etudiants_dict.items %}
 
-    <div class="div-promo div-promo-{{promo.couleur}}">
-        <h3>
-            Promo {{ promo.nom }}
-        </h3>
-        <p>
-            <ul class="flex-container">
-                {% for etudiant in etudiants %}
-                <li class="flex-item">
-                    <p>
-                        {% if etudiant.photo %}
-                        <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" /></a>
-                        {%else%}
-                        <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
-                        {% endif %}
-                    </p>
-                    <p>
-                        <a href="/profil/{{etudiant.id}}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
-                    </p>
-                </li>
-                {% endfor %}
-            </ul>
-        </p>
-    </div>
-{% endfor %}
+        <div class="div-promo div-promo-{{ promo.couleur }}">
+            <h3>
+                Promo {{ promo.nom }}
+            </h3>
+            <p>
+                <ul class="flex-container"> {# TODO : What ?! #}
+                    {% for etudiant in etudiants %}
+                        <li class="flex-item">
+                        <p>
+                            <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
+                                {% if etudiant.photo %}
+                                    <img src="{{ etudiant.photo.url }}" alt="image de profil" width="80" height="80"/>
+                                {% else %}
+                                    <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="80"
+                                         height="80"/>
+                                {% endif %}
+                            </a>
+                        </p>
+                        <p>
+                            <a href="/profil/{{ etudiant.id }}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                        </p>
+                        </li> {# TODO : Balises en trop #}
+                    {% endfor %}
+            </ul> {# TODO : Balises en trop #}
+            </p> {# TODO : Balises en trop #}
+        </div>
+    {% endfor %}
 {% endblock %}
