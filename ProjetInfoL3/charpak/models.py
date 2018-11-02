@@ -50,7 +50,7 @@ class Etudiant(models.Model):
     telephone = models.CharField(max_length=15, default=None, blank=True, null=True)
 
     promo = models.ForeignKey(Promo, on_delete=models.CASCADE, related_name='etudiants')
-    parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='filleuls')
+    parrain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='filleuls')
 
     profil_bac = models.CharField(max_length=50, default=None, blank=True, null=True)
 
