@@ -72,11 +72,16 @@ class PostFilActu(models.Model):
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
 
+    @property
+    def commentaires_visibles(self):
+        return self.commentaires.filter(supprime=False)
+
     def __str__(self):
         return f"{self.titre}"
 
 
 class Commentaire(models.Model):
+
     supprime = models.BooleanField(default=False)
 
     post = models.ForeignKey(PostFilActu, on_delete=models.CASCADE, related_name='commentaires')

@@ -18,10 +18,10 @@
                 <br>
                     <section class="big_tab_comments">
                         <h4><b>Commentaires</b></h4>
-                        {%  if  post.commentaires.all|length == 0 %}
+                        {%  if post.commentaires_visibles|length == 0 %}
                             <p id="postInfo">Aucun commentaire pour le moment</p>
                         {%  else %}
-                            {% for commentaire in post.commentaires.all reversed %}
+                            {% for commentaire in post.commentaires_visibles reversed %}
                                 <section class="commentaire">
 
                                     <section>
