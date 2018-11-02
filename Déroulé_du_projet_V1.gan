@@ -60,6 +60,8 @@
             <task id="5" name="Ajouter un bouton permettant d'ajouter un commentaire" color="#cc00cc" meeting="false" start="2018-11-05" duration="19" complete="0" expand="true"/>
             <task id="4" name="Ajouter un bouton permettant d'éditer un post" color="#cc00cc" meeting="false" start="2018-11-05" duration="19" complete="0" expand="true"/>
             <task id="17" name="Ajouter un système pour filtrer les posts par thème ou par promo" color="#0000cc" meeting="false" start="2018-10-18" duration="21" complete="0" expand="true"/>
+            <task id="83" name="Page détaillé de chaque post (bouton + pour avoir plus de commentaire...)" color="#0033cc" meeting="false" start="2018-10-18" duration="21" complete="0" expand="true"/>
+            <task id="87" name="Gestion des commentaires (modifier...)" color="#0000cc" meeting="false" start="2018-10-18" duration="21" complete="0" expand="true"/>
             <task id="7" name="Mettre en place un systeme rudimentaire de modération automatique des posts et des commentaires" color="#0000cc" meeting="false" start="2018-10-18" duration="21" complete="0" expand="true"/>
         </task>
         <task id="26" name="Modèles" color="#333333" meeting="false" start="2018-10-18" duration="41" complete="0" expand="true">
