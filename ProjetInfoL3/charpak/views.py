@@ -30,8 +30,19 @@ def index_profil(request, etudiant_id):
     return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
 
 
+
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
+
+
+def astuces_FAQ(request):
+    return render(request, 'FAQ/astuces_FAQ.html')
+
+def info_FAQ(request):
+    return render(request, 'FAQ/info_FAQ.html')
+
+def extra_FAQ(request):
+    return render(request, 'FAQ/extra_FAQ.html')
 
 def index_login(request):
     return render(request, 'login/login.html')
