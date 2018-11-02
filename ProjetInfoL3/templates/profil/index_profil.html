@@ -1,14 +1,51 @@
 ﻿{%extends 'profil/base_profil.html' %}
 {%load static%}
-
 {%block content%}
 {% if etudiant.photo %}
-    <<img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" />
+    <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" /></a>
 {%else%}
-    <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" />
+    <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
 {% endif %}
-{{etudiant.nom}} {{etudiant.prenom}} |
-<a href="{% url "profil-promo" promo_id=etudiant.promo.id %}">
-    Promo {{ etudiant.promo.nom }}
-</a>
+{{etudiant.nom}} {{etudiant.prenom}} | {{etudiant.promo}}
+
+<p></p>
+Description de l'étudiant en quelques mots : 
+{% if etudiant.statut %}
+ {{etudiant.statut}}
+{% else %}
+{% endif %}
+
+<p></p>
+{% if etudiant.email %}
+    Email : {{etudiant.email}}
+{% else %}
+    Email : Non renseigné
+{% endif %}
+
+
+<p></p>
+{% if etudiant.telephone %}
+Numéro de l'étudiant : {{etudiant.telephone}}
+{% else %}
+Numéro de l'étudiant : Non renseigné
+{% endif %}
+
+<p></p>
+{% if etudiant.parain %}
+<a href="{% url "profil-etudiant" etudiant_id=etudiant.parain.id %}">Parrain : <p>{{etudiant.parain}} </a></p>
+{% else %}
+Parrain : Non renseigné
+{% endif %}
+<p></p>
+{% if etudiant.profil_bac %}
+Profil Bac : {{etudiant.profil_bac}}
+{% else %}
+Profil Bac : Non renseigné
+{% endif %}
+<p></p>
+{% if etudiant.profil_bac %}
+Formation : {{etudiant.formation}}
+{% else %}
+Formation : Non renseigné
+{% endif %}
 {%endblock%}
