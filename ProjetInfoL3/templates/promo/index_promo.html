@@ -1,6 +1,36 @@
 ﻿{%extends 'promo/base_promo.html' %}
 {%load static%}
 
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}" />
+{% endblock %}
+
 {%block content%}
-page de la promo {{promo.nom}}
+    page de la promo {{promo.nom}}
+
+        <div class="div-promo div-promo-{{ promo.couleur }}">
+            <p>
+                <ul class="flex-container">
+                    {# TODO : What ?! #}
+                    {% for etudiant in promo.etudiants.all %}
+                        <li class="flex-item">
+                            <p>
+                                <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
+                                    {% if etudiant.photo %}
+                                        <img src="{{ etudiant.photo.url }}" alt="image de profil" width="80" height="80" />
+                                    {% else %}
+                                        <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="80"
+                                         height="80" />
+                                    {% endif %}
+                                </a>
+                            </p>
+                            <p>
+                                <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                            </p>
+                        </li> {# TODO : Balises en trop #}
+                    {% endfor %}
+                </ul> {# TODO : Balises en trop #}
+            </p> {# TODO : Balises en trop #}
+        </div>
+
 {%endblock%}

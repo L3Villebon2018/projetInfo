@@ -8,5 +8,7 @@
     <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
 {% endif %}
 {{etudiant.nom}} {{etudiant.prenom}} |
-{{etudiant.promo}}
+<a href="{% url "profil-promo" promo_id=etudiant.promo.id %}">
+    Promo {{ etudiant.promo.nom }}
+</a>
 {%endblock%}
