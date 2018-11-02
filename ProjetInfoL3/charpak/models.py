@@ -50,7 +50,7 @@ class Etudiant(models.Model):
     telephone = models.CharField(max_length=15, default=None, blank=True, null=True)
 
     promo = models.ForeignKey(Promo, on_delete=models.CASCADE, related_name='etudiants')
-    parain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='filleuls')
+    parrain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True, related_name='filleuls')
 
     profil_bac = models.CharField(max_length=50, default=None, blank=True, null=True)
 
@@ -72,11 +72,16 @@ class PostFilActu(models.Model):
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
 
+    @property
+    def commentaires_visibles(self):
+        return self.commentaires.filter(supprime=False)
+
     def __str__(self):
         return f"{self.titre}"
 
 
 class Commentaire(models.Model):
+
     supprime = models.BooleanField(default=False)
 
     post = models.ForeignKey(PostFilActu, on_delete=models.CASCADE, related_name='commentaires')
