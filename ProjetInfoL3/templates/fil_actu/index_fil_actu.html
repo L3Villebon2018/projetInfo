@@ -4,11 +4,11 @@
     <div id ="position">
         <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank">Ajouter un Post</a>
     </div>
-    {% for post in posts %}
+    {% for post in posts reversed %}
         <section class="big_tab_container">
             <section class="tab_container" >
                     <div class = "padding-post">
-                        <h3>{{ post.titre }}</h3>
+                        <h3><b>{{ post.titre }}</b></h3>
                         <p id="postInfo">posté par<span id="text"> {{ post.auteur.username }}</span></p>
                     </div>
                     <article class="contenu">
@@ -21,12 +21,15 @@
                         {%  if  post.commentaires.all|length == 0 %}
                             <p id="postInfo">Aucun commentaire pour le moment</p>
                         {%  else %}
-                            {% for commentaire in post.commentaires.all %}
+                            {% for commentaire in post.commentaires.all reversed %}
                                 <section class="commentaire">
-                                    <h5> Commentaire de <span id="text">{{ commentaire.auteur }}</span></h5>
-                                    <div id="contenu_commentaire">
-                                        {{ commentaire.contenu }}
-                                    </div>
+
+                                    <section>
+                                        <h5> De <span id="text">{{ commentaire.auteur }}</span></h5>
+                                        <div id="contenu_commentaire">
+                                            {{ commentaire.contenu }}
+                                        </div>
+                                    </section>
                                 </section>
                             {% endfor %}
                         {% endif %}
