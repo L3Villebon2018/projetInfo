@@ -73,3 +73,9 @@ ul ul a {
     padding-right: 5rem;
     padding-left: 5rem;
 }
+
+.list-unstyled {
+    padding-right: 10px;
+    list-style: none;
+    list-style-position: outside;
+}
