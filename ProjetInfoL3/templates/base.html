@@ -27,11 +27,11 @@
 
 <div class="wrapper sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <div class="sidebar-header">
-            <a><img id="icone" href="{% url 'fil-actu-index' %}" src="{% static "images/charpak2.png" %}" class="d-inline-block" alt=""></a>
-        </div>
-
-        <div class="collapse navbar-collapse">
+        <a class="navbar-brand" href="/"><img id="icone"  src="{% static "images/charpak2.png" %}" class="d-inline-block" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'fil-actu-index' %}">Fil d'actualité</a>
@@ -39,35 +39,36 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'arborescence-index' %}">Réseaux des anciens</a>
                 </li>
-            </ul>
-            <li class="nav-item dropdown list-unstyled">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Moi
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'login' %}">Mon profil</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Mon espace de travail</a>
-                    <a class="dropdown-item" href="#">Ma boîte mail</a>
-                    <a class="dropdown-item" href="#">Mon emploi du temps</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown list-unstyled">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    FAQ
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Astuces pour les devoirs</a>
-                    <a class="dropdown-item" href="{% url 'FAQ-astuces' %}">Astuces à l'institut</a>
-                    <a class="dropdown-item" href="{% url 'FAQ-extra' %}">Activités extrascolaire</a>
-                    <a class="dropdown-item" href="{% url 'FAQ-info' %}">Infos utiles</a>
-                    <div class="dropdown-divider"></div>
+                <li class="nav-item dropdown list-unstyled">
+                    <a class="nav-link dropdown-toggle  list-unstyled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Moi
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'login' %}">Mon profil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'FAQ-index' %}">Mon espace de travail</a>
+                        <a class="dropdown-item" href="#">Ma boîte mail</a>
+                        <a class="dropdown-item" href="#">Mon emploi du temps</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown list-unstyled">
+                    <a class="nav-link dropdown-toggle  list-unstyled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        FAQ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'FAQ-index' %}">Astuces pour les devoirs</a>
+                        <a class="dropdown-item" href="{% url 'FAQ-astuces' %}">Astuces à l'institut</a>
+                        <a class="dropdown-item" href="{% url 'FAQ-extra' %}">Activités extrascolaire</a>
+                        <a class="dropdown-item" href="{% url 'FAQ-info' %}">Infos utiles</a>
+                        <div class="dropdown-divider"></div>
 
-                </div>
-            </li>
-            <form class="form-inline my-2 my-lg-0">
+                    </div>
+                </li>
+            </ul>
+
+            <form class="form-inline ">
                 <input class="form-control mr-sm-2" type="search" placeholder="Trouver" aria-label="Search">
-                <button id ="buttonTrouver" class="btn btn-outline-success my-2 my-sm-0" type="submit">Trouver</button>
+                <button  class="btn btn-primary my-2 my-sm-0" type="submit">Trouver</button>
             </form>
             <span class="navbar-text">
 {% if user.is_authenticated %}
