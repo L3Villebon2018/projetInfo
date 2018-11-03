@@ -53,39 +53,34 @@ a, a:hover, a:focus {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-#buttonTrouver {
-    color: #2c678b;
-    border: none;
-}
-
-#buttonTrouver:hover{
-    background: #2c678b;
-    color: #fff;
-    border: none;
-
+    background: #404040;
 }
 
 #footer {
     margin: 20px;
 }
 
+#navbarSupportedContent{
+    text-align: center;
+}
+
 .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 5rem;
-    padding-left: 5rem;
+    text-align: center;
 }
 
 .list-unstyled {
+    text-align: center;
     padding-right: 20px;
 }
 
 .navbar-collapse{
     font-size: 15px;
-    padding-right: 5px;
 }
 
 .navbar-text{
     padding-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #404040;
 }
