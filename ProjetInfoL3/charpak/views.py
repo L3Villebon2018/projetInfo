@@ -5,6 +5,7 @@ from collections import defaultdict
 from .models import PostFilActu, Etudiant, Formation, Promo, Commentaire
 from .forms import FilActu_PostForm, FilActu_CommentsForm
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponseForbidden
 
 # Create your views here.
 
@@ -108,12 +109,40 @@ def nouveau_commentaire(request, post_id):
     else:
         form = FilActu_CommentsForm()
 
-    return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form})
+    return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, 'post': post})
 
 
 @login_required()
-def supprime_commentaire(request,post_id,commentaire_id):
+def supprime_commentaire(request, post_id, commentaire_id):
     commentaire = get_object_or_404(Commentaire, pk=commentaire_id)
+
+    if commentaire.auteur != request.user:
+        return HttpResponseForbidden()
+
     commentaire.supprime = True
     commentaire.save()
     return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
+
+@login_required()
+def modif_commentaire(request, post_id, commentaire_id):
+    commentaire = get_object_or_404(Commentaire, pk=commentaire_id)
+    post = get_object_or_404(PostFilActu, pk=post_id)
+
+    if commentaire.auteur != request.user:
+        return HttpResponseForbidden()
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = FilActu_CommentsForm(request.POST, instance=commentaire)
+        # check whether it's valid:
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = FilActu_CommentsForm(instance=commentaire)
+    return render(request, 'fil_actu/modif_commentaire.html', {'form': form, "post": post})
+
+
+

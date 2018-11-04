@@ -45,6 +45,7 @@ p{
     width: 100%;
     background-color: white;
     border-radius: 15px;
+    padding:10px;
 
 }
 
@@ -62,7 +63,6 @@ p{
 .contenu{
     margin:5px;
     padding:10px;
-
 }
 
 .big_tab_comments{
@@ -96,4 +96,15 @@ p{
     border-color: black;
 }
 
+
+.modif-commentaire{
+    float:right;
+}
+.btn-primary {
+    color: white;
+}
+
+.spacer {
+    clear: both;
+}
 

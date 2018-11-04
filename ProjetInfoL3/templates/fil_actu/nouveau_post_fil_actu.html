@@ -5,17 +5,18 @@
 
 
 {% block content %}
-    {# Display django.contrib.messages as Bootstrap alerts #}
-    {% bootstrap_messages %}
+    <div id="center_modif">
+        {% bootstrap_messages %}
 
-    {# Display a form #}
-    <form action="" method="post" class="form">
-        {% csrf_token %} {# SECURITE A GARDER!!! #}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button type="submit" class="btn btn-primary">
-                Envoyer
-            </button>
-        {% endbuttons %}
-    </form>
+        {# Display a form #}
+        <form action="" method="post" class="form">
+            {% csrf_token %} {# SECURITE A GARDER!!! #}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    Envoyer
+                </button>
+            {% endbuttons %}
+        </form>
+    </div>
 {% endblock %}

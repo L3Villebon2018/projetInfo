@@ -1,20 +1,62 @@
 {%extends 'fil_actu/base_fil_actu.html' %}
 {# Load the tag library #}
 {% load bootstrap4 %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fil_actu_css.css' %}" />
+{% endblock %}
 
 
-{% block content %}
+{% block sous_content%}
+    {# Display django.contrib.messages as Bootstrap alerts #}
+        <section class="big_tab_container">
+            <section class="tab_container" >
+                <div class = "padding-post">
+                    <h3><b>{{ post.titre }}</b></h3>
+                    <p class="postInfo">posté par<a class="text" href="#"> {{ post.auteur.username }}</a></p>
+                </div>
+                <article class="contenu">
+                    <p>{{ post.contenu}}</p>
+                </article>
+                <div class="ligne"></div>
+                <br>
+                <section class="big_tab_comments">
+                    <h4><b>Commentaires</b></h4>
+                    {%  if post.commentaires_visibles|length == 0 %}
+                        <p class="postInfo">Aucun commentaire pour le moment</p>
+                    {%  else %}
+                        {% for commentaire in post.commentaires_visibles reversed %}
+                            {%  if  not commentaire.supprime%}
+                                <section class="commentaire">
+                                    {%  if user == commentaire.auteur %}
+                                        <a type="button" class="close" aria-label="Close"  role="button" href={%url 'fil-actu-supprime-commentaire' post_id=post.id commentaire_id=commentaire.id%}>
+                                            <span aria-hidden="true">&times;</span>
+                                        </a>
+                                    {% endif %}
+                                    <h5> De <span class="text">{{ commentaire.auteur }}</span></h5>
+                                    <div class="contenu_commentaire">
+                                        {{ commentaire.contenu }}
+                                    </div>
+                                </section>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </section>
+            </section>
+    </section>
     {# Display django.contrib.messages as Bootstrap alerts #}
     {% bootstrap_messages %}
-
     {# Display a form #}
     <form action="" method="post" class="form">
         {% csrf_token %} {# SECURITE A GARDER!!! #}
-        {% bootstrap_form form %}
+        <div id="center_modif">
+            {% bootstrap_form form %}
         {% buttons %}
             <button type="submit" class="btn btn-warning">
                 Envoyer
             </button>
         {% endbuttons %}
+        </div>
     </form>
 {% endblock %}
