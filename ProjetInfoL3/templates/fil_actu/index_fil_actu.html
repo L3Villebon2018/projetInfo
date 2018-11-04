@@ -12,7 +12,7 @@
             <section class="tab_container" >
                 <div class = "padding-post">
                     <h3><b>{{ post.titre }}</b></h3>
-                    <p class="postInfo">posté par<a class="text" href="#"> {{ post.auteur.username }}</a></p>
+                    <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a></p>
                 </div>
                 <article class="contenu">
                     <p>{{ post.contenu}}</p>

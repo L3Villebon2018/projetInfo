@@ -40,7 +40,7 @@ class Formation(models.Model):
 
 
 class Etudiant(models.Model):
-    user = models.OneToOneField(User, related_name='user', on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
+    user = models.OneToOneField(User, related_name='etudiant', on_delete=models.DO_NOTHING, default=None, blank=True, null=True)
 
     nom = models.CharField(max_length=150)
     prenom = models.CharField(max_length=150)
