@@ -11,8 +11,14 @@
         <section class="big_tab_container" id="post-{{ post.id }}">
             <section class="tab_container" >
                 <div class = "padding-post">
-                    <h3><b>{{ post.titre }}</b></h3>
-                    <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a></p>
+                    {% if post.auteur.etudiant %}
+                        {% if post.auteur.etudiant.photo %}
+                            <img class="photo" src="{{ post.auteur.etudiant.photo.url }}">
+                        {% endif %}
+                        <h3><b>{{ post.titre }}</b></h3>
+                        <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a></p>
+                    {% endif %}
+                    <div class="spacer"> </div>
                 </div>
                 <article class="contenu">
                     <p>{{ post.contenu}}</p>
@@ -50,7 +56,7 @@
                 <div class="ligne"></div>
                 <section class="footer_comments">
                     <div>
-                        <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button" target="_blank">Ajouter un commentaire</a>
+                        <a class="btn btn-warning btn-sm" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button" target="_blank">Commenter</a>
                     </div>
                 </section>
             </section>

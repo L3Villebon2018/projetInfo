@@ -103,7 +103,7 @@ def nouveau_commentaire(request, post_id):
             commentaire.save()
 
             # form.save()
-            return HttpResponseRedirect('/fil_actu')
+            return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -142,7 +142,7 @@ def modif_commentaire(request, post_id, commentaire_id):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FilActu_CommentsForm(instance=commentaire)
-    return render(request, 'fil_actu/modif_commentaire.html', {'form': form, "post": post})
+    return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post})
 
 
 
