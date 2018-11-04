@@ -13,10 +13,12 @@
             </div>
             <div class="grid-item">
                 <form>
-                    <select name="promo" size="1">
-                        <option selected> Toutes les promos</option>
+                    <select name="promo" size="1" onChange="location = this.options[this.selectedIndex].value;">
+                        <option value = "arborescence" selected> Toutes les promos</option>
                         {% for promo, etudiants in etudiants_dict.items %}
-                            <option>Promo {{ promo.nom }}</option>
+                            <option value="{% url "profil-promo" promo_id=promo.id %}">
+                                    Promo {{ promo.nom }}
+                            </option>
                         {% endfor %}
                     </select>
                 </form>
