@@ -74,7 +74,7 @@
             </form>
             <span class="navbar-text">
 {% if user.is_authenticated %}
-    Bonjour {{ user.username }} ! <a class= "button" href="#">Déconnexion</a>
+    Bonjour {{ user.username }} ! <a class= "button" href="{% url 'logout' %}">Déconnexion</a>
 {% else %}
     Vous n'etes pas connecté <a class= "button" href="{% url 'login' %}">Connexion</a>
 {% endif %}    </span>

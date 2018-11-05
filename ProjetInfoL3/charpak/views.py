@@ -50,7 +50,7 @@ def extra_FAQ(request):
     return render(request, 'FAQ/extra_FAQ.html')
 
 def index_login(request):
-    return render(request, 'login/login.html')
+    return render(request, 'login/../templates/registration/login.html')
 
 
 def index_fil_actu(request):

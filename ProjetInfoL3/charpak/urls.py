@@ -17,5 +17,5 @@ urlpatterns = [
     path('fil_actu/<int:post_id>/nouveau_commentaire', views.nouveau_commentaire, name="fil-actu-nouveau-commentaire"),
     path('fil_actu/<int:post_id>/<int:commentaire_id>/supprime_commentaire', views.supprime_commentaire, name="fil-actu-supprime-commentaire"),
     path('fil_actu/<int:post_id>/<int:commentaire_id>/modif_commentaire', views.modif_commentaire, name="fil-actu-modif-commentaire"),
-    path('accounts/login/', views.index_login, name="login"),
+    path('registration/login/', views.index_login, name="login"),
 ]
