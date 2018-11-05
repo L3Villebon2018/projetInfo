@@ -103,7 +103,7 @@ def nouveau_commentaire(request, post_id):
             commentaire.save()
 
             # form.save()
-            return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
+            return HttpResponseRedirect(f'/fil_actu/{post_id}')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -115,13 +115,17 @@ def nouveau_commentaire(request, post_id):
 @login_required()
 def supprime_commentaire(request, post_id, commentaire_id):
     commentaire = get_object_or_404(Commentaire, pk=commentaire_id)
+    provenance = request.GET.get('provenance', None)
 
     if commentaire.auteur != request.user:
         return HttpResponseForbidden()
 
     commentaire.supprime = True
     commentaire.save()
-    return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
+    if provenance == 'index':
+        return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
+    if provenance == 'detail':
+        return HttpResponseRedirect(f'/fil_actu/{post_id}')
 
 @login_required()
 def modif_commentaire(request, post_id, commentaire_id):
@@ -142,7 +146,7 @@ def modif_commentaire(request, post_id, commentaire_id):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FilActu_CommentsForm(instance=commentaire)
-    return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post})
+    return render(request, f'/fil_actu', {'form': form, "post": post})
 
 
 

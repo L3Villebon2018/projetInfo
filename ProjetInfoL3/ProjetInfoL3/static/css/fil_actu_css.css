@@ -77,13 +77,18 @@ p{
     background-color: #e9ebee;
     border-radius: 10px;
     padding: 2%;
+
 }
 
 .footer_comments{
-    margin-left:1%;
-    padding-bottom:1%;
-    margin-top:1%;
+    display: flex;
+    justify-content: center;
+    padding:1%;
 }
+
+.comments_center{
+}
+
 .contenu_commentaire{
     margin-left: 5%;
 }
