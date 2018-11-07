@@ -2,9 +2,9 @@
 {%load static%}
 {%block content%}
 {% if etudiant.photo %}
-    <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="80" height="80" /></a>
+    <a href="/profil/{{etudiant.id}}"> <img src="{{etudiant.photo.url}}" alt="image de profil" width="100" height="100" /></a>
 {%else%}
-    <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="80" height="80" /> </a>
+    <a href="/profil/{{etudiant.id}}"> <img src={% static 'images/no_image.png' %} alt="image de profil" width="100" height="100" /> </a>
 {% endif %}
 {{etudiant.nom}} {{etudiant.prenom}} | {{etudiant.promo}}
 
