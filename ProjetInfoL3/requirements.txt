@@ -12,3 +12,6 @@ Pillow
 django-bootstrap4
 django-hijack
 django-hijack-admin
+
+# Pour les tests
+django-test-plus

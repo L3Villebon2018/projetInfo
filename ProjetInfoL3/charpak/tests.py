@@ -1,4 +1,9 @@
-from django.test import TestCase
+from test_plus.test import TestCase as PlusTestCase
+
+
+class TestCase(PlusTestCase):
+    pass
+
 
 # Create your tests here.
 from django.urls import reverse
@@ -19,6 +24,7 @@ class FilActuTests(TestCase):
         Vérifie que la vue détails d'un post "supprimé" ne s'affiche pas
         """
         post = self.creer_post(supprime=True)
+
         url = reverse('fil-actu-nouveau-commentaire', args=(post.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
@@ -27,22 +33,26 @@ class FilActuTests(TestCase):
         """
         Vérifie que la vue détails d'un post non "supprimé" s'affiche bien
         """
-        post = self.creer_post(supprime=False)
-        url = reverse('fil-actu-nouveau-commentaire', args=(post.id,))
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
 
-    def test_new_post_not_logged_in(self):
+        post = self.creer_post(supprime=False)
+        self.get_check_200('fil-actu-nouveau-commentaire', post.id)
+
+
+    def test_new_post_restrictions(self):
         """
         Vérifie que l'on soit connecté pour pouvoir poster
         """
 
-        self.client.logout()
-        url = reverse('fil-actu-nouveau-post')
-        response = self.client.get(url)
+        VUE = "fil-actu-nouveau-post"
+        self.assertLoginRequired(VUE)
 
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith(reverse('login')))
+        user1 = self.make_user('u1')
+
+        with self.login(username=user1.username, password='password'):
+            response = self.get_check_200(VUE)
+
+
+
 
 
 
