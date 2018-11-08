@@ -17,8 +17,8 @@ Rouge foncé :
 (224, 102, 102)
 
 Rouge clair :
-#f4ccccff
-(244, 204, 204)
+#f48680
+(244, 134, 128)
 
 Bleu foncé :
 #1c4587ff
@@ -44,6 +44,14 @@ Jaune clair :
 #fff2ccff
 (255, 242, 204)
 
+Violet foncé :
+#c27ba0ff
+(194, 123, 160)
+
+Violet clair :
+#ead1dcff
+(234, 209, 220)
+
  */
 
 /*
@@ -51,6 +59,30 @@ Jaune clair :
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background: white;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #404040;
+}
 
 @media (max-width: 768px) {
     #sidebar {
@@ -62,7 +94,7 @@ Jaune clair :
 }
 
 #icone{
-    width: 207px;
+    width: 52px;
     height: 52px;
 }
 
@@ -95,33 +127,13 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: white;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #404040;
-}
-
 #footer {
     margin: 20px;
+}
+
+#call_to_action{
+    border: none;
+    background: #e06666ff;
 }
 
 #navbarSupportedContent{
@@ -142,8 +154,13 @@ ul ul a {
     font-size: 15px;
 }
 
-.navbar-text{
-    left: -100px;
+#connexion{
+    padding-left: 70% ;
+}
+
+#profile{
+    width: 30px;
+    height: 30px;
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -166,16 +183,21 @@ ul ul a {
     position: fixed;
     top: 60px;
     left: 0;
+    min-width: 225px;
+    max-width: 225px;
     height: 100vh;
     z-index: 999;
     background: #c9daf8ff;
     color: black;
     transition: all 0.3s;
 }
+#sidebar.active {
+    margin-left: -250px;
+}
 
 #sidebar ul.components {
-    padding: 20px 0;
-    text-align: left;
+    text-align: center;
+    color: white;
     border-bottom: 1px solid #47748b;
 }
 
@@ -190,16 +212,34 @@ ul ul a {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: black;
+    background: #c9daf8ff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
 }
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
+
+#fil_actu{
+    margin-top: 30px;
+    margin-right: 30px;
+    background: #e06666ff;
+}
+
+#reseaux{
+    margin-top: 30px;
+    margin-right: 30px;
+    background: #6aa84fff
+}
+#FAQ{
+    list-style: none;
+    margin-top: 30px;
+    margin-right: 30px;
+    background: #1c4587ff;
+}
+#photos{
+    margin-top: 30px;
+    margin-right: 30px;
+    background: #ffd966ff;
 }

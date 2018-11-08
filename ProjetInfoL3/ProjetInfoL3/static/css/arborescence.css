@@ -1,7 +1,7 @@
 ﻿.grid-container {
     display: grid;
     grid-template-columns: 40% 20% 20%;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .grid-item {
@@ -10,8 +10,8 @@
 
 .div-promo {
     border-top-color : black;
-    margin-top: 10px;
-    padding-top: 30px;
+    margin-top: 0px;
+    padding-top: 0px;
     padding-left: 30px;
     padding-bottom: 30px;
 }
