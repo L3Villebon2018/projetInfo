@@ -9,14 +9,30 @@
     font-size: 50px;
 }
 
-.topnav {
+.topnav1 {
     overflow: hidden;
-    background-color: #333;
+    background-color: #ffd966ff;
+}
+
+.topnav2 {
+    overflow: hidden;
+    background-color: #c9daf8ff;
+}
+
+.topnav3 {
+    overflow: hidden;
+    background-color: #e06666ff;
+}
+
+.topnav4 {
+    overflow: hidden;
+    background-color: #6aa84fff;
 }
 
 h4 {
     color: lightskyblue;
 }
+
 
 
 .leftcolumn {
@@ -30,4 +46,8 @@ h4 {
     margin-top: 20px;
 }
 
-
+.footer_comments{
+    display: flex;
+    justify-content: center;
+    padding:1%;
+}
