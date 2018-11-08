@@ -68,6 +68,7 @@ Jaune clair :
 
 .content{
     width: 100%;
+    background: white;
 }
 
 #copyright{
@@ -78,6 +79,8 @@ Jaune clair :
     margin: 0;
     padding: 0;
     width: 100%;
+    color: white;
+    background: #1c4587ff;
 }
 
 a[data-toggle="collapse"] {
@@ -94,7 +97,7 @@ a[data-toggle="collapse"] {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #d5d2d5;
+    background: white;
 }
 
 p {
@@ -140,7 +143,7 @@ ul ul a {
 }
 
 .navbar-text{
-    padding-left: 5px;
+    left: -100px;
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -165,8 +168,8 @@ ul ul a {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
-    color: #fff;
+    background: #c9daf8ff;
+    color: black;
     transition: all 0.3s;
 }
 
