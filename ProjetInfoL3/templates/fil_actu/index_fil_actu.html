@@ -6,13 +6,14 @@
     </div>
     {% for post in posts reversed %}
         <section class="big_tab_container" id="post-{{ post.id }}" >
+            <div class="theme"></div>
             <section class="tab_container">
                 <div class = "padding-post">
                     {% if post.auteur.etudiant %}
                         {% if post.auteur.etudiant.photo %}
                             <img class="photo" src="{{ post.auteur.etudiant.photo.url }}">
                         {% endif %}
-                        <h3><b>{{ post.titre }}</b></h3>
+                        <h3>{{ post.titre }}</h3>
                         <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a></p>
                     {% endif %}
                     <div class="spacer"> </div>
@@ -28,8 +29,9 @@
                     </div>
                 </section>
                 <div class="ligne"></div>
+                <br>
                 <section class="big_tab_comments" id="comments-{{ post.id }}" style="display: None">
-                    <h4><b>Commentaires</b></h4>
+                    <h3>Commentaires</h3>
                     {%  if post.commentaires_visibles|length == 0 %}
                         <p class="postInfo">Aucun commentaire pour le moment</p>
                     {%  else %}
@@ -41,9 +43,15 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </a>
                                     {% endif %}
-                                    <h5> De <span class="text">{{ commentaire.auteur }}</span></h5>
+                                    {% if commentaire.auteur.etudiant %}
+                                        {% if commentaire.auteur.etudiant.photo %}
+                                            <img class="photo_commentaire" src="{{ commentaire.auteur.etudiant.photo.url }}">
+                                        {% endif %}
+                                        <div class="postInfo_Commentaire">De <a class="text" href="{% url "profil-etudiant" etudiant_id=commentaire.auteur.etudiant.id %}">{{ commentaire.auteur.username }}</a></div>
+                                        <div class="spacer"> </div>
+                                    {% endif %}
                                     <div class="contenu_commentaire">
-                                        {{ commentaire.contenu }}
+                                        <p class="postInfo">{{ commentaire.contenu }}</p>
                                     </div>
                                     {%  if user == commentaire.auteur %}
                                         <div class="modif-commentaire">

@@ -131,7 +131,7 @@ def supprime_commentaire(request, post_id, commentaire_id):
 def modif_commentaire(request, post_id, commentaire_id):
     commentaire = get_object_or_404(Commentaire, pk=commentaire_id)
     post = get_object_or_404(PostFilActu, pk=post_id)
-
+    modif = True
     if commentaire.auteur != request.user:
         return HttpResponseForbidden()
     # if this is a POST request we need to process the form data
@@ -141,12 +141,12 @@ def modif_commentaire(request, post_id, commentaire_id):
         # check whether it's valid:
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
+            return HttpResponseRedirect(f'/fil_actu/{post_id}')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FilActu_CommentsForm(instance=commentaire)
-    return render(request, f'/fil_actu', {'form': form, "post": post})
+    return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post, "modif": modif})
 
 
 

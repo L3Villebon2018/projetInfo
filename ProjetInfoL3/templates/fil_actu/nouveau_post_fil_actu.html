@@ -4,10 +4,9 @@
 
 
 
-{% block content %}
-    <div id="center_modif">
+{% block sous_content %}
+    <div id="page_post">
         {% bootstrap_messages %}
-
         {# Display a form #}
         <form action="" method="post" class="form">
             {% csrf_token %} {# SECURITE A GARDER!!! #}
