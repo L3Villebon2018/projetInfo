@@ -25,121 +25,121 @@
 
 </head>
 <body>
-<div id="haut"></div>
+<div id="haut">
+    {% hijack_notification %}
 
-{% hijack_notification %}
+    <div class="wrapperup sticky-top">
+        <nav class="navbar navbar-expand-lg navbar sticky-top">
+            <a class="navbar-brand" href="/"><img id="icone" src="{% static "images/Villebon_3.png" %}"
+                                                  class="d-inline-block" alt="">Charpak NETWORK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="form-inline ">
+                <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-<div class="wrapperup sticky-top">
-    <nav class="navbar navbar-expand-lg navbar sticky-top">
-        <a class="navbar-brand" href="/"><img id="icone" src="{% static "images/charpak2.png" %}" class="d-inline-block"
-                                              alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <form class="form-inline ">
-            <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
-        </form>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <span class="navbar-text">
+            <span id="connexion" class="navbar-text">
 {% if user.is_authenticated %}
     Bonjour {{ user.username }} ! <a class="button" href="{% url 'logout' %}">Déconnexion</a>
 {% else %}
     <a class="button" href="{% url 'login' %}">Connexion</a>
 {% endif %}    </span>
-        </div>
-    </nav>
-</div>
-<div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <ul class="list-unstyled components">
-            <li>
-                <a href="{% url 'fil-actu-index' %}">Fil d'actualité</a>
-            </li>
-            <li>
-                <a href="{% url 'arborescence-index' %}">Réseau</a>
-            </li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a class="dropdown-item" href="{% url 'FAQ-index' %}">Astuces pour les devoirs</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'FAQ-astuces' %}">Astuces à l'institut</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'FAQ-extra' %}">Activités extrascolaire</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'FAQ-info' %}">Infos utiles</a>
-                </li>
-            </ul>
-        </ul>
-    </nav>
-    <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
-                </button>
             </div>
         </nav>
     </div>
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-        <!-- Footer -->
-        <footer class="page-footer font-small stylish-color-light pt-4" id="footer">
-            <!-- Call to action -->
-            <ul class="list-unstyled list-inline text-center py-2">
-                <li class="list-inline-item">
-                    <a href="#haut" class="btn btn-danger btn-rounded" id="call_to_action">Retour en haut</a>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <li id="fil_actu" class="fil_actu">
+                    <a href="{% url 'fil-actu-index' %}">Fil d'actualité</a>
+                </li>
+                <li id="reseaux">
+                    <a href="{% url "arborescence-index" %}">Réseaux</a>
+                </li>
+                <ul id="FAQ">
+                    <a href="{% url "FAQ-index" %}">FAQ</a>
+                    <li>
+                        <a href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
+                    </li>
+                    <li>
+                        <a href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
+                    </li>
+                    <li>
+                        <a href="{% url "FAQ-info" %}">Infos utiles</a>
+                    </li>
+                </ul>
+                <li id="photos">
+                    <a href="#">Photos</a>
                 </li>
             </ul>
-            <!-- Call to action -->
-            <hr id="hr">
-            <!-- Grid row -->
-            <div class="row" id="copyright">
-                <hr class="clearfix w-100 d-md-none">
-                <!-- Grid column -->
-                <div class="col-md-3 mx-auto">
-                    © 2018 Copyright: Institut CHARPAK
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
                 </div>
-                <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-md-3 mx-auto">
+            </nav>
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+            <!-- Footer -->
+            <footer class="page-footer font-small stylish-color-light pt-4" id="footer">
+                <!-- Call to action -->
+                <ul class="list-unstyled list-inline text-center py-2">
+                    <li class="list-inline-item">
+                        <a href="#haut" class="btn btn-danger btn-rounded" id="call_to_action">Retour en haut</a>
+                    </li>
+                </ul>
+                <!-- Call to action -->
+                <hr id="hr">
+                <!-- Grid row -->
+                <div class="row" id="copyright">
+                    <hr class="clearfix w-100 d-md-none">
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto">
+                        © 2018 Copyright: Institut CHARPAK
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto">
 
-                    <!-- Links -->
-                    <a href="#!" id="copyright">Mentions légales</a>
+                        <!-- Links -->
+                        <a href="#!" id="copyright">Mentions légales</a>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto">
+
+                        <a href="#!" id="copyright">Politique de protection de la vie privée</a>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto">
+                        <!-- Links -->
+                        <a href="#!" id="copyright">Conditions d'utilisation</a>
+                    </div>
+                    <!-- Grid column -->
                 </div>
-                <!-- Grid column -->
+                <!-- Grid row -->
 
-                <hr class="clearfix w-100 d-md-none">
-
-                <!-- Grid column -->
-                <div class="col-md-3 mx-auto">
-
-                    <a href="#!" id="copyright">Politique de protection de la vie privée</a>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 mx-auto">
-                    <!-- Links -->
-                    <a href="#!" id="copyright">Conditions d'utilisation</a>
-                </div>
-                <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-
-        </footer>
-        <!-- Footer -->
+            </footer>
+            <!-- Footer -->
+        </div>
     </div>
 </div>
-
 </body>
 </html>
