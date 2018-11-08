@@ -62,12 +62,22 @@ class Etudiant(models.Model):
 
 
 class PostFilActu(models.Model):
+    CHOIX_COULEURS = (
+        ('bleu', 'Promo'),
+        ('rouge', 'Administration'),
+        ('jaune', 'BDE'),
+        ('vert', 'Public'),
+        ('violet', 'Divers')
+    )
+
     supprime = models.BooleanField(default=False)
 
     auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True, related_name='posts')
 
     titre = models.CharField(max_length=512)
     contenu = models.TextField()
+    couleur = models.CharField(max_length=150, choices=CHOIX_COULEURS)
+
 
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
