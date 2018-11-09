@@ -7,6 +7,7 @@ from .forms import FilActu_PostForm, FilActu_CommentsForm
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseForbidden
 
+
 # Create your views here.
 
 def index(request):
@@ -24,16 +25,18 @@ def index_arborescence(request):
     for formation in Formation.objects.all():
         formations.append(formation)
 
-    return render(request, 'arborescence/index_arborescence.html', {'etudiants_dict': etudiants, 'formations': formations})
+    return render(request, 'arborescence/index_arborescence.html',
+                  {'etudiants_dict': etudiants, 'formations': formations})
+
 
 def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
 
+
 def index_promo(request, promo_id):
     promo = get_object_or_404(Promo, pk=promo_id)
     return render(request, 'promo/index_promo.html', {'promo': promo})
-
 
 
 def index_FAQ(request):
@@ -43,11 +46,14 @@ def index_FAQ(request):
 def astuces_FAQ(request):
     return render(request, 'FAQ/astuces_FAQ.html')
 
+
 def info_FAQ(request):
     return render(request, 'FAQ/info_FAQ.html')
 
+
 def extra_FAQ(request):
     return render(request, 'FAQ/extra_FAQ.html')
+
 
 def index_login(request):
     return render(request, 'registration/login.html')
@@ -127,6 +133,7 @@ def supprime_commentaire(request, post_id, commentaire_id):
     if provenance == 'detail':
         return HttpResponseRedirect(f'/fil_actu/{post_id}')
 
+
 @login_required()
 def modif_commentaire(request, post_id, commentaire_id):
     commentaire = get_object_or_404(Commentaire, pk=commentaire_id)
@@ -147,6 +154,3 @@ def modif_commentaire(request, post_id, commentaire_id):
     else:
         form = FilActu_CommentsForm(instance=commentaire)
     return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post, "modif": modif})
-
-
-
