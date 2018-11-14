@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.utils import timezone
-
+from datetime import timedelta
 
 class Promo(models.Model):
 
@@ -19,6 +19,12 @@ class Promo(models.Model):
 
     def __str__(self):
         return f"Promo {self.nom}"
+
+    def niveau_relatif(self):
+        A = timezone.now() - timedelta(days=180)
+        B = A.timetuple()
+        return (4+B[0] - int(self.nom))
+
 
 
 class Ecole(models.Model):
