@@ -31,11 +31,22 @@
     <div class="wrapperup sticky-top">
         <nav class="navbar navbar-expand-lg navbar sticky-top">
             <a class="navbar-brand" href="/"><img id="icone" src="{% static "images/Villebon_3.png" %}"
-                                                  class="d-inline-block" alt="">Charpak NETWORK</a>
+                                                  class="d-inline-block" alt=""> Charpak NETWORK</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                            <span></span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
             <form class="form-inline ">
                 <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
                 <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
@@ -77,17 +88,7 @@
                 </li>
             </ul>
         </nav>
-        <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                </div>
-            </nav>
-        </div>
+        <hr class="clearfix w-100 d-md-none">
         <div class="content">
             {% block content %}
             {% endblock %}
@@ -110,6 +111,7 @@
                     </div>
                     <!-- Grid column -->
                     <!-- Grid column -->
+                    <hr class="clearfix w-100 d-md-none">
                     <div class="col-md-3 mx-auto">
 
                         <!-- Links -->
