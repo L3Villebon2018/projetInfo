@@ -61,18 +61,17 @@
                 <li id="reseaux">
                     <a href="{% url "arborescence-index" %}">Réseaux</a>
                 </li>
-                <ul id="FAQ">
-                    <a href="{% url "FAQ-index" %}">FAQ</a>
-                    <li>
-                        <a href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
-                    </li>
-                    <li>
-                        <a href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
-                    </li>
-                    <li>
-                        <a href="{% url "FAQ-info" %}">Infos utiles</a>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="FAQ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        FAQ
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url "FAQ-index" %}">Index</a>
+                        <a class="dropdown-item" href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
+                        <a class="dropdown-item" href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
+                        <a class="dropdown-item" href="{% url "FAQ-info" %}">Infos utiles</a>
+                    </div>
+                </div>
                 <li id="photos">
                     <a href="#">Photos</a>
                 </li>
@@ -135,7 +134,6 @@
                     <!-- Grid column -->
                 </div>
                 <!-- Grid row -->
-
             </footer>
             <!-- Footer -->
         </div>
