@@ -1,7 +1,8 @@
 ﻿.grid-container {
     display: grid;
     grid-template-columns: 40% 20% 20%;
-    padding-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .grid-item {
@@ -57,6 +58,7 @@ h3 {
     width: 130px;
     height: 130px;
     margin-top: 0px;
+    padding-top: 3px;
     line-height: 150px;
     font-weight: bold;
     font-size: 13px;
@@ -65,32 +67,13 @@ h3 {
 
 }
 
-#pagePrems {
-    position: relative;
-}
-
-#Majeur1 {
-    top: 25px;
-    left: 54px;
+.hover {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    background-color: red;
-    z-index: 30;
-    text-align: center;
-    color: #ffffff;
-    font-size: 18px;
-    display: block;
-}
-
-
-#SOUSmajeur1 {
-    position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 100px;
     top: 10px;
     left: 120px;
-    background-color: green;
+    background-color: white;
     z-index: 20;
     text-align: center;
     font-size: 13px;
@@ -105,5 +88,5 @@ h3 {
 }
 
 .niveau1:hover {
-    background-color: black;
+    background-color: white;
 }

@@ -9,69 +9,63 @@
     <header>
         <div class="grid-container" id="boutons_haut">
             <div class="grid-item">
-                <input type="button" value="Afficher les promos actuelles"/>
+                <button type="button" class="btn btn-primary">Afficher les promos actuelles</button>
             </div>
             <div class="grid-item">
-                <form>
-                    <select name="promo" size="1" onChange="location = this.options[this.selectedIndex].value;">
-                        <option value = "arborescence" selected> Toutes les promos</option>
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        promo
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {% for promo, etudiants in etudiants_dict.items %}
-                            <option value="{% url "profil-promo" promo_id=promo.id %}">
-                                    Promo {{ promo.nom }}
-                            </option>
+                            <a class="dropdown-item" href="{% url "profil-promo" promo_id=promo.id %}">Promo {{ promo.nom }}</a>
                         {% endfor %}
-                    </select>
-                </form>
+                    </div>
+                </div>
             </div>
             <div class="grid-item">
-                <form>
-                    <select name="formation" size="1">
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        formation
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {% for formation in formations %}
-                            <option> {{ formation.nom }} </option>
+                        <a class="dropdown-item" href="#">{{ formation.nom }}</a>
                         {% endfor %}
-                    </select>
-                </form>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    {% for promo, etudiants in etudiants_dict.items %}
+{% for promo, etudiants in etudiants_dict.items %}
 
-        <div class="div-promo div-promo-{{ promo.couleur }}">
-            <h3>
-                <a href="{% url "profil-promo" promo_id=promo.id %}"> 
-                    Promo {{ promo.nom }}
-                </a>
-            </h3>
-            <p>
-                <ul class="flex-container"> {# TODO : What ?! #}
-                    {% for etudiant in etudiants %}
-                        <li class="flex-item">
-                        <p>
-                            <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
-                                {% if etudiant.photo %}
-                                    <img src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60"/>
-                                {% else %}
-                                    <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60"/>
-                                {% endif %}
-                            </a>
-                        </p>
-                        <p>
-                            <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
-                        </p>
-                        </li> {# TODO : Balises en trop #}
-                    {% endfor %}
-                </ul> {# TODO : Balises en trop #}
-            </p> {# TODO : Balises en trop #}
-        </div>
-    {% endfor %}
-
-<div id="pagePrems">
-    <div id="Majeur1" class="niveau1">
-        <span><br /><br /><br />Majeur1</span>
-        <div id="SOUSmajeur1" class="niveau2">
-        <div><span>blabla</span></div>
-    </div>
+<div class="div-promo div-promo-{{ promo.couleur }}">
+    <h3>
+        <a href="{% url "profil-promo" promo_id=promo.id %}"> 
+            Promo {{ promo.nom }}
+        </a>
+    </h3>
+    <ul class="flex-container">
+        {% for etudiant in etudiants %}
+        <li class="flex-item">
+            <div class="niveau1">
+                <p>
+                    <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
+                        {% if etudiant.photo %}
+                            <img src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60"/>
+                        {% else %}
+                            <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60"/>
+                        {% endif %}
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                </p>
+            </div>
+        </li>
+        {% endfor %}
 </div>
+{% endfor %}
 
 {% endblock %}
