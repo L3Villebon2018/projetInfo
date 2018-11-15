@@ -9,16 +9,26 @@
         {% block title %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" type="text/css" href="{% static 'hijack/hijack-styles.css' %}"/>
-    <link rel="shortcut icon" href="{% static "images/charpak.png" %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'hijack/hijack-styles.css' %}"/>
+    <link rel="shortcut icon"
+          href="{% static "images/charpak.png" %}">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+          crossorigin="anonymous">
     {# Load CSS and JavaScript #}
     {% bootstrap_css %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
-    <script src="{% static "js/jquery-3.3.1.js" %}" type="text/javascript"></script>
-    <script src="{% static "js/sidebar.js" %}" type="text/javascript"></script>
-    <script src="{% static "js/dropdown.js" %}" type="text/javascript"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static "css/base.css" %}">
+    <script src="{% static "js/jquery-3.3.1.js" %}"
+            type="text/javascript"></script>
+    <script src="{% static "js/sidebar.js" %}"
+            type="text/javascript"></script>
+    <script src="{% static "js/dropdown.js" %}"
+            type="text/javascript"></script>
 
     {% bootstrap_javascript jquery='full' %}
     {% block head %}
@@ -31,17 +41,27 @@
 
     <div class="wrapperup sticky-top">
         <nav class="navbar navbar-expand-lg navbar sticky-top">
-            <a class="navbar-brand" href="/"><img id="icone" src="{% static "images/Villebon_3.png" %}"
-                                                  class="d-inline-block" alt=""> Charpak NETWORK</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand"
+               href="/"><img id="icone"
+                             src="{% static "images/Villebon_3.png" %}"
+                             class="d-inline-block"
+                             alt=""> Charpak NETWORK</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
 
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <button type="button"
+                                id="sidebarCollapse"
+                                class="btn btn-info">
                             <i class="fas fa-align-left"></i>
                             <span></span>
                         </button>
@@ -49,16 +69,25 @@
                 </nav>
             </div>
             <form class="form-inline ">
-                <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
+                <input class="form-control mr-sm-2"
+                       type="search"
+                       placeholder="Recherche"
+                       aria-label="Search">
+                <button class="btn btn-primary my-2 my-sm-0"
+                        type="submit">Go
+                </button>
             </form>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse"
+                 id="navbarSupportedContent">
 
-            <span id="connexion" class="navbar-text">
+            <span id="connexion"
+                  class="navbar-text">
 {% if user.is_authenticated %}
-    Bonjour {{ user.username }} ! <a class="button" href="{% url 'logout' %}">Déconnexion</a>
+    Bonjour {{ user.username }} !<a class="button"
+                                    href="{% url 'logout' %}">Déconnexion</a>
 {% else %}
-    <a class="button" href="{% url 'login' %}">Connexion</a>
+    <a class="button"
+       href="{% url 'login' %}">Connexion</a>
 {% endif %}    </span>
             </div>
         </nav>
@@ -67,27 +96,41 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <ul class="list-unstyled components">
-                <li id="fil_actu" class="fil_actu">
+                <li id="fil_actu"
+                    class="fil_actu">
                     <a href="{% url 'fil-actu-index' %}">Fil d'actualité</a>
                 </li>
                 <li id="reseaux">
                     <a href="{% url "arborescence-index" %}">Réseaux</a>
                 </li>
-                <button class="btn btn-primary dropdown-btn" id="FAQ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">FAQ
+                <button class="btn btn-primary dropdown-btn"
+                        id="FAQ"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="true">FAQ
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-container">
-                    <a class="dropdown-item" href="{% url "FAQ-index" %}">Index</a>
-                    <a class="dropdown-item" href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
-                    <a class="dropdown-item" href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
-                    <a class="dropdown-item" href="{% url "FAQ-info" %}">Infos utiles</a>
+                    <a class="dropdown-item"
+                       href="{% url "FAQ-index" %}">Index</a>
+                    <a class="dropdown-item"
+                       href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
+                    <a class="dropdown-item"
+                       href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
+                    <a class="dropdown-item"
+                       href="{% url "FAQ-info" %}">Infos utiles</a>
                 </div>
                 <div class="dropdown">
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{% url "FAQ-index" %}">Index</a>
-                        <a class="dropdown-item" href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
-                        <a class="dropdown-item" href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
-                        <a class="dropdown-item" href="{% url "FAQ-info" %}">Infos utiles</a>
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-index" %}">Index</a>
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-info" %}">Infos utiles</a>
                     </div>
                 </div>
                 <li id="photos">
@@ -100,11 +143,14 @@
             {% block content %}
             {% endblock %}
             <!-- Footer -->
-            <footer class="page-footer font-small stylish-color-light pt-4" id="footer">
+            <footer class="page-footer font-small stylish-color-light pt-4"
+                    id="footer">
                 <!-- Call to action -->
                 <ul class="list-unstyled list-inline text-center py-2">
                     <li class="list-inline-item">
-                        <a href="#haut" class="btn btn-danger btn-rounded" id="call_to_action">Retour en haut</a>
+                        <a href="#haut"
+                           class="btn btn-danger btn-rounded"
+                           id="call_to_action">Retour en haut</a>
                     </li>
                 </ul>
                 <!-- Call to action -->
@@ -122,7 +168,8 @@
                     <div class="col-md-3 mx-auto">
 
                         <!-- Links -->
-                        <a href="#!" class="copyright">Mentions légales</a>
+                        <a href="#!"
+                           class="copyright">Mentions légales</a>
                     </div>
                     <!-- Grid column -->
 
@@ -131,14 +178,16 @@
                     <!-- Grid column -->
                     <div class="col-md-3 mx-auto">
 
-                        <a href="#!" class="copyright">Politique de protection de la vie privée</a>
+                        <a href="#!"
+                           class="copyright">Politique de protection de la vie privée</a>
                     </div>
                     <!-- Grid column -->
 
                     <!-- Grid column -->
                     <div class="col-md-3 mx-auto">
                         <!-- Links -->
-                        <a href="#!" class="copyright">Conditions d'utilisation</a>
+                        <a href="#!"
+                           class="copyright">Conditions d'utilisation</a>
                     </div>
                     <!-- Grid column -->
                 </div>
