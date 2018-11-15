@@ -5,7 +5,10 @@
         <div class="theme theme-{{ post.couleur }}">
             {%  if user == post.auteur %}
                 <a type="button"  class="close modif-commentaire-post bouton-close-post" aria-label="Close" role="button" href={%url 'fil-actu-supprime-post' post_id=post.id %}>
-                    <span aria-hidden="true"><i class="far fa-trash-alt fa-2x color-poubelle"></i></span>
+                    <span aria-hidden="true"><i class="far fa-trash-alt fa-2x color-emoji-post"></i></span>
+                </a>
+                <a type="button" class="close modif-commentaire-post" aria-label="Close" role="button" href={%url 'fil-actu-modif-post' post_id=post.id %}>
+                    <span aria-hidden="true"><i class="fa fa-edit fa-2x color-emoji-post"></i></span>
                 </a>
                 <div class="spacer"> </div>
             {% endif %}
@@ -17,8 +20,11 @@
                         <img class="photo" src="{{ post.auteur.etudiant.photo.url }}">
                     {% endif %}
                     <h3>{{ post.titre }}</h3>
-                    <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a></p>
-                {% endif %}
+                    {% if post.heure_modification %}
+                        <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a> | modifié le {{ post.heure_modification }} </p>
+                    {% else %}
+                        <p class="postInfo">posté par<a class="text" href="{% url "profil-etudiant" etudiant_id=post.auteur.etudiant.id %}"> {{ post.auteur.username }}</a> le {{ post.heure_creation }} </p>
+                    {% endif %}                {% endif %}
                 <div class="spacer"> </div>
             </div>
             <article class="contenu">
@@ -46,8 +52,13 @@
                                     {% if commentaire.auteur.etudiant.photo %}
                                         <img class="photo_commentaire" src="{{ commentaire.auteur.etudiant.photo.url }}">
                                     {% endif %}
-                                    <div class="postInfo_Commentaire text-commentaire">De <a class="text" href="{% url "profil-etudiant" etudiant_id=commentaire.auteur.etudiant.id %}">{{ commentaire.auteur.username }}</a></div>
-                                    <div class="spacer"> </div>
+                                    {% if commentaire.heure_modification %}
+                                        <div class="postInfo_Commentaire text-commentaire">De <a class="text" href="{% url "profil-etudiant" etudiant_id=commentaire.auteur.etudiant.id %}">{{ commentaire.auteur.username }}</a> <span class="postInfo_2"> le {{ commentaire.heure_modification }}</span></div>
+                                        <div class="spacer"> </div>
+                                    {% else %}
+                                        <div class="postInfo_Commentaire text-commentaire">De <a class="text" href="{% url "profil-etudiant" etudiant_id=commentaire.auteur.etudiant.id %}">{{ commentaire.auteur.username }}</a> <span class="postInfo_2"> | modifié le {{ commentaire.heure_creation }}</span></div>
+                                        <div class="spacer"> </div>
+                                    {% endif %}
                                 {% endif %}
                                 <div class="contenu_commentaire">
                                     <p class="postInfo">{{ commentaire.contenu }}</p>

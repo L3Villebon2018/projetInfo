@@ -17,8 +17,6 @@ class Promo(models.Model):
 
     icone = models.ImageField(default=None, blank=True, null=True, upload_to='images/icones/')
 
-    bde_pendant = models.IntegerField(default=None, blank=True, null=True)
-
     def __str__(self):
         return f"Promo {self.nom}"
 
@@ -69,10 +67,6 @@ class Etudiant(models.Model):
                                   related_name='etudiants')
     statut = models.CharField(max_length=50, default=None, blank=True, null=True)
 
-
-    bde = models.ForeignKey(Promo, on_delete=models.DO_NOTHING, default=None, blank=True, null=True,
-                                  related_name='membres_bde')
-
     def __str__(self):
         return f"{self.prenom} {self.nom} - Promo {self.promo.nom}"
 
@@ -120,3 +114,14 @@ class Commentaire(models.Model):
 
     def __str__(self):
         return f"Commentaire sur {self.post.titre}"
+
+
+class Bde(models.Model):
+    nom = models.CharField(max_length=150, default="BDE de l'institut")
+    annee = models.IntegerField()
+    membres = models.ManyToManyField(Etudiant, related_name="membre_bde",  default=None)
+
+    porte_parole = models.ForeignKey(Etudiant, on_delete=models.DO_NOTHING, related_name="porte_parle_bde", null=True, default=None)
+
+    def __str__(self):
+        return self.nom
