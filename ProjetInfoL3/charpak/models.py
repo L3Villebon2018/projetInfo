@@ -24,7 +24,7 @@ class Promo(models.Model):
     def niveau_relatif(self):
         A = timezone.now() - timedelta(days=180)
         B = A.timetuple()
-        return (4+B[0] - int(self.nom))
+        return 4 + B[0] - int(self.nom)
 
 
 
