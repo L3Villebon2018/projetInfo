@@ -24,10 +24,10 @@
     <div id="slideshow">
         <ul id="sContent">
             <li>
-                <img  id ="img" src="{% static "/images/FA.PNG" %}" width="150px" />
+                <img  id ="img" src="{% static "/images/FA.PNG" %}" width="500px" />
             </li>
             <li>
-                <img id ="img"  src="{% static "/images/FA2.PNG" %}" width="200px"/>
+                <img id ="img"  src="{% static "/images/FA2.PNG" %}" width="500px"/>
             </li>
             <li>
                 <img id ="img"  src="{% static "/images/Image_fil_actu.png" %}" width="200px"/>
@@ -37,23 +37,19 @@
             </li>
         </ul>
     </div>
-    <div class="row">
-        <hr class="clearfix w-100 d-md-none">
-        <div class="card col-md-3 mx-auto" style="width: 40rem;">
-        <div class="card-header">
-            Dernières actualités
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Publication des nouveaux emplois du temps</li>
-            <li class="list-group-item">Les nouveaux pulls sont arrivés !</li>
-            <li class="list-group-item">Proposition de Jazz</li>
-            <li class="list-group-item">Correction des TD en ligne</li>
-        </ul>
+    <div class="card-header">
+        Dernières actualités
     </div>
-        <hr class="clearfix w-100 d-md-none">
-    <div class="col-md-3 mx-auto">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Publication des nouveaux emplois du temps</li>
+        <li class="list-group-item">Les nouveaux pulls sont arrivés !</li>
+        <li class="list-group-item">Proposition de Jazz</li>
+        <li class="list-group-item">Correction des TD en ligne</li>
+    </ul>
+    </div>
+    <div>
         <button type="button" class="btn btn-dark" id="page_promo">Page de ma promo</button>
-    <button type="button" class="btn btn-dark" id="emploi_du_temps">Emploi du temps</button>
+        <button type="button" class="btn btn-dark" id="emploi_du_temps">Emploi du temps</button>
     </div>
-    </div>
+
 {% endblock %}

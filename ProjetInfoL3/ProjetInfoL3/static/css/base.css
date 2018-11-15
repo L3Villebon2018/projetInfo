@@ -127,6 +127,9 @@ a[data-toggle="collapse"] {
 
 #footer {
     margin: 20px;
+    position: relative;
+    clear:both;
+    padding-top:20px;
 }
 
 #call_to_action{
@@ -271,6 +274,7 @@ a[data-toggle="collapse"] {
     background-color: #1c4587ff;
     border: 0;
 }
+
 a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
@@ -308,4 +312,8 @@ a, a:hover, a:focus {
 .fa-caret-down {
     float: right;
     padding-right: 8px;
+}
+
+.navbar-toggler{
+    background: none;
 }

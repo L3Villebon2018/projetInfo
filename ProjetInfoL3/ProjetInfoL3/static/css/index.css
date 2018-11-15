@@ -59,9 +59,15 @@
 }
 
 #page_promo {
-    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
 }
 
 #emploi_du_temps{
-    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
 }
