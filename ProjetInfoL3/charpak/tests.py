@@ -34,7 +34,6 @@ class FilActuTests(TestCase):
         """
         Vérifie que la vue détails d'un post non "supprimé" s'affiche bien
         """
-
         post = self.creer_post(supprime=False)
         self.get_check_200('fil-actu-nouveau-commentaire', post.id)
 
