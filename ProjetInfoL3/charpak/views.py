@@ -11,7 +11,9 @@ from django.http import HttpResponseForbidden
 # Create your views here.
 
 def index(request):
-    return render(request, 'public/index.html')
+    derniers_posts = PostFilActu.objects.filter(supprime=False).all()[:5]
+
+    return render(request, 'public/index.html', {'derniers_posts': derniers_posts})
 
 
 def index_arborescence(request):
