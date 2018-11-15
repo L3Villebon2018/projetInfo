@@ -18,6 +18,10 @@ h3{
     margin-bottom:10px;
 }
 
+.postInfo_2{
+    color:#808080;
+}
+
 .postInfo_Commentaire{
     margin-left:3.5em;
     margin-top:3px;
@@ -168,7 +172,7 @@ p{
 
 }
 
-.color-poubelle{
+.color-emoji-post{
     color:white;
     margin: 1px;
 }

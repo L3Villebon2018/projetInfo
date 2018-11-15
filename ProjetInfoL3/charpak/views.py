@@ -2,6 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from collections import defaultdict
+
+from django.utils import timezone
+
 from .models import PostFilActu, Etudiant, Formation, Promo, Commentaire
 from .forms import FilActu_PostForm, FilActu_CommentsForm
 from django.shortcuts import get_object_or_404
@@ -62,7 +65,7 @@ def index_Photo(request):
 def index_login(request):
     return render(request, 'registration/login.html')
 
-
+@login_required()
 def index_fil_actu(request):
     posts = PostFilActu.objects.filter(supprime=False)
     return render(request, 'fil_actu/index_fil_actu.html', {'posts': posts})
@@ -79,7 +82,6 @@ def nouveau_post_fil_actu(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-
             post = form.save(commit=False)
             post.auteur = request.user
             post.save()
@@ -92,7 +94,6 @@ def nouveau_post_fil_actu(request):
         form = FilActu_PostForm()
 
     return render(request, 'fil_actu/nouveau_post_fil_actu.html', {'form': form})
-
 
 @login_required()
 def nouveau_commentaire(request, post_id):
@@ -148,6 +149,26 @@ def supprime_post(request, post_id):
     post.save()
     return HttpResponseRedirect(f'/fil_actu')
 
+@login_required()
+def modif_post(request, post_id):
+    post = get_object_or_404(PostFilActu, pk=post_id)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = FilActu_PostForm(request.POST, instance=post)
+        # check whether it's valid:
+        if form.is_valid():
+            post.heure_modification = timezone.now()
+            post = form.save(commit=False)
+            post.save()
+            # form.save()
+            return HttpResponseRedirect(f'/fil_actu/{post_id}')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = FilActu_PostForm(instance=post)
+
+    return render(request, 'fil_actu/nouveau_post_fil_actu.html', {'form': form})
 
 @login_required()
 def modif_commentaire(request, post_id, commentaire_id):
@@ -162,6 +183,7 @@ def modif_commentaire(request, post_id, commentaire_id):
         form = FilActu_CommentsForm(request.POST, instance=commentaire)
         # check whether it's valid:
         if form.is_valid():
+            commentaire.heure_modification = timezone.now()
             form.save()
             return HttpResponseRedirect(f'/fil_actu/{post_id}')
 
