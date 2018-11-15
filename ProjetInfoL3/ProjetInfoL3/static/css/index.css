@@ -1,0 +1,67 @@
+#proverbe{
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background:#ffd966ff;
+}
+
+@keyframes AutoSlide {
+    0% {
+        left: 0; /*1ère image*/
+    }
+    12.5% {
+        left: 0; /*idem pour attente*/
+    }
+    25% {
+        left: -200px; /*2ème image*/
+    }
+    37.5% {
+        left: -200px; /*idem pour attente*/
+    }
+    50% {
+        left: -400px; /*3ème image*/
+    }
+    62.5% {
+        left: -400px; /*idem pour attente*/
+    }
+    75.5% {
+        left: -600px; /*4ème image*/
+    }
+    100% {
+        left: 0; /*1ère image*/
+    }
+}
+
+#slideshow {
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+    height: 150px;
+    margin:  20px auto;
+}
+#sContent li {
+    display: inline-block;
+}
+
+#sContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1500%;
+    margin: 0;
+    padding: 0;
+
+    /*CSS3 keyframes animation*/
+    animation-name: AutoSlide;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#page_promo {
+    padding: 20px;
+}
+
+#emploi_du_temps{
+    padding: 20px;
+}

@@ -84,9 +84,14 @@ class PostFilActu(models.Model):
     contenu = models.TextField()
     couleur = models.CharField(max_length=150, choices=CHOIX_COULEURS)
 
+    promo_ciblee = models.ManyToManyField(Promo, related_name='posts', default=None, blank=True)
+
+
 
     heure_creation = models.DateTimeField(default=timezone.now)
     heure_modification = models.DateTimeField(default=None, blank=True, null=True)
+
+
 
     @property
     def commentaires_visibles(self):

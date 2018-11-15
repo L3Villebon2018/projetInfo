@@ -1,7 +1,8 @@
 ﻿.grid-container {
     display: grid;
     grid-template-columns: 40% 20% 20%;
-    padding-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .grid-item {
@@ -57,10 +58,35 @@ h3 {
     width: 130px;
     height: 130px;
     margin-top: 0px;
+    padding-top: 3px;
     line-height: 150px;
     font-weight: bold;
     font-size: 13px;
     text-align: center;
     color: black;
 
+}
+
+.hover {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 10px;
+    left: 120px;
+    background-color: white;
+    z-index: 20;
+    text-align: center;
+    font-size: 13px;
+}
+
+.niveau2 {
+    display: none;
+}
+
+.niveau1:hover .niveau2 {
+    display: block;
+}
+
+.niveau1:hover {
+    background-color: white;
 }
