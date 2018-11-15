@@ -59,10 +59,27 @@ class ModelTests(TestCase):
     def ajouter_commentaire(self, post, supprime=False, contenu="Contenu d'un commentaire de test"):
         return Commentaire.objects.create(post=post, supprime=supprime, contenu=contenu)
 
-    def test_taille_commenatires_visibles(self):
+    def test_taille_commenatires_visibles_minimal(self):
         post = self.creer_post()
         c1 = self.ajouter_commentaire(post)
         c2 = self.ajouter_commentaire(post, supprime=True)
 
-        self.assertTrue(len(post.commentaires_visibles) == 1)
-        self.assertTrue(post.commentaires_visibles[0] == c1)
+        self.assertTrue(post.commentaires_visibles.count() == 1)
+        self.assertIn(c1, post.commentaires_visibles.all())
+
+    def test_taille_commenatires_visibles_10_comments(self):
+        post = self.creer_post()
+
+        c1 = self.ajouter_commentaire(post)
+        c2 = self.ajouter_commentaire(post, supprime=True)
+        c3 = self.ajouter_commentaire(post)
+        c4 = self.ajouter_commentaire(post)
+        c5 = self.ajouter_commentaire(post, supprime=True)
+        c6 = self.ajouter_commentaire(post, supprime=True)
+        c7 = self.ajouter_commentaire(post, supprime=True)
+        c8 = self.ajouter_commentaire(post, supprime=True)
+        c9 = self.ajouter_commentaire(post)
+        c10 = self.ajouter_commentaire(post)
+
+        self.assertTrue(post.commentaires_visibles.count() == 5)
+        self.assertIn(c1, post.commentaires_visibles)
