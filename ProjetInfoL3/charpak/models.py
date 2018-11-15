@@ -20,6 +20,7 @@ class Promo(models.Model):
     def __str__(self):
         return f"Promo {self.nom}"
 
+    @property
     def niveau_relatif(self):
         A = timezone.now() - timedelta(days=180)
         B = A.timetuple()
