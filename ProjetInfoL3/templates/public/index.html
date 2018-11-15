@@ -37,7 +37,9 @@
             </li>
         </ul>
     </div>
-    <div class="card" style="width: 40rem;">
+    <div class="row">
+        <hr class="clearfix w-100 d-md-none">
+        <div class="card col-md-3 mx-auto" style="width: 40rem;">
         <div class="card-header">
             Dernières actualités
         </div>
@@ -48,6 +50,10 @@
             <li class="list-group-item">Correction des TD en ligne</li>
         </ul>
     </div>
-    <button type="button" class="btn btn-dark">Page de ma promo</button>
-    <button type="button" class="btn btn-dark">Emploi du temps</button>
+        <hr class="clearfix w-100 d-md-none">
+    <div class="col-md-3 mx-auto">
+        <button type="button" class="btn btn-dark" id="page_promo">Page de ma promo</button>
+    <button type="button" class="btn btn-dark" id="emploi_du_temps">Emploi du temps</button>
+    </div>
+    </div>
 {% endblock %}

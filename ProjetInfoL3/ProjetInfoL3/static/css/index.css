@@ -57,3 +57,11 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+
+#page_promo {
+    padding: 20px;
+}
+
+#emploi_du_temps{
+    padding: 20px;
+}
