@@ -13,11 +13,11 @@ urlpatterns = [
     path('FAQ/info', views.info_FAQ, name="FAQ-info"),
     path('fil_actu', views.index_fil_actu, name="fil-actu-index"),
     path('fil_actu/nouveau_post', views.nouveau_post_fil_actu, name="fil-actu-nouveau-post"),
-    #path('fil_actu/<int:post_id>', views.nouveau_commentaire, name="fil-actu-details-post"),
     path('fil_actu/<int:post_id>', views.nouveau_commentaire, name="fil-actu-nouveau-commentaire"),
     path('fil_actu/<int:post_id>/<int:commentaire_id>/supprime_commentaire', views.supprime_commentaire, name="fil-actu-supprime-commentaire"),
     path('fil_actu/<int:post_id>/supprime_post', views.supprime_post, name="fil-actu-supprime-post"),
     path('fil_actu/<int:post_id>/<int:commentaire_id>/modif_commentaire', views.modif_commentaire, name="fil-actu-modif-commentaire"),
+    path('fil_actu/<int:post_id>/modif_commentaire', views.modif_post, name="fil-actu-modif-post"),
     path('registration/login/', views.index_login, name="login"),
     path('Photo/index', views.index_Photo, name="Photo-index"),
 ]
