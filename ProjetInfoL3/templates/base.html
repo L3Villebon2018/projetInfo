@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
     <script src="{% static "js/jquery-3.3.1.js" %}" type="text/javascript"></script>
     <script src="{% static "js/sidebar.js" %}" type="text/javascript"></script>
+    <script src="{% static "js/dropdown.js" %}" type="text/javascript"></script>
 
     {% bootstrap_javascript jquery='full' %}
     {% block head %}
@@ -72,6 +73,15 @@
                 <li id="reseaux">
                     <a href="{% url "arborescence-index" %}">Réseaux</a>
                 </li>
+                <button class="dropdown-btn" id="FAQ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a class="dropdown-item" href="{% url "FAQ-index" %}">Index</a>
+                    <a class="dropdown-item" href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
+                    <a class="dropdown-item" href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
+                    <a class="dropdown-item" href="{% url "FAQ-info" %}">Infos utiles</a>
+                </div>
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="FAQ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         FAQ
