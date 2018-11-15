@@ -46,12 +46,19 @@
                              src="{% static "images/Villebon_3.png" %}"
                              class="d-inline-block"
                              alt=""> Charpak NETWORK</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="content">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
+
                         <button type="button"
                                 id="sidebarCollapse"
                                 class="btn btn-info">
@@ -112,6 +119,19 @@
                        href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
                     <a class="dropdown-item"
                        href="{% url "FAQ-info" %}">Infos utiles</a>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-index" %}">Index</a>
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-astuces" %}">Astuces à l'institut</a>
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-extra" %}">Activités extrascolaires</a>
+                        <a class="dropdown-item"
+                           href="{% url "FAQ-info" %}">Infos utiles</a>
+                    </div>
                 </div>
                 <li id="photos">
                     <a href="#">Photos</a>
