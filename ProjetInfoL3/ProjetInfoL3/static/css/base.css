@@ -281,13 +281,11 @@ a, a:hover, a:focus {
 .dropdown-btn {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
-    color: #818181;
+    color: #fffaf5;
     display: block;
     border: none;
     background: none;
     width:100%;
-    text-align: left;
     cursor: pointer;
     outline: none;
 }
@@ -300,8 +298,10 @@ a, a:hover, a:focus {
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
     display: none;
-    background-color: #262626;
-    padding-left: 8px;
+    padding-top: 5px;
+    text-align: left;
+    font-size: 0.9em;
+    width: 200px;
 }
 
 /* Optional: Style the caret down icon */
