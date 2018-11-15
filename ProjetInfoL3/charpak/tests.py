@@ -8,7 +8,8 @@ class TestCase(PlusTestCase):
 # Create your tests here.
 from django.urls import reverse
 
-from .models import PostFilActu
+from .models import PostFilActu, Commentaire
+
 
 # Chaque suite de tests doit être dans une classe, les fonctions lancées doivent commencer par test_
 
@@ -37,7 +38,6 @@ class FilActuTests(TestCase):
         post = self.creer_post(supprime=False)
         self.get_check_200('fil-actu-nouveau-commentaire', post.id)
 
-
     def test_new_post_restrictions(self):
         """
         Vérifie que l'on soit connecté pour pouvoir poster
@@ -52,8 +52,17 @@ class FilActuTests(TestCase):
             response = self.get_check_200(VUE)
 
 
+class ModelTests(TestCase):
+    def creer_post(self, supprime=False, titre="Test Post Title", contenu="Test Post Content", couleur="bleu"):
+        return PostFilActu.objects.create(supprime=supprime, titre=titre, contenu=contenu, couleur=couleur)
 
+    def ajouter_commentaire(self, post, supprime=False, contenu="Contenu d'un commentaire de test"):
+        return Commentaire.objects.create(post=post, supprime=supprime, contenu=contenu)
 
+    def test_taille_commenatires_visibles(self):
+        post = self.creer_post()
+        c1 = self.ajouter_commentaire(post)
+        c2 = self.ajouter_commentaire(post, supprime=True)
 
-
-
+        self.assertTrue(len(post.commentaires_visibles) == 1)
+        self.assertTrue(post.commentaires_visibles[0] == c1)
