@@ -19,9 +19,8 @@ h3{
 }
 
 .postInfo_Commentaire{
-    display:block; /* Spans are inline element so needs to be changed to block in order for the margin to work */
-    margin-left:5.5em;
-    margin-top:1em;
+    margin-left:3.5em;
+    margin-top:3px;
 }
 p{
     font-size: 12px;
@@ -66,9 +65,16 @@ p{
 
 }
 
+.text-commentaire{
+    font-size: small;
+}
 .contenu{
     margin:5px;
     padding:10px;
+}
+
+.contenu_post{
+     color:black;
 }
 
 .big_tab_comments{
@@ -110,9 +116,12 @@ p{
 }
 
 
-.modif-commentaire{
+.modif-commentaire-post{
+    padding-left: 3px;
     float:right;
+    font-size: 0.5rem;
 }
+
 .btn-primary {
     color: white;
 }
@@ -128,20 +137,25 @@ p{
 
 .photo_commentaire{
     float:left;
-    width: 5em;
+    width: 40px;
     border-radius: 30px;
 }
 
-.form textarea, .form input {
+
+
+#id_contenu{
     width: 100%;
     height: 100px;
+}
+#id_titre{
+    width: 100%;
+    height: 40px;
 }
 
 .theme{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height:20px;
-    background-color: midnightblue/*rgb(189,213,234)*/;
 }
 
 #page_post{
@@ -153,3 +167,41 @@ p{
     border-radius: 20px;
 
 }
+
+.color-poubelle{
+    color:white;
+    margin: 1px;
+}
+
+.bouton-close-post{
+    margin-right:10px;
+}
+
+.taille_icone{
+    font-size: 0.5rem;
+}
+.theme-violet {
+    background-color: rgb(194,123 , 160);
+}
+
+.theme-bleu {
+    background-color: rgb(28, 69, 139);
+}
+
+.theme-rouge {
+    background-color: rgb(224, 102, 102);
+}
+
+.theme-jaune {
+    background-color: rgb(255, 217, 102);
+}
+
+.theme-vert {
+    background-color: rgb(106, 168, 79);
+}
+
+#form-commentaire{
+    padding: 0.5em;
+}
+
+

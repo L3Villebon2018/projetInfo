@@ -60,7 +60,7 @@ def index_login(request):
 
 
 def index_fil_actu(request):
-    posts = PostFilActu.objects.all()
+    posts = PostFilActu.objects.filter(supprime=False)
     return render(request, 'fil_actu/index_fil_actu.html', {'posts': posts})
 
 
@@ -132,6 +132,17 @@ def supprime_commentaire(request, post_id, commentaire_id):
         return HttpResponseRedirect(f'/fil_actu#post-{post_id}')
     if provenance == 'detail':
         return HttpResponseRedirect(f'/fil_actu/{post_id}')
+
+@login_required()
+def supprime_post(request, post_id):
+    post = get_object_or_404(PostFilActu, pk=post_id)
+
+    if post.auteur != request.user:
+        return HttpResponseForbidden()
+
+    post.supprime = True
+    post.save()
+    return HttpResponseRedirect(f'/fil_actu')
 
 
 @login_required()

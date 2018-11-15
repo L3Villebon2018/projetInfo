@@ -6,7 +6,14 @@
     </div>
     {% for post in posts reversed %}
         <section class="big_tab_container" id="post-{{ post.id }}" >
-            <div class="theme"></div>
+            <div class="theme theme-{{ post.couleur }} ">
+                {%  if user == post.auteur %}
+                    <a type="button"  class="close modif-commentaire-post bouton-close-post" aria-label="Close" role="button" href={%url 'fil-actu-supprime-post' post_id=post.id %} >
+                        <span aria-hidden="true"><i class="far fa-trash-alt fa-2x color-poubelle"></i></span>
+                    </a>
+                    <div class="spacer"> </div>
+                {% endif %}
+            </div>
             <section class="tab_container">
                 <div class = "padding-post">
                     {% if post.auteur.etudiant %}
@@ -18,14 +25,14 @@
                     {% endif %}
                     <div class="spacer"> </div>
                 </div>
-                <article class="contenu">
-                    <p>{{ post.contenu}}</p>
+                <article class="contenu ">
+                    <p class="contenu_post">{{ post.contenu}}</p>
                 </article>
                 <div class="ligne"></div>
                 <section class="footer_comments">
                     <div class="comments_center">
                         <a class="btn btn-outline-secondary btn-sm" href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}" role="button"  target="_blank" ><i class="far fa-comment-alt"></i> Commenter</a>
-                        <a class="btn btn-outline-secondary btn-sm" id="commentbutton-{{ post.id }}" role="button" target="_blank" onclick="AfficherCommentaires('#comments-{{ post.id }}')"><i class="far fa-comments"></i> Afficher les commentaires : {{ post.commentaires_visibles|length }}</a>
+                        <a class="btn btn-outline-secondary btn-sm" id="commentbutton-{{ post.id }}" role="button" target="_blank" onclick="AfficherCommentaires('#comments-{{ post.id }}')"><i class="far fa-comment-alt"></i> Afficher les commentaires : {{ post.commentaires_visibles|length }}</a>
                     </div>
                 </section>
                 <div class="ligne"></div>
@@ -39,26 +46,23 @@
                             {%  if  not commentaire.supprime%}
                                 <section class="commentaire">
                                     {%  if user == commentaire.auteur %}
-                                            <a type="button" class="close" aria-label="Close"  role="button" href={%url 'fil-actu-supprime-commentaire' post_id=post.id commentaire_id=commentaire.id%}?provenance=index>
-                                                <span aria-hidden="true">&times;</span>
-                                            </a>
+                                        <a type="button"  class="close modif-commentaire-post" aria-label="Close" role="button" href={%url 'fil-actu-supprime-commentaire' post_id=post.id commentaire_id=commentaire.id%}?provenance=index>
+                                            <span aria-hidden="true"><i class="far fa-trash-alt fa-lg"></i></span>
+                                        </a>
+                                        <a type="button" class="close modif-commentaire-post" aria-label="Close" role="button" href={%url 'fil-actu-modif-commentaire' post_id=post.id commentaire_id=commentaire.id%}>
+                                            <span aria-hidden="true"><i class="fa fa-edit fa-lg"></i></span>
+                                        </a>
                                     {% endif %}
                                     {% if commentaire.auteur.etudiant %}
                                         {% if commentaire.auteur.etudiant.photo %}
                                             <img class="photo_commentaire" src="{{ commentaire.auteur.etudiant.photo.url }}">
                                         {% endif %}
-                                        <div class="postInfo_Commentaire">De <a class="text" href="{% url "profil-etudiant" etudiant_id=commentaire.auteur.etudiant.id %}">{{ commentaire.auteur.username }}</a></div>
+                                        <div class="postInfo_Commentaire text-commentaire">De <a class="text" href="{% url "profil-etudiant" etudiant_id=commentaire.auteur.etudiant.id %}">{{ commentaire.auteur.username }}</a></div>
                                         <div class="spacer"> </div>
                                     {% endif %}
                                     <div class="contenu_commentaire">
                                         <p class="postInfo">{{ commentaire.contenu }}</p>
                                     </div>
-                                    {%  if user == commentaire.auteur %}
-                                        <div class="modif-commentaire">
-                                            <a type="button" class="btn btn-primary btn-sm" href="{% url 'fil-actu-modif-commentaire' post_id=post.id commentaire_id=commentaire.id%}">Modifier mon commentaire</a>
-                                        </div>
-                                        <div class="spacer"> </div>
-                                    {% endif %}
                                 </section>
                             {% endif %}
                         {% endfor %}

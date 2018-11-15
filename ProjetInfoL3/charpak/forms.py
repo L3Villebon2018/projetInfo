@@ -5,7 +5,10 @@ from .models import PostFilActu, Commentaire
 class FilActu_PostForm(ModelForm):
     class Meta:
         model = PostFilActu
-        fields = ['titre', 'contenu', 'couleur']
+        fields = ['titre', 'couleur', 'contenu']
+        labels = {
+            'couleur':"Catégorie du post",
+        }
 
 class FilActu_CommentsForm(ModelForm):
     class Meta:
