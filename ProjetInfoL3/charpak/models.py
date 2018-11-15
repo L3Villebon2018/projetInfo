@@ -67,6 +67,10 @@ class Etudiant(models.Model):
                                   related_name='etudiants')
     statut = models.CharField(max_length=50, default=None, blank=True, null=True)
 
+
+    bde = models.ForeignKey(Promo, on_delete=models.DO_NOTHING, default=None, blank=True, null=True,
+                                  related_name='membres_bde')
+
     def __str__(self):
         return f"{self.prenom} {self.nom} - Promo {self.promo.nom}"
 

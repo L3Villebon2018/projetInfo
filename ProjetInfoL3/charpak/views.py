@@ -54,6 +54,8 @@ def info_FAQ(request):
 def extra_FAQ(request):
     return render(request, 'FAQ/extra_FAQ.html')
 
+def index_Photo(request):
+    return render(request, 'Photo/index_Photo.html')
 
 def index_login(request):
     return render(request, 'registration/login.html')
