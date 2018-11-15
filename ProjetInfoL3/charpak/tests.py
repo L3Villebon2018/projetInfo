@@ -30,12 +30,30 @@ class FilActuTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
+    def test_post_index(self):
+        """
+        Vérifie que la vue d'index ne s'affiche que quand un utilisateur est connecté
+        """
+        self.assertLoginRequired('fil-actu-index')
+
+        user1 = self.make_user('u1')
+
+
+        post = self.creer_post(supprime=False)
+        with self.login(username=user1.username, password='password'):
+            self.get_check_200('fil-actu-index')
+
     def test_post_details(self):
         """
         Vérifie que la vue détails d'un post non "supprimé" s'affiche bien
         """
         post = self.creer_post(supprime=False)
-        self.get_check_200('fil-actu-nouveau-commentaire', post.id)
+        user1 = self.make_user('u1')
+
+        self.assertLoginRequired('fil-actu-nouveau-commentaire', post.id)
+
+        with self.login(username=user1.username, password='password'):
+            self.get_check_200('fil-actu-nouveau-commentaire', post.id)
 
     def test_new_post_restrictions(self):
         """
