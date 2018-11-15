@@ -322,4 +322,20 @@ a, a:hover, a:focus {
     color: #000;
     background-color: #fff;
     border-color: #fff;
+    padding: 5px 5px;
+
+}
+
+.btn-info:hover {
+    color: white;
+    background-color: black;
+    border-color: #fff;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
 }
