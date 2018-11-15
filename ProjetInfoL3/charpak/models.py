@@ -17,6 +17,8 @@ class Promo(models.Model):
 
     icone = models.ImageField(default=None, blank=True, null=True, upload_to='images/icones/')
 
+    bde_pendant = models.IntegerField(default=None, blank=True, null=True)
+
     def __str__(self):
         return f"Promo {self.nom}"
 
