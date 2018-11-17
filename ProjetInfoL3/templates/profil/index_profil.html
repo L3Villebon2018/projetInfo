@@ -15,6 +15,15 @@
         <div>
             <h1 class="">{{etudiant.nom}} {{etudiant.prenom}}</h1>
         </div>
+        {% if request.user.is_authenticated%}
+            {% if etudiant.user == request.user%}
+            <div class = "modify">
+                <a href="{% url "modifier-etudiant" etudiant_id=etudiant.id %}">
+                <p>Modifier votre profil</p>
+                </a>
+            </div>
+            {% endif %}
+        {% endif %}
         <div><h2>L{{etudiant.promo.niveau_relatif}}</h2></div>
 </div>
 
@@ -47,7 +56,7 @@
                 Profil Bac : Non renseigné
             {% endif %}
             <br>
-            {% if etudiant.profil_bac %}
+            {% if etudiant.formation %}
                 Formation : {{etudiant.formation}}
             {% else %}
                 Formation : Non renseigné
@@ -75,7 +84,7 @@
             {{etudiant.promo}}
             <br>
             {% endif %}
-            
+
     </div>
 </div>
 {%endblock%}

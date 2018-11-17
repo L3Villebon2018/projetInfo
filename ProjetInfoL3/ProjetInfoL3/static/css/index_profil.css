@@ -3,14 +3,22 @@ t{
     font-weight: bold;
 }
 p{
-    padding:15px;
+    padding:5px;
     font-family: 'Poppins', sans-serif;
     color : black;
 }
 h1,h3{
     font-family: 'Poppins', sans-serif;
 }
+.modify{
+    border-radius: 10px;
+    border-style: ridge;
+    border-width: 2px;
+    max-height: 40px;
+    background-color: #eeeeee;
+    
 
+}
 .a_propos{
     border-radius: 10px;
     margin-left: 5%;
