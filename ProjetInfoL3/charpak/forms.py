@@ -1,5 +1,5 @@
-from django.forms import ModelForm
-from .models import PostFilActu, Commentaire
+from django.forms import ModelForm,forms
+from .models import PostFilActu, Commentaire,Etudiant
 
 
 class FilActu_PostForm(ModelForm):
@@ -17,3 +17,8 @@ class FilActu_CommentsForm(ModelForm):
         labels = {
             'contenu':"Votre commentaire",
         }
+
+class index_modifierForm(ModelForm):
+    class Meta:
+        model = Etudiant
+        fields = ['email','telephone',"parrain","profil_bac","formation","statut"]

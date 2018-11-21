@@ -4,9 +4,10 @@ from django.shortcuts import render
 from collections import defaultdict
 
 from django.utils import timezone
+from django.urls import reverse
 
 from .models import PostFilActu, Etudiant, Formation, Promo, Commentaire
-from .forms import FilActu_PostForm, FilActu_CommentsForm
+from .forms import FilActu_PostForm, FilActu_CommentsForm,index_modifierForm
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseForbidden
 
@@ -40,7 +41,26 @@ def index_profil(request, etudiant_id):
 
 def index_modifier(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
-    return render(request, 'profil/index_modifier.html', {'etudiant': etudiant})
+
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = index_modifierForm(request.POST, instance=etudiant)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            post = form.save(commit=False)
+            post.save()
+
+            # form.save()
+            return HttpResponseRedirect(reverse('profil-etudiant', kwargs={'etudiant_id': etudiant_id}))
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = index_modifierForm(instance=etudiant)
+    
+    return render(request, 'profil/index_modifier.html', {'etudiant': etudiant,'form': form})
 
 def index_promo(request, promo_id):
     promo = get_object_or_404(Promo, pk=promo_id)

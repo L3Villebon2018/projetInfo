@@ -1,4 +1,5 @@
 ﻿{%extends 'profil/base_profil.html' %}
+{% load bootstrap4 %}
 {%load static%}
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/modifier_profil.css' %}"/>
@@ -11,7 +12,6 @@
             {%else%}
                 <img src={% static 'images/no_image.png' %} alt="image de profil" width="150" height="150" />
             {% endif %}
-            <br>
             <input type="file" name="nom" />
         </div>
         <div>
@@ -21,39 +21,14 @@
 </div>
 <div class="ensemble">
     <div>
-        <h3>Votre profil</h3>
+        <form action="" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary " >
+                    Envoyer
+                </button>
+            {% endbuttons %}
+        </form>
     </div>
-    <div>
-        <br>
-        <form action="/your-name/" method="post">
-            <label for="email">Email :  </label>
-            <input id="email" type="text" name="email" value="{{ current_mail }}">
-            <p><label for="id_renvoi">/!\</label> <input type="checkbox" name="renvoi" id="id_renvoi" /> <span class="helptext">Cochez si vous ne souhaitez pas afficher cette information.</span></p>
-            <label for="numero">Numéro de téléphone :  </label>
-            <input id="email" type="text" name="email" value="{{ current_mail }}">
-            <p><label for="id_renvoi">/!\</label> <input type="checkbox" name="renvoi" id="id_renvoi" /> <span class="helptext">Cochez si vous ne souhaitez pas afficher cette information.</span></p>
-            <label for="numero">Profil Bac  </label>
-            <select id="maListe1" name="liste">
-                    <option value="1">Valeur 1</option>
-                    <option value="2">Valeur 2</option>
-            </select>
-            <p><label for="id_renvoi">/!\</label> <input type="checkbox" name="renvoi" id="id_renvoi" /> <span class="helptext">Cochez si vous ne souhaitez pas afficher cette information.</span></p>
-            <label for="numero">Informations complémentaires : </label>
-            <input id="email" type="text" name="email" value="{{ current_mail }}">
-            <br>
-            <label for="numero">Parrain :  </label>
-            <select id="maListe1" name="liste">
-                    <option value="1">Valeur 1</option>
-                    <option value="2">Valeur 2</option>
-            </select>
-            <br>
-            <label for="numero">Formation :  </label>
-            <select id="maListe1" name="liste">
-                    <option value="1">Valeur 1</option>
-                    <option value="2">Valeur 2</option>
-            </select>
-            <br>
-            <input type="submit" value="Sauvegarder">
-        </form> 
-</div>
 {%endblock%}
