@@ -34,6 +34,18 @@ def index_arborescence(request):
     return render(request, 'arborescence/index_arborescence.html',
                   {'etudiants_dict': etudiants, 'formations': formations})
 
+def index_arborescence_filtered(request, filtre):
+    promo = list(Promo.objects.all())
+    etudiants = defaultdict(list)
+    for etudiant in Etudiant.objects.filter(formation=filter):
+        etudiants[etudiant.promo].append(etudiant)
+    etudiants = dict(etudiants)
+    formations = []
+    for formation in Formation.objects.all():
+        formations.append(formation)
+
+    return render(request, 'arborescence/index_arborescence.html',
+                  {'etudiants_dict': etudiants, 'formations': formations})
 
 def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
