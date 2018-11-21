@@ -47,6 +47,15 @@ class Formation(models.Model):
 
 
 class Etudiant(models.Model):
+    CHOIX_PROFIL_BAC = (
+        ('s-si', 'S-SI'),
+        ('s-svt', 'S-SVT'),
+        ('s', 'S'),
+        ('sti', 'STI'),
+        ('stl', 'STL'),
+        ('sti2d', 'STI2D'),
+        ('stav', 'STAV'),
+    )
     user = models.OneToOneField(User, related_name='etudiant', on_delete=models.DO_NOTHING, default=None, blank=True,
                                 null=True)
 
@@ -61,7 +70,7 @@ class Etudiant(models.Model):
     parrain = models.ForeignKey('Etudiant', on_delete=models.CASCADE, default=None, blank=True, null=True,
                                 related_name='filleuls')
 
-    profil_bac = models.CharField(max_length=50, default=None, blank=True, null=True)
+    profil_bac = models.CharField(max_length=50, default=None, blank=True, null=True, choices=CHOIX_PROFIL_BAC)
 
     formation = models.ForeignKey(Formation, on_delete=models.DO_NOTHING, default=None, blank=True, null=True,
                                   related_name='etudiants')
