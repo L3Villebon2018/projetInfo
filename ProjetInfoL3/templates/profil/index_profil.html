@@ -80,10 +80,16 @@
     <div class="trophes">
             <h3>Trophés</h3>
             {% if etudiant.promo.icone %}
-                <img src="{% static 'images/2019.jpg' %}" alt="image de profil" width="150" height="100"/>
+                <img src="{{etudiant.promo.icone.url}}" alt="image de profil" width="300" height="150" />
             <br>
             {% else%}
                 {{etudiant.promo}}
+            {% endif %}
+            {% if etudiant.membre_bde %}
+            {% for bde in etudiant.membre_bde.all %}
+                <img src="{{bde.photo.url}}" alt="image de profil" width="150" height="150" />
+                Année : {{bde.annee}}
+                {% endfor %}
             {% endif %}
     </div>
 </div>
