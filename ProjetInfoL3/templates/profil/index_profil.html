@@ -19,7 +19,7 @@
             {% if etudiant.user == request.user%}
             <div class = "modify">
                 <a href="{% url "modifier-etudiant" etudiant_id=etudiant.id %}">
-                <p>Modifier votre profil</p>
+                <p class="btn btn-outline-dark" >Modifier votre profil</p>
                 </a>
             </div>
             {% endif %}
@@ -39,9 +39,9 @@
             {% endif %}
             <br>
             {% if etudiant.telephone %}
-                Numéro de l'étudiant : {{etudiant.telephone}}
+                Numéro de teléphone : {{etudiant.telephone}}
             {% else %}
-                Numéro de l'étudiant : Non renseigné
+                Numéro de teléphone : Non renseigné
             {% endif %}
             <br>
             {% if etudiant.parrain %}
@@ -81,10 +81,10 @@
             <h3>Trophés</h3>
             {% if etudiant.promo.icone %}
                 <img src="{% static 'images/2019.jpg' %}" alt="image de profil" width="150" height="100"/>
-            {{etudiant.promo}}
             <br>
+            {% else%}
+                {{etudiant.promo}}
             {% endif %}
-
     </div>
 </div>
 {%endblock%}

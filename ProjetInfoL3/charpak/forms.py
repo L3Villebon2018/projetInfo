@@ -21,4 +21,5 @@ class FilActu_CommentsForm(ModelForm):
 class index_modifierForm(ModelForm):
     class Meta:
         model = Etudiant
-        fields = ['email','telephone',"parrain","profil_bac","formation","statut"]
+        fields = ["photo",'email','telephone',"parrain","profil_bac","formation","statut",]
+

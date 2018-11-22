@@ -12,7 +12,6 @@
             {%else%}
                 <img src={% static 'images/no_image.png' %} alt="image de profil" width="150" height="150" />
             {% endif %}
-            <input type="file" name="nom" />
         </div>
         <div>
             <h1 class="">{{etudiant.nom}} {{etudiant.prenom}}</h1>
@@ -21,14 +20,10 @@
 </div>
 <div class="ensemble">
     <div>
-        <form action="" method="post" class="form">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% bootstrap_form form %}
-            {% buttons %}
-                <button type="submit" class="btn btn-primary " >
-                    Envoyer
-                </button>
-            {% endbuttons %}
+            {{ form.as_p }}
+            <button type="submit" style="margin: 2%" class="btn btn-outline-dark">Sauvegarder</button>
         </form>
     </div>
 {%endblock%}
