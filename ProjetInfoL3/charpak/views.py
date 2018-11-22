@@ -44,7 +44,7 @@ def index_modifier(request, etudiant_id):
 
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = index_modifierForm(request.POST, instance=etudiant)
+        form = index_modifierForm(request.POST,request.FILES, instance=etudiant)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -61,6 +61,7 @@ def index_modifier(request, etudiant_id):
         form = index_modifierForm(instance=etudiant)
     
     return render(request, 'profil/index_modifier.html', {'etudiant': etudiant,'form': form})
+
 
 def index_promo(request, promo_id):
     promo = get_object_or_404(Promo, pk=promo_id)
@@ -215,3 +216,4 @@ def modif_commentaire(request, post_id, commentaire_id):
     else:
         form = FilActu_CommentsForm(instance=commentaire)
     return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post, "modif": modif})
+
