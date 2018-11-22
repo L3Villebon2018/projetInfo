@@ -130,6 +130,8 @@ class Bde(models.Model):
     annee = models.IntegerField()
     membres = models.ManyToManyField(Etudiant, related_name="membre_bde",  default=None)
 
+    photo = models.ImageField(default=None, blank=True, null=True, upload_to='images/bde/')
+
     porte_parole = models.ForeignKey(Etudiant, on_delete=models.DO_NOTHING, related_name="porte_parle_bde", null=True, default=None)
 
     def __str__(self):

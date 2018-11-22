@@ -24,8 +24,9 @@ SECRET_KEY = '-bt@shvj7=*985wz&@d*w^+$kux6et#zaf-an#qtuzpz8py1iz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'fil-actu-index'
 LOGOUT_REDIRECT_URL = '/'
