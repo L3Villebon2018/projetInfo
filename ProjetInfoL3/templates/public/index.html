@@ -57,25 +57,31 @@
             </li>
         </ul>
     </div>
-    <div id="dern_actu">
-        <div class="card-header">
-            Dernières actualités
-        </div>
-        <ul class="list-group list-group-flush">
-            {% for post in derniers_posts %}
-                <a href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}">
-                    <li class="list-group-item">{{ post.titre }}</li>
-                </a>
-            {% endfor %}
-        </ul>
-        <button type="button"
-                class="btn btn-dark"
-                id="page_promo">Page de ma promo
-        </button>
-        <button type="button"
-                class="btn btn-dark"
-                id="emploi_du_temps">Emploi du temps
-        </button>
-    </div>
+    <table id="dern_actu" class="table">
+        <tbody>
+        <th>
+            <div class="card-header">
+                Dernières actualités
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for post in derniers_posts %}
+                    <a href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}">
+                        <li class="list-group-item">{{ post.titre }}</li>
+                    </a>
+                {% endfor %}
+            </ul>
+        </th>
+        <th>
+            <button type="button"
+                    class="btn btn-dark"
+                    id="page_promo">Page de ma promo
+            </button>
+            <button type="button"
+                    class="btn btn-dark"
+                    id="emploi_du_temps">Emploi du temps
+            </button>
+        </th>
+        </tbody>
+    </table>
 
 {% endblock %}
