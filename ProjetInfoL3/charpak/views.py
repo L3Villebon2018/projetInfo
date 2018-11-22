@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.urls import reverse
 
 from .models import PostFilActu, Etudiant, Formation, Promo, Commentaire
-from .forms import FilActu_PostForm, FilActu_CommentsForm,index_modifierForm
+from .forms import FilActu_PostForm, FilActu_CommentsForm, index_modifierForm
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseForbidden
 
@@ -21,9 +21,19 @@ def index(request):
 
 
 def index_arborescence(request):
-    promo = list(Promo.objects.all())
+    formation = request.GET.get('formation', None)
+    promo = request.GET.get('promo', None)
+
+    etu_qs = Etudiant.objects
+
+    if formation:
+        etu_qs = etu_qs.filter(formation=formation)
+
+    if promo:
+        etu_qs = etu_qs.filter(promo=promo)
+
     etudiants = defaultdict(list)
-    for etudiant in Etudiant.objects.all():
+    for etudiant in etu_qs.all():
         etudiants[etudiant.promo].append(etudiant)
 
     etudiants = dict(etudiants)
@@ -38,6 +48,7 @@ def index_arborescence(request):
 def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
+
 
 def index_modifier(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
@@ -59,8 +70,9 @@ def index_modifier(request, etudiant_id):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = index_modifierForm(instance=etudiant)
-    
-    return render(request, 'profil/index_modifier.html', {'etudiant': etudiant,'form': form})
+
+    return render(request, 'profil/index_modifier.html', {'etudiant': etudiant, 'form': form})
+
 
 
 def index_promo(request, promo_id):
@@ -70,7 +82,6 @@ def index_promo(request, promo_id):
 
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
-
 
 
 def astuces_FAQ(request):
@@ -84,11 +95,14 @@ def info_FAQ(request):
 def extra_FAQ(request):
     return render(request, 'FAQ/extra_FAQ.html')
 
+
 def index_Photo(request):
     return render(request, 'Photo/index_Photo.html')
 
+
 def index_login(request):
     return render(request, 'registration/login.html')
+
 
 @login_required()
 def index_fil_actu(request):
@@ -119,6 +133,7 @@ def nouveau_post_fil_actu(request):
         form = FilActu_PostForm()
 
     return render(request, 'fil_actu/nouveau_post_fil_actu.html', {'form': form})
+
 
 @login_required()
 def nouveau_commentaire(request, post_id):
@@ -163,6 +178,7 @@ def supprime_commentaire(request, post_id, commentaire_id):
     if provenance == 'detail':
         return HttpResponseRedirect(f'/fil_actu/{post_id}')
 
+
 @login_required()
 def supprime_post(request, post_id):
     post = get_object_or_404(PostFilActu, pk=post_id)
@@ -173,6 +189,7 @@ def supprime_post(request, post_id):
     post.supprime = True
     post.save()
     return HttpResponseRedirect(f'/fil_actu')
+
 
 @login_required()
 def modif_post(request, post_id):
@@ -194,6 +211,7 @@ def modif_post(request, post_id):
         form = FilActu_PostForm(instance=post)
 
     return render(request, 'fil_actu/nouveau_post_fil_actu.html', {'form': form})
+
 
 @login_required()
 def modif_commentaire(request, post_id, commentaire_id):

@@ -14,14 +14,11 @@
           type="text/css"
           href="{% static 'css/index.css' %}"/>
 
-    <script src="{% static "js/jquery-3.3.1.js" %}"
-            type="text/javascript"></script>
     <script src="{% static "js/sidebar.js" %}"
             type="text/javascript"></script>
 {% endblock %}
 
 {% block content %}
-
 
     <div class="card panel-default"
          id="proverbe">
@@ -59,23 +56,34 @@
             </li>
         </ul>
     </div>
-    <div id="dern_actu">
-    <div  class="card-header">
-        Dernières actualités
-    </div>
-    <ul class="list-group list-group-flush">
-        {% for post in derniers_posts %}
-            <a href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}"><li class="list-group-item">{{ post.titre }}</li></a>
-        {% endfor %}
-    </ul>
-        <button type="button"
-                class="btn btn-dark"
-                id="page_promo">Page de ma promo
-        </button>
-        <button type="button"
-                class="btn btn-dark"
-                id="emploi_du_temps">Emploi du temps
-        </button>
-    </div>
+
+    {% if user.is_authenticated %}
+        <table id="dern_actu" class="table">
+            <tbody>
+            <th>
+                <div class="card-header">
+                    Dernières actualités
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for post in derniers_posts %}
+                        <a href="{% url 'fil-actu-nouveau-commentaire' post_id=post.id %}">
+                            <li class="list-group-item">{{ post.titre }}</li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </th>
+            <th>
+                <button type="button"
+                        class="btn btn-dark"
+                        id="page_promo" href="{% url 'profil-promo' user.etudiant.promo.id%}">Page de ma promo
+                </button>
+                <button type="button"
+                        class="btn btn-dark"
+                        id="emploi_du_temps">Emploi du temps
+                </button>
+            </th>
+            </tbody>
+        </table>
+    {% endif %}
 
 {% endblock %}
