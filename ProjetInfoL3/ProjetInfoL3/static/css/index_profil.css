@@ -10,7 +10,6 @@ p{
 h1,h3{
     font-family: 'Poppins', sans-serif;
 }
-
 .a_propos{
     border-radius: 10px;
     margin-left: 5%;
@@ -18,7 +17,8 @@ h1,h3{
     border-style: ridge;
     border-width: 2px;
     background-color: #eeeeee;
-    width: 130%;
+    width: auto;
+
 }
 .tout{
     flex-shrink: initial;
@@ -31,17 +31,18 @@ h1,h3{
     border-style: ridge;
     border-width: 2px;
     background-color: #eeeeee;
-    width: 130%;
+    width: auto;
 
 }
 .trophes{
     border-radius: 10px;
-    margin-left: 25%;
+    margin-left: auto;
+    margin-right: 5%;
     padding: 15px;
     border-style: ridge;
     border-width: 2px;
     background-color: #eeeeee;
-    width: 30%;
+    width: auto;
 }
 
 .div-promo a {
