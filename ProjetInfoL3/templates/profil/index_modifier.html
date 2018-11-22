@@ -5,25 +5,32 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/modifier_profil.css' %}"/>
 {% endblock %}
 {%block content%}
-<div class="div-promo div-promo-{{ etudiant.promo.couleur }}">
-        <div>
-            {% if etudiant.photo %}
-                <img src="{{etudiant.photo.url}}" alt="image de profil" width="150" height="150" />
-            {%else%}
-                <img src={% static 'images/no_image.png' %} alt="image de profil" width="150" height="150" />
-            {% endif %}
-        </div>
-        <div>
-            <h1 class="">{{etudiant.nom}} {{etudiant.prenom}}</h1>
-        </div>
-        <div><h2>L{{etudiant.promo.niveau_relatif}}</h2></div>
-</div>
-<div class="ensemble">
-    <div>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" style="margin: 2%" class="btn btn-outline-dark">Sauvegarder</button>
-        </form>
+{% if request.user.is_authenticated%}
+    {% if etudiant.user == request.user%}
+    <div class="div-promo div-promo-{{ etudiant.promo.couleur }}">
+            <div>
+                {% if etudiant.photo %}
+                    <img src="{{etudiant.photo.url}}" alt="image de profil" width="150" height="150" />
+                {%else%}
+                    <img src={% static 'images/no_image.png' %} alt="image de profil" width="150" height="150" />
+                {% endif %}
+            </div>
+            <div>
+                <h1 class="">{{etudiant.nom}} {{etudiant.prenom}}</h1>
+            </div>
+            <div><h2>L{{etudiant.promo.niveau_relatif}}</h2></div>
     </div>
+    <div class="ensemble">
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" style="margin: 2%" class="btn btn-outline-dark">Sauvegarder</button>
+            </form>
+        </div>
+    {%else%}
+        <meta http-equiv="refresh" content="0; URL=/accounts/login/" />
+    {% endif %}
+    
+{% endif %}
 {%endblock%}

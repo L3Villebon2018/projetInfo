@@ -52,7 +52,6 @@ def index_profil(request, etudiant_id):
 @login_required()
 def index_modifier(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
-
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = index_modifierForm(request.POST,request.FILES, instance=etudiant)
