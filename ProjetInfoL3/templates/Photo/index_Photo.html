@@ -2,34 +2,122 @@
 {% load static %}
 
 {% block content %}
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/Photo.css' %}" />
-    <link rel="stylesheet" type="text/js" href="{% static 'js/Photo.js' %}" />
-
     <header>
         <div class="header">
             <h1 class="page-header">Photos</h1>
         </div>
     </header>
 
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-lg"> <img id="img" src="{% static "/images/FA.PNG" %}" style="width:30%" width="100px"/></button>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <img id="img" src="{% static "/images/FA.PNG" %}" style="width:100%" width="500px"/>
-                Ceci est un test
-            </div>
+            body {
+                margin: 0;
+            }
+
+            /* The grid: Four equal columns that floats next to each other */
+            .column {
+                float: left;
+                width: 25%;
+                padding: 10px;
+            }
+
+            /* Style the images inside the grid */
+            .column img {
+                opacity: 0.8;
+                cursor: pointer;
+            }
+
+            .column img:hover {
+                opacity: 1;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* The expanding image container */
+            .container {
+                position: relative;
+                display: none;
+            }
+
+            /* Expanding image text */
+            #imgtext {
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+                color: white;
+                font-size: 20px;
+            }
+
+            /* Closable button inside the expanded image */
+            .closebtn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                color: white;
+                font-size: 35px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+
+    <!-- The four columns -->
+    <div class="row">
+        <div class="column">
+            <img src="{% static "/images/FA.PNG" %}" alt="Photo de début d'année" style="width:100%" onclick="myFunction(this);"/>
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA.PNG" %}" alt="Forest" style="width:100%" onclick="myFunction(this);"/>
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA.PNG" %}" alt="Forest" style="width:100%" onclick="myFunction(this);"/>
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA.PNG" %}" alt="Forest" style="width:100%" onclick="myFunction(this);"/>
+        </div>
+        <div class="column">
+            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
         </div>
     </div>
-    <br><br/>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg"> <img id="img" src="{% static "/images/FA2.PNG" %}" style="width:30%" width="100px"/></button>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <img id="img" src="{% static "/images/FA2.PNG" %}" style="width:100%" width="500px"/>
-            </div>
-        </div>
+
+    <div class="container">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+        <div id="imgtext"></div>
     </div>
+
+    <script>
+        function myFunction(imgs) {
+            var expandImg = document.getElementById("expandedImg");
+            var imgText = document.getElementById("imgtext");
+            expandImg.src = imgs.src;
+            imgText.innerHTML = imgs.alt;
+            expandImg.parentElement.style.display = "block";
+        }
+    </script>
+
+    </body>
+    </html>
 
 {% endblock %}
