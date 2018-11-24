@@ -1,211 +1,216 @@
 {% extends 'FAQ/base_FAQ.html' %}
 {% load static %}
+{% load bootstrap4 %}
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/FAQ.css' %}" />
 
  <header>
         <div class="header">
             <h1><font color="#C9DAF8">Astuces à l'institut</font></h1>
         </div>
  </header>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% comment %}    <div class="topnav">
-        <h4><font color="#3EBA95">Qui vais-je voir si j'ai un problème ?</font></h4>
-    </div>
-    <div class="card">
-        <ul>
-            <li>Organisation : Martine</li>
-            <li>Matériel : Sabrina/Marie-Ange</li>
-            <li>Relationnel : Martine</li>
-            <li>Compréhension : Tes potes, des L2/L3, le prof</li>
-            <li>Personnel : Catherine</li>
-            <li>Avec mon ordi : Cécile, Sabrina ou le responsable de promo si il existe</li>
-            <li>Avec le décompte des heures de Jazz : Marie-Ange</li>
-            <li>En bio : le prof</li>
-            <li>En chimie : RIP (sinon les anciens STL de ta classe, ils sont bons en bio et chimie)</li>
-            <li>En ingé : Les anciens STI2D/S-SI</li>
-            <li>En physique : Rien à faire :(</li>
-            <li>Général : <strong>Les tuteurs polytechniciens</strong>. Ils savent tout, mais il faut aller leur demander!</li>
-        </ul>
-    </div>
-
-    <br><br/>
-    <div class="topnav">
-        <h4><font color="#3EBA95">Comment imprimer quelque chose ?</font></h4>
-    </div>
-    <div class="card">
-        Après avoir préparé une clé USB avec le PDF que tu veux imprimer :
-        <ul>
-            <li>Méthode 1 : Aller voir Sabrina et lui demander gentiment, mais c'est vraiment pas sur que ca marche.</li>
-            <li>Méthode 2 : Aller trouver une feuille blanche (L'institut n'en donne plus, il te faudra une ramette de feuilles dans le casier, sinon il va falloir aller gratter chez les autres), brancher ta clé USB ou ton ordi à l'imprimante vers le fond de l'institut (Après la INFO3)</li>
-            <li>Méthode 3 : Direction BU</li>
-        </ul>
-        <br><br/>
-
-    </div>
-    <div class="topnav">
-        <h4><font color="#3EBA95">La bibliothèque universitaire ?</font></h4>
-    </div>
-    <div class="card">
-        Il y a une biliothéque juste à quelque pas de l'institut (à moins d'une minute du Restaurant Universitaire), vous y trouverez toute la documentation nécéssaire pour vos études (vous pouvez aussi y réviser là bas)
-    </div>
-    <br><br/>
-
-    <div class="topnav">
-        <h4><font color="#3EBA95">Les prénoms super utiles</font></h4>
-</div>
-    <div class="card">
-        <ul>
-            <li>Jeanne : Professeur de maths</li>
-            <li>Jean : Professeur de maths</li>
-            <li>Tony : Professeur de maths/info</li>
-            <li>Alain : Professeur de maths</li>
-            <li>Cyril : Professeur de Physique</li>
-            <li>Cathy : Professeur d'anglais</li>
-            <li>Martine : Professeur de bio, responsable des étudiants</li>
-            <li>Cécile : Gestion des Professeurs et emplois du temps (fait aussi un cours de traitement de l'eau)</li>
-            <li>Sabrina : À l'administration : La sauveuse de l'Humanité! </li>
-            <li>Marie-Ange : Gestion du matériel et du Jazz</li>
-            <li>Bénédicte : Directrice de l'institut, référence pour le projet professionnels et les bourses.</li>
-            <li>Franck : Directeur des formations, gestion des projets professionnels des étudiants</li>
-        </ul>
-        N'hésitez surtout pas à allez voir les tuteurs !
-    </div>
-    <br><br/>
-
-    <div class="topnav">
-        <h4><font color="#3EBA95">Se connecter au WiFi</font></h4>
-</div>
+        </head>
     <div class="card">
 
-        Utilisez eduroam :
-        Utilisateur : " prénom.nom@u-psud.fr "
-        Mot de passe : Votre mot de passe du compte u-psud (sso)
-         en ajoutant le @u-psud.fr à votre
+        <button class="accordion"> Qui vais-je voir si j'ai un problème ?</button>
+        <div class="panel">
+            <ul>
+                <li>Organisation : Martine</li>
+                <li>Matériel : Sabrina/Marie-Ange</li>
+                <li>Relationnel : Martine</li>
+                <li>Compréhension : Tes potes, des L2/L3, le prof</li>
+                <li>Personnel : Catherine</li>
+                <li>Avec mon ordi : Cécile, Sabrina ou le responsable de promo si il existe</li>
+                <li>Avec le décompte des heures de Jazz : Marie-Ange</li>
+                <li>En bio : le prof</li>
+                <li>En chimie : RIP (sinon les anciens STL de ta classe, ils sont bons en bio et chimie)</li>
+                <li>En ingé : Les anciens STI2D/S-SI</li>
+                <li>En physique : Rien à faire :(</li>
+                <li>Général : <strong>Les tuteurs polytechniciens</strong>. Ils savent tout, mais il faut aller leur demander!</li>
+            </ul>        </div>
+
+        <button class="accordion">Comment imprimer quelque chose ?</button>
+        <div class="panel">
+            Après avoir préparé une clé USB avec le PDF que tu veux imprimer :
+            <ul>
+                <li>Méthode 1 : Aller voir Sabrina et lui demander gentiment, mais c'est vraiment pas sur que ca marche.</li>
+                <li>Méthode 2 : Aller trouver une feuille blanche (L'institut n'en donne plus, il te faudra une ramette de feuilles dans le casier, sinon il va falloir aller gratter chez les autres), brancher ta clé USB ou ton ordi à l'imprimante vers le fond de l'institut (Après la INFO3)</li>
+                <li>Méthode 3 : Direction BU</li>
+            </ul>
+        </div>
+
+        <button class="accordion">La bibliothèque universitaire ?</button>
+        <div class="panel">
+            Il y a une bibliothéque juste à quelque pas de l'institut (à moins d'une minute du Restaurant Universitaire), vous y trouverez toute la documentation nécéssaire pour vos études (vous pouvez aussi y réviser là bas)
+        </div>
+
+        <button class="accordion">Les prénoms super utiles</button>
+        <div class="panel">
+            <ul>
+                <li>Jeanne : Professeur de maths</li>
+                <li>Jean : Professeur de maths</li>
+                <li>Tony : Professeur de maths/info</li>
+                <li>Alain : Professeur de maths</li>
+                <li>Cyril : Professeur de Physique</li>
+                <li>Cathy : Professeur d'anglais</li>
+                <li>Martine : Professeur de bio, responsable des étudiants</li>
+                <li>Cécile : Gestion des Professeurs et emplois du temps (fait aussi un cours de traitement de l'eau)</li>
+                <li>Sabrina : À l'administration : La sauveuse de l'Humanité! </li>
+                <li>Marie-Ange : Gestion du matériel et du Jazz</li>
+                <li>Bénédicte : Directrice de l'institut, référence pour le projet professionnels et les bourses.</li>
+                <li>Franck : Directeur des formations, gestion des projets professionnels des étudiants</li>
+            </ul>
+            N'hésitez surtout pas à allez voir les tuteurs !
+        </div>
+
+        <button class="accordion">  Se connecter au WiFi</button>
+        <div class="panel">
+            Utilisez eduroam :
+            Utilisateur : " prénom.nom@u-psud.fr "
+            Mot de passe : Votre mot de passe du compte u-psud (sso)
+            en ajoutant le @u-psud.fr à votre
             nom d'utilisateur, cela vous permettra
             de vous connecter à eduroam partout dans le monde,
             c'est surprenant quand ton téléphone se met à vibrer comme un
-            dingue à Londres parce que tu est passé devant une université lambda!
-    </div>
-    <br><br/>{% endcomment %}
-
-    <div id="accordion">
-        <div class="card">
-            <div class="topnav2" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Qui vais-je voir si j'ai un problème ?
-                    </button>
-                </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <ul>
-                        <li>Organisation : Martine</li>
-                        <li>Matériel : Sabrina/Marie-Ange</li>
-                        <li>Relationnel : Martine</li>
-                        <li>Compréhension : Tes potes, des L2/L3, le prof</li>
-                        <li>Personnel : Catherine</li>
-                        <li>Avec mon ordi : Cécile, Sabrina ou le responsable de promo si il existe</li>
-                        <li>Avec le décompte des heures de Jazz : Marie-Ange</li>
-                        <li>En bio : le prof</li>
-                        <li>En chimie : RIP (sinon les anciens STL de ta classe, ils sont bons en bio et chimie)</li>
-                        <li>En ingé : Les anciens STI2D/S-SI</li>
-                        <li>En physique : Rien à faire :(</li>
-                        <li>Général : <strong>Les tuteurs polytechniciens</strong>. Ils savent tout, mais il faut aller leur demander!</li>
-                    </ul>
-                </div>
-            </div>
+            dingue à Londres parce que tu est passé devant une université lambda!        </div>
 
         <br><br/>
-
-            <div class="topnav2" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Comment imprimer quelque chose ?
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    Après avoir préparé une clé USB avec le PDF que tu veux imprimer :
-                    <ul>
-                        <li>Méthode 1 : Aller voir Sabrina et lui demander gentiment, mais c'est vraiment pas sur que ca marche.</li>
-                        <li>Méthode 2 : Aller trouver une feuille blanche (L'institut n'en donne plus, il te faudra une ramette de feuilles dans le casier, sinon il va falloir aller gratter chez les autres), brancher ta clé USB ou ton ordi à l'imprimante vers le fond de l'institut (Après la INFO3)</li>
-                        <li>Méthode 3 : Direction BU</li>
-                    </ul>
-                </div>
-            </div>
-
-
-    <br><br/>
-
-            <div class="topnav2" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        La bibliothèque universitaire ?
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                    Il y a une biliothéque juste à quelque pas de l'institut (à moins d'une minute du Restaurant Universitaire), vous y trouverez toute la documentation nécéssaire pour vos études (vous pouvez aussi y réviser là bas)
-                </div>
-        </div>
-
-        <br><br/>
-
-            <div class="topnav2" id="headingFour">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                        Les prénoms super utiles
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                <div class="card-body">
-                    <ul>
-                        <li>Jeanne : Professeur de maths</li>
-                        <li>Jean : Professeur de maths</li>
-                        <li>Tony : Professeur de maths/info</li>
-                        <li>Alain : Professeur de maths</li>
-                        <li>Cyril : Professeur de Physique</li>
-                        <li>Cathy : Professeur d'anglais</li>
-                        <li>Martine : Professeur de bio, responsable des étudiants</li>
-                        <li>Cécile : Gestion des Professeurs et emplois du temps (fait aussi un cours de traitement de l'eau)</li>
-                        <li>Sabrina : À l'administration : La sauveuse de l'Humanité! </li>
-                        <li>Marie-Ange : Gestion du matériel et du Jazz</li>
-                        <li>Bénédicte : Directrice de l'institut, référence pour le projet professionnels et les bourses.</li>
-                        <li>Franck : Directeur des formations, gestion des projets professionnels des étudiants</li>
-                    </ul>
-                    N'hésitez surtout pas à allez voir les tuteurs !                </div>
-            </div>
-
-    <br><br/>
-
-            <div class="topnav2" id="headingFive">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
-                        Se connecter au WiFi
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                <div class="card-body">
-                    Utilisez eduroam :
-                    Utilisateur : " prénom.nom@u-psud.fr "
-                    Mot de passe : Votre mot de passe du compte u-psud (sso)
-                    en ajoutant le @u-psud.fr à votre
-                    nom d'utilisateur, cela vous permettra
-                    de vous connecter à eduroam partout dans le monde,
-                    c'est surprenant quand ton téléphone se met à vibrer comme un
-                    dingue à Londres parce que tu est passé devant une université lambda!
-                </div>
-       Si vous voulez plus d'information sur ce sujet, n'hésitez pas à aller voir le site crée par l'un des étudiants de l'institut qui vous donnera plus de détails sur ses sujets !
-        <a href="https://paris-ci.github.io/FAQ-L1/vos-etudes" target="_blank">Cliquez ici ! </a>
+    Si vous voulez plus d'information sur ce sujet, n'hésitez pas à aller voir le site crée par l'un des étudiants de l'institut qui vous donnera plus de détails sur ses sujets !
+    <a href="https://paris-ci.github.io/FAQ-L1/vos-etudes" target="_blank">Cliquez ici ! </a>
     </div>
-        </div>
 
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight){
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
 
 {% endblock %}
+
+
+{% comment %}
+<div id="accordion">
+    <div class="card">
+        <div class="topnav2" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Qui vais-je voir si j'ai un problème ?
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <ul>
+                    <li>Organisation : Martine</li>
+                    <li>Matériel : Sabrina/Marie-Ange</li>
+                    <li>Relationnel : Martine</li>
+                    <li>Compréhension : Tes potes, des L2/L3, le prof</li>
+                    <li>Personnel : Catherine</li>
+                    <li>Avec mon ordi : Cécile, Sabrina ou le responsable de promo si il existe</li>
+                    <li>Avec le décompte des heures de Jazz : Marie-Ange</li>
+                    <li>En bio : le prof</li>
+                    <li>En chimie : RIP (sinon les anciens STL de ta classe, ils sont bons en bio et chimie)</li>
+                    <li>En ingé : Les anciens STI2D/S-SI</li>
+                    <li>En physique : Rien à faire :(</li>
+                    <li>Général : <strong>Les tuteurs polytechniciens</strong>. Ils savent tout, mais il faut aller leur demander!</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="topnav2" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Comment imprimer quelque chose ?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                Après avoir préparé une clé USB avec le PDF que tu veux imprimer :
+                <ul>
+                    <li>Méthode 1 : Aller voir Sabrina et lui demander gentiment, mais c'est vraiment pas sur que ca marche.</li>
+                    <li>Méthode 2 : Aller trouver une feuille blanche (L'institut n'en donne plus, il te faudra une ramette de feuilles dans le casier, sinon il va falloir aller gratter chez les autres), brancher ta clé USB ou ton ordi à l'imprimante vers le fond de l'institut (Après la INFO3)</li>
+                    <li>Méthode 3 : Direction BU</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="topnav2" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    La bibliothèque universitaire ?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                Il y a une biliothéque juste à quelque pas de l'institut (à moins d'une minute du Restaurant Universitaire), vous y trouverez toute la documentation nécéssaire pour vos études (vous pouvez aussi y réviser là bas)
+            </div>
+        </div>
+        <div class="topnav2" id="headingFour">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    Les prénoms super utiles
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+                <ul>
+                    <li>Jeanne : Professeur de maths</li>
+                    <li>Jean : Professeur de maths</li>
+                    <li>Tony : Professeur de maths/info</li>
+                    <li>Alain : Professeur de maths</li>
+                    <li>Cyril : Professeur de Physique</li>
+                    <li>Cathy : Professeur d'anglais</li>
+                    <li>Martine : Professeur de bio, responsable des étudiants</li>
+                    <li>Cécile : Gestion des Professeurs et emplois du temps (fait aussi un cours de traitement de l'eau)</li>
+                    <li>Sabrina : À l'administration : La sauveuse de l'Humanité! </li>
+                    <li>Marie-Ange : Gestion du matériel et du Jazz</li>
+                    <li>Bénédicte : Directrice de l'institut, référence pour le projet professionnels et les bourses.</li>
+                    <li>Franck : Directeur des formations, gestion des projets professionnels des étudiants</li>
+                </ul>
+                N'hésitez surtout pas à allez voir les tuteurs !                </div>
+        </div>
+
+        <br><br/>
+
+        <div class="topnav2" id="headingFive">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                    Se connecter au WiFi
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body">
+                Utilisez eduroam :
+                Utilisateur : " prénom.nom@u-psud.fr "
+                Mot de passe : Votre mot de passe du compte u-psud (sso)
+                en ajoutant le @u-psud.fr à votre
+                nom d'utilisateur, cela vous permettra
+                de vous connecter à eduroam partout dans le monde,
+                c'est surprenant quand ton téléphone se met à vibrer comme un
+                dingue à Londres parce que tu est passé devant une université lambda!
+            </div>
+            Si vous voulez plus d'information sur ce sujet, n'hésitez pas à aller voir le site crée par l'un des étudiants de l'institut qui vous donnera plus de détails sur ses sujets !
+            <a href="https://paris-ci.github.io/FAQ-L1/vos-etudes" target="_blank">Cliquez ici ! </a>
+        </div>
+    </div>
+    {% endcomment %}

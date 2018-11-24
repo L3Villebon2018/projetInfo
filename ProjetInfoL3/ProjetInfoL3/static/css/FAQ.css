@@ -5,59 +5,47 @@
 }
 
 
-.header h1 {
-    font-size: 50px;
-}
-
-.topnav1 {
-    margin-left: 1000px;
-    overflow: hidden;
-    background-color: #ffd966ff;
-}
-
-.topnav2 {
-    overflow: hidden;
-    background-color: #c9daf8ff;
-}
-
-.topnav3 {
-    overflow: hidden;
-    background-color: #e06666ff;
-}
-
-.topnav4 {
-    overflow: hidden;
-    background-color: #6aa84fff;
-}
-
-h4 {
-    color: lightskyblue;
-}
-
-
-
-.leftcolumn {
-    float: left;
-    width: 75%;
-}
-
 .card {
     background-color: white;
     padding: 20px;
     margin-top: 20px;
 }
 
-.footer_comments{
-    display: flex;
-    justify-content: center;
-    padding:1%;
+
+
+ .accordion {
+     background-color: #eee;
+     color: #444;
+     cursor: pointer;
+     padding: 18px;
+     width: 100%;
+     border: none;
+     text-align: left;
+     outline: none;
+     font-size: 15px;
+     transition: 0.4s;
+ }
+
+.active, .accordion:hover {
+    background-color: #ccc;
 }
 
-.btn {
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
 }
 
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}

@@ -1,18 +1,20 @@
 {% extends 'FAQ/base_FAQ.html' %}
 {% load static %}
+{% load bootstrap4 %}
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/FAQ.css' %}" />
 
     <header>
         <div class="header">
             <h1><font color="#6AA84F">Infos utiles</font></h1>
         </div>
     </header>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% comment %}    <div class="topnav">
-        <h4><font color="#BCE4E4">Les sites officiels (de l'université)</font></h4>
-    </div>
+    </head>
     <div class="card">
+    <button class="accordion">Les sites officiels (de l'université)</button>
+    <div class="panel">
         <ul>
             <li>Dokeos, là où tous les profs déposent des documents : <a href="http://formation.u-psud.fr/">http://formation.u-psud.fr/</a></li>
             <li>Zimbra, où récuperer vos mails u-psud (si vous ne les envoyez pas automatiquement sur votre mail perso) : <a href="https://zimbra.u-psud.fr/">https://zimbra.u-psud.fr/</a></li>
@@ -20,22 +22,16 @@
         </ul>
     </div>
 
-    <div class="topnav">
-        <h4><font color="#BCE4E4">Pour les devoirs</font></h4>
-    </div>
-    <div class="card">
-
+    <button class="accordion">Pour les devoirs</button>
+    <div class="panel">
         <ul>
             <li><a href="https://www.wolframalpha.com/">Wolfram|Alpha</a> vous permet de calculer des formules compliquées et vous donne parfois des solutions étapes par étapes. Vous pouvez aussi utiliser <a href="https://www.symbolab.com/">Symbolab</a></li>
             <li>Un bon correcteur (payant) serait Antidote, sinon utilisez <a href="https://www.grammarly.com/">Grammarly (anglais)</a> ou <a href="https://bonpatron.com/">Bon Patron (français)</a></li>
             <li>Tant que l'on est dans les langues, pour traduire Francais &lt;-&gt;  Anglais, le meilleur traducteur disponible est <a href="https://www.deepl.com/translator">DeepL</a>. Il marche super bien pour les articles scientifiques, mais aussi pour les devoirs d'anglais.</li>
-        </ul>
-    </div>
+        </ul>    </div>
 
-    <div class="topnav">
-        <h4><font color="#BCE4E4">Pour les gens qui prennent des notes sur leur ordi</font></h4>
-    </div>
-    <div class="card">
+    <button class="accordion"> Pour les étudiants prennant des notes sur leurs ordi</button>
+    <div class="panel">
         <ul>
             <li>Au moins au début, créez-vous une session séparée sur votre ordi où vous n'êtes pas connecté à vos sites distracteurs préférés (Facebook, Discord, Messenger, Gmail, ...) : beaucoup moins de risques de divaguer
             </li>
@@ -43,9 +39,33 @@
             </li>
             <li>A moins que vous soyez très bon en LaTeX, oubliez la prise de notes sur ordi en maths
             </li>
-        </ul>
-    </div>{% endcomment %}
+        </ul>    </div>
+<br><br/>
+    Si vous voulez plus d'information sur ce sujet, n'hésitez pas à aller voir le site crée par l'un des étudiants de l'institut qui vous donnera plus de détails sur ses sujets !
+    <a href="https://paris-ci.github.io/FAQ-L1/vos-etudes" target="_blank">Cliquez ici ! </a>
+    </div>
 
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+{% endblock %}
+
+
+{% comment %}
     <div id="accordion">
         <div class="card">
             <div class="topnav4" id="headingTwo">
@@ -55,7 +75,6 @@
                     </button>
                 </h5>
             </div>
-
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                     <ul>
@@ -66,8 +85,6 @@
                 </div>
             </div>
 
-            <br><br/>
-
             <div class="topnav4" id="headingThree">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
@@ -75,8 +92,6 @@
                     </button>
                 </h5>
             </div>
-
-            <br><br/>
 
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
@@ -88,6 +103,7 @@
                 </div>
             </div>
 
+
             <div class="topnav4" id="headingFour">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
@@ -95,8 +111,6 @@
                     </button>
                 </h5>
             </div>
-
-            <br><br/>
 
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div class="card-body">
@@ -115,4 +129,4 @@
        Si vous voulez plus d'information sur ce sujet, n'hésitez pas à aller voir le site crée par l'un des étudiants de l'institut qui vous donnera plus de détails sur ses sujets !
         <a href="https://paris-ci.github.io/FAQ-L1/vos-etudes" target="_blank">Cliquez ici ! </a>
     </div>
-{% endblock %}
+{% endcomment %}
