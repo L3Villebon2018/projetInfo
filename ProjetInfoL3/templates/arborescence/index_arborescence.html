@@ -16,25 +16,25 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {% for promo, etudiants in etudiants_dict.items %}
-                        <a class="dropdown-item" href="{% url "profil-promo" promo_id=promo.id %}">Promo {{ promo.nom }}</a>
+                        <a class="dropdown-item" href="arborescence?promo={{promo.id}}"> Promo {{ promo.nom }}</a>
                         {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="grid-item">
                 <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         formation
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {% for formation in formations %}
-                        <a class="dropdown-item" href="#">{{ formation.nom }}</a>
+                        <a class="dropdown-item" href="arborescence?formation={{formation.id}}">{{ formation.nom }}</a>
                         {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="grid-item">
-                <button type="button" class="btn btn-primary">Filtrer</button>
+                <a class="btn btn-primary" href="arborescence" role="button">Supprimer les filtres</a>
             </div>
         </form>
     </header>
