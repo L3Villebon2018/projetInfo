@@ -2,11 +2,10 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}"/>
 {% endblock %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
     <header>
         <form class="grid-container" id="boutons_haut">
             <div class="grid-item">
@@ -39,39 +38,34 @@
         </form>
     </header>
 
-    {% for promo, etudiants in etudiants_dict.items %}
+{% for promo, etudiants in etudiants_dict.items %}
 
-    <div class="div-promo div-promo-{{ promo.couleur }}">
-        <h3>
-            <a href="{% url "profil-promo" promo_id=promo.id %}">
-                Promo {{ promo.nom }}
-            </a>
-        </h3>
-        <ul class="flex-container">
-            {% for etudiant in etudiants %}
-            <li class="flex-item">
-                <div class="niveau1">
-                    <p>
-                        <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
-                            {% if etudiant.photo %}
-                            <img src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60" />
-                            {% else %}
-                            <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60" />
-                            {% endif %}
-                        </a>
-                    </p>
-                    <p>
-                        <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
-                    </p>
-                </div>
-            </li>
-            {% endfor %}
-    </div>
-    {% endfor %}
-{% else %}
-    <section class="center">
-            Connectez vous pour accéder à ce contenu
-    </section>
-{% endif %}
+<div class="div-promo div-promo-{{ promo.couleur }}">
+    <h3>
+        <a href="{% url "profil-promo" promo_id=promo.id %}"> 
+            Promo {{ promo.nom }}
+        </a>
+    </h3>
+    <ul class="flex-container">
+        {% for etudiant in etudiants %}
+        <li class="flex-item">
+            <div class="niveau1">
+                <p>
+                    <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
+                        {% if etudiant.photo %}
+                            <img src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60"/>
+                        {% else %}
+                            <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60"/>
+                        {% endif %}
+                    </a>
+                </p>
+                <p>
+                    <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">{{ etudiant.nom }} {{ etudiant.prenom }}</a>
+                </p>
+            </div>
+        </li>
+        {% endfor %}
+</div>
+{% endfor %}
 
 {% endblock %}
