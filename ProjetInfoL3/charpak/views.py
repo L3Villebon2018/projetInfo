@@ -19,7 +19,7 @@ def index(request):
 
     return render(request, 'public/index.html', {'derniers_posts': derniers_posts})
 
-
+@login_required()
 def index_arborescence(request):
     formation = request.GET.get('formation', None)
     promo = request.GET.get('promo', None)
