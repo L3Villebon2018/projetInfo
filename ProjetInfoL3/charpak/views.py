@@ -45,6 +45,7 @@ def index_arborescence(request):
                   {'etudiants_dict': etudiants, 'formations': formations})
 
 
+@login_required()
 def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
