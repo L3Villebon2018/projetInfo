@@ -1,0 +1,79 @@
+﻿.top {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-promo {
+    border-top-color: black;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+    .div-promo a {
+        color: black;
+    }
+
+.div-promo-bleu {
+    background-color: rgba(28, 69, 139, 0.5);
+}
+
+.div-promo-rouge {
+    background-color: rgba(224, 102, 102, 0.75);
+}
+
+.div-promo-jaune {
+    background-color: rgba(255, 217, 102, 0.75);
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.flex-item {
+    padding: 5px;
+    width: 130px;
+    height: 130px;
+    margin-top: 0px;
+    padding-top: 3px;
+    line-height: 150px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    color: black;
+}
+
+.hover {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 10px;
+    left: 120px;
+    background-color: white;
+    z-index: 20;
+    text-align: center;
+    font-size: 13px;
+}
+
+.niveau2 {
+    display: none;
+}
+
+.niveau1:hover .niveau2 {
+    display: block;
+}
+
+.niveau1:hover {
+    background-color: white;
+}
