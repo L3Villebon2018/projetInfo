@@ -11,113 +11,77 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            div.gallery {
+                border: 1px solid #ccc;
+            }
+
+            div.gallery:hover {
+                border: 1px solid #777;
+            }
+
+            div.gallery img {
+                width: 100%;
+                height: auto;
+            }
+
+            div.desc {
+                padding: 15px;
+                text-align: center;
+            }
+
             * {
                 box-sizing: border-box;
             }
 
-            body {
-                margin: 0;
-            }
-
-            /* The grid: Four equal columns that floats next to each other */
-            .column {
+            .responsive {
+                padding: 0 6px;
                 float: left;
-                width: 25%;
-                padding: 10px;
+                width: 24.99999%;
             }
 
-            /* Style the images inside the grid */
-            .column img {
-                opacity: 0.8;
-                cursor: pointer;
+            @media only screen and (max-width: 700px) {
+                .responsive {
+                    width: 49.99999%;
+                    margin: 6px 0;
+                }
             }
 
-            .column img:hover {
-                opacity: 1;
+            @media only screen and (max-width: 500px) {
+                .responsive {
+                    width: 100%;
+                }
             }
 
-            /* Clear floats after the columns */
-            .row:after {
+            .clearfix:after {
                 content: "";
                 display: table;
                 clear: both;
             }
-
-            /* The expanding image container */
-            .container {
-                position: relative;
-                display: none;
-            }
-
-            /* Expanding image text */
-            #imgtext {
-                position: absolute;
-                bottom: 15px;
-                left: 15px;
-                color: white;
-                font-size: 20px;
-            }
-
-            /* Closable button inside the expanded image */
-            .closebtn {
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                color: white;
-                font-size: 35px;
-                cursor: pointer;
-            }
         </style>
     </head>
     <body>
-
-    <!-- The four columns -->
-    <div class="row">
-        <div class="column">
-            <img src="{% static "/images/FA.PNG" %}" alt="Photo de début d'année" style="width:100%" onclick="myFunction(this);"/>
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA.PNG" %}" alt="Forest" style="width:100%" onclick="myFunction(this);"/>
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA.PNG" %}" alt="Forest" style="width:100%" onclick="myFunction(this);"/>
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA.PNG" %}" alt="Forest" style="width:100%" onclick="myFunction(this);"/>
-        </div>
-        <div class="column">
-            <img src="{% static "/images/FA2.PNG" %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
+    <br><br/>
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="{% static "/images/FA.PNG" %}">
+                <img src="{% static "/images/FA.PNG" %}" alt="Cinque Terre" width="600" height="400">
+            </a>
+            <div class="desc">Photo L1-L2-L3 2018</div>
         </div>
     </div>
 
-    <div class="container">
-        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-        <img id="expandedImg" style="width:100%">
-        <div id="imgtext"></div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="{% static "/images/FA2.PNG" %}">
+                <img src="{% static "/images/FA2.PNG" %}" alt="Forest" width="600" height="400">
+            </a>
+            <div class="desc">Photo test</div>
+        </div>
     </div>
 
-    <script>
-        function myFunction(imgs) {
-            var expandImg = document.getElementById("expandedImg");
-            var imgText = document.getElementById("imgtext");
-            expandImg.src = imgs.src;
-            imgText.innerHTML = imgs.alt;
-            expandImg.parentElement.style.display = "block";
-        }
-    </script>
-
+    <div class="clearfix"></div>
     </body>
     </html>
-
 {% endblock %}
