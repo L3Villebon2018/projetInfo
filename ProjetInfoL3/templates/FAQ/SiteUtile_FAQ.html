@@ -1,0 +1,19 @@
+{% extends 'FAQ/base_FAQ.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+
+<header>
+    <div class="header">
+        <h1>Sites utiles</h1>
+    </div>
+</header>
+    <P style="text-align:center">Vous pouvez trouver ici quelques outils/sites interessant qui pourront vous aider lors de ses trois années ! </P>
+    <P style="text-align:center"> Si vous voulez plus de détail je vous recommande l'excellement pdf fait par des étudiants de l'institut ci-dessous </P>
+    <a href="/static/starter-kit-institut.pdf" download>
+        <P style="text-align:center"><img src="{% static "/images/imageDossier.png" %}" width="150" height="100" align="center"></P>
+    </a>
+
+
+
+{% endblock %}

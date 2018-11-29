@@ -95,6 +95,9 @@ def info_FAQ(request):
 def extra_FAQ(request):
     return render(request, 'FAQ/extra_FAQ.html')
 
+def SiteUtile_FAQ(request):
+    return render(request, 'FAQ/SiteUtile_FAQ.html')
+
 
 def index_Photo(request):
     return render(request, 'Photo/index_Photo.html')
