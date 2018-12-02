@@ -30,7 +30,7 @@
         <br>
 <div class="tout">
     <div>
-        <div class="a_propos"><h3>A propos</h3>
+        <div class="mise_en_page"><h3>A propos</h3>
             <p>
             {% if etudiant.email %}
                 Email : {{etudiant.email}}
@@ -79,6 +79,7 @@
     </div>
     <div class="trophes">
             <h3>Trophés</h3>
+            <br>
             {% if etudiant.promo.icone %}
                 <img src="{{etudiant.promo.icone.url}}" alt="image de profil" width="300" height="150" />
             <br>

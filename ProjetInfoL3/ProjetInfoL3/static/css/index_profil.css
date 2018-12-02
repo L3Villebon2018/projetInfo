@@ -10,9 +10,20 @@ p{
 h1,h3{
     font-family: 'Poppins', sans-serif;
 }
-.a_propos{
+h2{
+    padding: 10px;
+}
+.mise_en_page{
     border-radius: 10px;
-    margin-left: 5%;
+    padding: 15px;
+    border-style: ridge;
+    border-width: 2px;
+    background-color: #eeeeee;
+    width: auto;
+    
+}
+.information_sup{
+    border-radius: 10px;
     padding: 15px;
     border-style: ridge;
     border-width: 2px;
@@ -23,21 +34,12 @@ h1,h3{
 .tout{
     flex-shrink: initial;
     display: flex;
+    justify-content: space-evenly;
 }
-.information_sup{
-    border-radius: 10px;
-    margin-left: 5%;
-    padding: 15px;
-    border-style: ridge;
-    border-width: 2px;
-    background-color: #eeeeee;
-    width: auto;
 
-}
 .trophes{
+    min-width: 25%;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: 5%;
     padding: 15px;
     border-style: ridge;
     border-width: 2px;
@@ -45,6 +47,11 @@ h1,h3{
     width: auto;
 }
 
+.div-promo{
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+}
 .div-promo a {
     color: black;
     align-items: center;
@@ -54,21 +61,11 @@ h1,h3{
 
 .div-promo-bleu {
     background-color: rgba(28, 69, 139, 0.5);
-    align-items: center;
-    display: flex;
-    justify-content:space-between;
 }
-
 .div-promo-rouge {
     background-color: rgba(224, 102, 102, 0.75);
-    align-items: center;
-    display: flex;
-    justify-content:space-between;
-}
 
+}
 .div-promo-jaune {
     background-color: rgba(255, 217, 102, 0.75);
-    align-items: center;
-    display: flex;
-    justify-content:space-between;
 }
