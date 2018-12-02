@@ -1,25 +1,20 @@
-﻿.grid-container {
-    display: grid;
-    grid-template-columns: 10% 10% 20% 20%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.grid-item {
-    padding-left: 10%;
+﻿.top {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .div-promo {
-    border-top-color : black;
+    border-top-color: black;
     margin-top: 0px;
     padding-top: 0px;
     padding-left: 30px;
     padding-bottom: 30px;
 }
 
-.div-promo a {
-    color: black;
-}
+    .div-promo a {
+        color: black;
+    }
 
 .div-promo-bleu {
     background-color: rgba(28, 69, 139, 0.5);
@@ -32,13 +27,6 @@
 .div-promo-jaune {
     background-color: rgba(255, 217, 102, 0.75);
 }
-
-h3 {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight:bold;
-    text-align:center;
-}
-
 
 .flex-container {
     padding: 0;
@@ -64,7 +52,6 @@ h3 {
     font-size: 13px;
     text-align: center;
     color: black;
-
 }
 
 .hover {

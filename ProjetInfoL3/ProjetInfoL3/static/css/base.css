@@ -101,8 +101,15 @@ ul ul a {
 }
 
 .content{
-    margin-left: 200px;
+    margin-left: 12rem;
+    margin-right: 2.5rem;
     width: 100%;
+    background: white;
+}
+
+.content.active{
+    margin-left: 0;
+    margin-right: 2.5rem;
     background: white;
 }
 
@@ -330,9 +337,22 @@ a, a:hover, a:focus {
 
 }
 
-
 .btn-info:hover {
     color: white;
     background-color: black;
     border-color: #fff;
+}
+
+.form-control {
+    display: block;
+    width: 80%;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

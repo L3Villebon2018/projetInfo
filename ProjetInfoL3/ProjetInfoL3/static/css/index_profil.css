@@ -47,10 +47,11 @@ h2{
     width: auto;
 }
 
-.div-promo{
+
+.div-promo {
     align-items: center;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 .div-promo a {
     color: black;
@@ -64,6 +65,7 @@ h2{
 }
 .div-promo-rouge {
     background-color: rgba(224, 102, 102, 0.75);
+}
 
 }
 .div-promo-jaune {
