@@ -256,18 +256,27 @@ class BaseRecherche:
 class EtudiantRecherche(BaseRecherche):
     def found(self, query) -> Union[Etudiant, None]:
         res = Etudiant.objects.filter(nom__icontains=query.lower()).first()
-        print("Res:" + str(res))
-
         return res
 
     def url(self, result):
         return reverse('profil-etudiant', kwargs={"etudiant_id": result.id})
 
+
+class PromoRecherche(BaseRecherche):
+    def found(self, query) -> Union[Promo, None]:
+        res = Promo.objects.filter(nom=query.lower()).first()
+
+        return res
+
+    def url(self, result):
+        return reverse('profil-promo', kwargs={"promo_id": result.id})
+
+
 def rechercher(request):
     terme = request.POST.get("terme")
     print("terme : ", terme)
     if terme:
-        moteurs = [EtudiantRecherche()]
+        moteurs = [EtudiantRecherche(), PromoRecherche()]
         result = False
         while not result and len(moteurs) >= 1:
             moteur = moteurs.pop()

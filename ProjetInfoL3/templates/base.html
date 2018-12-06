@@ -61,7 +61,7 @@
                 {% csrf_token %}
                     <input class="form-control mr-sm-2"
                            type="search"
-                           placeholder="Rechercher un étudiant"
+                           placeholder="Rechercher"
                            name="terme"
                            aria-label="Search">
                     <button class="btn btn-primary my-2 my-sm-0"
@@ -70,7 +70,6 @@
             </form>
             <div class="collapse navbar-collapse"
                  id="navbarSupportedContent">
-
             <span id="connexion"
                   class="navbar-text">
 {% if user.is_authenticated %}
