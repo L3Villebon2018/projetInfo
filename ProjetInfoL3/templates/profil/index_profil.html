@@ -31,35 +31,34 @@
 <div class="tout">
     <div>
         <div class="mise_en_page"><h3>A propos</h3>
-            <p>
             {% if etudiant.email %}
-                Email : {{etudiant.email}}
+            <i class="far fa-envelope fa-fw"> </i> Email : {{etudiant.email}}
             {% else %}
-                Email : Non renseigné
+            <i class="far fa-envelope fa-fw"></i> Email : Non renseigné
             {% endif %}
             <br>
             {% if etudiant.telephone %}
-                Numéro de teléphone : {{etudiant.telephone}}
+            <i class="fas fa-mobile-alt fa-fw"></i> Numéro de teléphone : {{etudiant.telephone}}
             {% else %}
-                Numéro de teléphone : Non renseigné
+            <i class="fas fa-mobile-alt fa-fw"></i> Numéro de teléphone : Non renseigné
             {% endif %}
             <br>
             {% if etudiant.parrain %}
-                <a href="{% url 'profil-etudiant' etudiant_id=etudiant.parrain.id %}">Parrain : <t>{{etudiant.parrain}}</t></a>
+            <i class="fas fa-users fa-fw"></i> <a href="{% url 'profil-etudiant' etudiant_id=etudiant.parrain.id %}">Parrain : <t>{{etudiant.parrain}}</t></a>
             {% else %}
-                Parrain : Non renseigné
+            <i class="fas fa-users fa-fw"></i> Parrain : Non renseigné
             {% endif %}
             <br>
             {% if etudiant.profil_bac %}
-                Profil Bac : {{etudiant.profil_bac}}
+            <i class="fas fa-graduation-cap fa-fw"></i> Profil Bac : {{etudiant.profil_bac}}
             {% else %}
-                Profil Bac : Non renseigné
+            <i class="fas fa-graduation-cap fa-fw"></i> Profil Bac : Non renseigné
             {% endif %}
             <br>
             {% if etudiant.formation %}
-                Formation : {{etudiant.formation}}
+            <i class="fas fa-user-graduate fa-fw"></i> Formation : {{etudiant.formation}}
             {% else %}
-                Formation : Non renseigné
+            <i class="fas fa-user-graduate fa-fw"></i> Formation : Non renseigné
             {% endif %}
             <br>
             </p>
@@ -78,7 +77,7 @@
         </div>
     </div>
     <div class="trophes">
-            <h3>Trophés</h3>
+            <center><h3><i class="fas fa-trophy"></i> Trophés</h3></center>
             <br>
             {% if etudiant.promo.icone %}
                 <img src="{{etudiant.promo.icone.url}}" alt="image de profil" width="300" height="150" />

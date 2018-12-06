@@ -25,7 +25,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" style="margin: 2%" class="btn btn-outline-dark">Sauvegarder</button>
+                <button type="submit" style="margin: 2%" class="btn btn-outline-dark"> <i class="far fa-save"></i> Sauvegarder</button>
             </form>
         </div>
     {%else%}
