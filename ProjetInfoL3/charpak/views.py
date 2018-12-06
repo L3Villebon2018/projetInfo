@@ -1,3 +1,5 @@
+from typing import Union
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -18,6 +20,7 @@ def index(request):
     derniers_posts = PostFilActu.objects.filter(supprime=False).all()[:5]
 
     return render(request, 'public/index.html', {'derniers_posts': derniers_posts})
+
 
 @login_required()
 def index_arborescence(request):
@@ -50,13 +53,14 @@ def index_profil(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     return render(request, 'profil/index_profil.html', {'etudiant': etudiant})
 
+
 @login_required()
-def index_modifier(request,etudiant_id):
+def index_modifier(request, etudiant_id):
     etudiant = get_object_or_404(Etudiant, pk=etudiant_id)
     parrains = Etudiant.objects.filter(promo=etudiant.promo.promo_parrains).all()
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = index_modifierForm(request.POST,request.FILES, instance=etudiant)
+        form = index_modifierForm(request.POST, request.FILES, instance=etudiant)
         form.fields["parrain"].queryset = parrains
         # check whether it's valid:
         if form.is_valid():
@@ -74,7 +78,6 @@ def index_modifier(request,etudiant_id):
         form.fields["parrain"].queryset = parrains
 
     return render(request, 'profil/index_modifier.html', {'etudiant': etudiant, 'form': form})
-
 
 
 def index_promo(request, promo_id):
@@ -96,6 +99,7 @@ def info_FAQ(request):
 
 def extra_FAQ(request):
     return render(request, 'FAQ/extra_FAQ.html')
+
 
 def SiteUtile_FAQ(request):
     return render(request, 'FAQ/SiteUtile_FAQ.html')
@@ -239,3 +243,36 @@ def modif_commentaire(request, post_id, commentaire_id):
     else:
         form = FilActu_CommentsForm(instance=commentaire)
     return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post, "modif": modif})
+
+
+class BaseRecherche:
+    def found(self, query) -> object:
+        pass
+
+    def url(self, result) -> str:
+        pass
+
+
+class EtudiantRecherche(BaseRecherche):
+    def found(self, query) -> Union[Etudiant, None]:
+        res = Etudiant.objects.filter(nom__icontains=query.lower()).first()
+        print("Res:" + str(res))
+
+        return res
+
+    def url(self, result):
+        return reverse('profil-etudiant', kwargs={"etudiant_id": result.id})
+
+def rechercher(request):
+    terme = request.POST.get("terme")
+    print("terme : ", terme)
+    if terme:
+        moteurs = [EtudiantRecherche()]
+        result = False
+        while not result and len(moteurs) >= 1:
+            moteur = moteurs.pop()
+            res = moteur.found(terme)
+            if res:
+                return HttpResponseRedirect(moteur.url(res))
+
+    return HttpResponseRedirect('/')
