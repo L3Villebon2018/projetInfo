@@ -89,7 +89,7 @@ class PostFilActu(models.Model):
     CHOIX_COULEURS = (
         ('rouge', 'Administration'),
         ('jaune', 'BDE'),
-        ('vert', 'Public'),
+        ('violet', 'Divers'),
     )
 
     supprime = models.BooleanField(default=False)
