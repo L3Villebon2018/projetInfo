@@ -9,7 +9,9 @@
     display: flex;
     justify-content:space-between;
 }
-
+h2{
+    padding: 10px;
+}
 .div-promo-bleu {
     background-color: rgba(28, 69, 139, 0.5);
 }

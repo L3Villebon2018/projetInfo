@@ -102,10 +102,11 @@ ul ul a {
 
 .content{
     margin-left: 12rem;
-    margin-right: 2.5rem;
+    margin-right: 0rem;
     width: 100%;
     background: white;
 }
+
 
 .content.active{
     margin-left: 0;
