@@ -1,11 +1,22 @@
 {%extends 'fil_actu/base_fil_actu.html' %}
-{% block title %}
-    Fil d'actualité
-{% endblock %}
 {% load bootstrap4 %}
 {% block sous_content %}
     <div class="position">
-        <a class="btn btn-warning btn-lg" href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank">Ajouter un Post</a>
+        <div class='bouton_post'>
+            <a class="btn btn-secondary btn-sm " href="{% url 'fil-actu-nouveau-post' %}" role="button" target="_blank"> <i class="fas fa-plus"></i> Poster</a>
+        </div>
+        <div class='bouton_post'>
+            <div class="dropdown show">
+                <a class="btn dropdown-toggle btn-secondary btn-sm" href="#" role="button" id="dropdownMenuLink"  data-toggle="dropdown"  >
+                    Trier par :
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {% for couleur,theme in dict_final.items%}
+                        <a class="dropdown-item" href={% url 'fil-actu-index' %}?trier_par={{ couleur }}>Posts {{theme}} </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
     {% for post in posts reversed %}
         <section class="big_tab_container" id="post-{{ post.id }}" >
@@ -53,7 +64,7 @@
                     {%  if post.commentaires_visibles|length == 0 %}
                         <p class="postInfo">Aucun commentaire pour le moment</p>
                     {%  else %}
-                        {% for commentaire in post.commentaires_visibles reversed %}
+                        {% for commentaire in post.commentaires_visibles|reversed %}
                             {%  if  not commentaire.supprime%}
                                 <section class="commentaire">
                                     {%  if user == commentaire.auteur %}
