@@ -82,14 +82,14 @@ class Etudiant(models.Model):
 
 class PostFilActu(models.Model):
     CHOIX_COULEURS = (
-        ('bleu', 'Promo'),
         ('rouge', 'Administration'),
         ('jaune', 'BDE'),
         ('vert', 'Public'),
-        ('violet', 'Divers')
     )
 
     supprime = models.BooleanField(default=False)
+    prive = models.BooleanField(default=False)
+
 
     auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True,
                                related_name='posts')
