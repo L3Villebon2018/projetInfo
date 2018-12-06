@@ -26,6 +26,11 @@ class Promo(models.Model):
         B = A.timetuple()
         return 4 + B[0] - int(self.nom)
 
+    @property
+    def promo_parrains(self):
+        return Promo.objects.filter(nom=str(int(self.nom) - 1)).first()
+
+
 
 class Ecole(models.Model):
     nom = models.CharField(max_length=150)
