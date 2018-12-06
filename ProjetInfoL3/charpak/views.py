@@ -239,4 +239,3 @@ def modif_commentaire(request, post_id, commentaire_id):
     else:
         form = FilActu_CommentsForm(instance=commentaire)
     return render(request, 'fil_actu/nouveau_commentaire.html', {'form': form, "post": post, "modif": modif})
-
