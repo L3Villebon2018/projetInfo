@@ -3,12 +3,23 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/arborescence.css' %}" />
-<script src="{% static 'js/chosen.jquery.min.js' %}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/chosen-js@1.8.7/chosen.jquery.min.js" integrity="sha256-c4gVE6fn+JRKMRvqjoDp+tlG4laudNYrXI1GncbfAYY=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chosen-js@1.8.7/chosen.css" integrity="sha256-0LjJurLJoa1jcHaRwMDnX2EQ8VpgpUMFT/4i+TEtLyc=" crossorigin="anonymous"/>
 {% endblock %}
 
 {% block content %}
 <header>
     <form class="grid-container" id="boutons_haut">
+        <div class="grid-item">
+            <select data-placeholder="Choose a Country..." class="chosen-select" multiple=""tabindex="-1" style="display: none;">
+                <option value=""></option>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Aland Islands">Aland Islands</option>
+                <option value="Albania">Albania</option>
+            </select>
+        </div>
         <div class="grid-item">
             <div class="dropdown show">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,7 +48,7 @@
             filtre actuel :
         </div>
         <div class="grid-item">
-            <a class="btn btn-primary" href="arborescence" role="button">Supprimer les filtres</a>
+            <a class="btn btn-primary" href="arborescence" role="button"> <i class="fas fa-user-times"></i>  Supprimer les filtres</a>
         </div>
     </form>
 </header>
@@ -47,7 +58,7 @@
 <div class="div-promo div-promo-{{ promo.couleur }}">
     <h3>
         <a href="{% url "profil-promo" promo_id=promo.id %}">
-            Promo {{ promo.nom }}
+            - Promo {{ promo.nom }} -
         </a>
     </h3>
     <ul class="flex-container">
@@ -57,9 +68,9 @@
                 <p>
                     <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
                         {% if etudiant.photo %}
-                        <img src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60" />
+                        <img  src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60" style="border-radius:40%; border:1px solid black; margin-top: 3px"/>
                         {% else %}
-                        <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60" />
+                        <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60" style="border-radius:40%; border:1px solid black; margin-top: 3px"/>
                         {% endif %}
                     </a>
                 </p>
@@ -69,10 +80,14 @@
             </div>
         </li>
         {% endfor %}
+    </ul>
 </div>
 {% endfor %}
 
 <script>
-    $(".chosen-select").chosen()
+    $(document).ready(function {
+        $(".chosen-select").chosen()
+    })
+    
 </script>
 {% endblock %}

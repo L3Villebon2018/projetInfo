@@ -1,6 +1,6 @@
 ﻿.grid-container {
     display: grid;
-    grid-template-columns: 10% 10% 20% 20%;
+    grid-template-columns: 10% 10% 10% 20% 20%;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -10,11 +10,11 @@
 }
 
 .div-promo {
-    border-top-color : black;
+    border: 5px;
     margin-top: 0px;
-    padding-top: 0px;
+    padding-top: 10px;
     padding-left: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 5px;
 }
 
 .div-promo a {
@@ -34,9 +34,11 @@
 }
 
 h3 {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight:bold;
-    text-align:center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 
@@ -54,23 +56,22 @@ h3 {
 }
 
 .flex-item {
-    padding: 5px;
+    padding: 1px;
     width: 130px;
     height: 130px;
     margin-top: 0px;
-    padding-top: 3px;
-    line-height: 150px;
+    padding-top: 0px;
+    line-height: 50px;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     color: black;
-
 }
 
 .hover {
     position: absolute;
-    width: 200px;
-    height: 100px;
+    width: 130px;
+    height: 200px;
     top: 10px;
     left: 120px;
     background-color: white;
