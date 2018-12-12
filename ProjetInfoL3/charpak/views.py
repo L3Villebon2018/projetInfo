@@ -84,6 +84,8 @@ def index_promo(request, promo_id):
     promo = get_object_or_404(Promo, pk=promo_id)
     return render(request, 'promo/index_promo.html', {'promo': promo})
 
+def index_mentions_legales(request):
+    return render(request, 'info_supplementaires/mentions_legales.html')
 
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')

@@ -1,0 +1,24 @@
+﻿{%extends 'base.html' %}
+{% load bootstrap4 %}
+{%load static%}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mentions_legales.css' %}"/>
+{% endblock %}
+{%block content%}
+<div class="bloc">
+    <h1><i class="fas fa-balance-scale"> </i> <U>Mentions Légales </i> </U></h1>
+    <br>
+    <h3>Éditeurs</h3>
+    <p>Institut Villebon Georges Charpak | Bât 490 – rue Hector Berlioz | 91400 ORSAY</p>
+
+    <h3> Directeur de la publication : <t>Bénédicte Humbert</t></h3>
+    <br>
+    <h3>Propriété intellectuelle</h3>
+    <p>Le contenu du site de l’Institut Villebon – Georges Charpak est couvert par le droit d’auteur sauf mention contraire. La reproduction de tout ou partie de ce contenu nécessite une autorisation du directeur de la publication.</p>
+
+    <h3>Réalisation, hébergement</h3>
+    <p>Le développement du site de l’Institut Villebon – Georges Charpak a été réalisé par des étudiants de 3ème année pour l'UE "Projet Informatique"</p>
+    <h3>Données personnelles</h3>
+    <p>Les informations que vous aurez saisies sur le site de l’Institut Villebon – Georges Charpak  pourront être saisies pour leur traitement par l’Institut Villebon – Georges Charpak.<br>Vous disposez d’un droit d’accès, de modification, de rectification et de suppression concernant les données collectées sur ce site, dans les conditions prévues par la loi n°78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés.</p>
+</div>
+{%endblock%}
