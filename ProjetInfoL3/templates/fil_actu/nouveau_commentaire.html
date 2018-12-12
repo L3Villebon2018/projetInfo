@@ -1,5 +1,9 @@
 {%extends 'fil_actu/base_fil_actu.html' %}
+{% block title %}
+    Ajout d'un commentaire...
+{% endblock %}
 {% load bootstrap4 %}
+
 {% block sous_content %}
     <section class="big_tab_container" id="post-{{ post.id }}" >
         <div class="theme theme-{{ post.couleur }}">
@@ -82,3 +86,4 @@
         </section>
     </section>
 {% endblock %}
+
