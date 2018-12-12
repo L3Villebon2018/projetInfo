@@ -87,6 +87,9 @@ def index_promo(request, promo_id):
 def index_mentions_legales(request):
     return render(request, 'info_supplementaires/mentions_legales.html')
 
+def index_protection_donnees(request):
+    return render(request, 'info_supplementaires/Politiques_protections.html')
+
 def index_FAQ(request):
     return render(request, 'FAQ/index_FAQ.html')
 

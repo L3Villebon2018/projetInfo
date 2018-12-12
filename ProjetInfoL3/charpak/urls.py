@@ -23,5 +23,6 @@ urlpatterns = [
     path('registration/login/', views.index_login, name="login"),
     path('photo/index', views.index_Photo, name="Photo-index"),
     path('recherche', views.rechercher, name="recherche"),
-    path('info_supplementaires/mentions_legales', views.index_mentions_legales, name="Mentions_Legales")
+    path('info_supplementaires/mentions_legales', views.index_mentions_legales, name="Mentions_Legales"),
+    path('info_supplementaires/protection_donnees', views.index_protection_donnees, name="Protection_donnees")
 ]
