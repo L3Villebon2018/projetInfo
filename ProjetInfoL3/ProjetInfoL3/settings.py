@@ -11,6 +11,18 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import netifaces
+
+
+
+def ip_addresses():
+    ip_list = []
+    for interface in netifaces.interfaces():
+        addrs = netifaces.ifaddresses(interface)
+        for x in (netifaces.AF_INET, netifaces.AF_INET6):
+            if x in addrs:
+                ip_list.append(addrs[x][0]['addr'])
+    return ip_list
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,8 +35,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-bt@shvj7=*985wz&@d*w^+$kux6et#zaf-an#qtuzpz8py1iz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+
+ALLOWED_HOSTS = ["charpaknetwork.api-d.com", "localhost", "127.0.0.1"] + ip_addresses()
 
 #ALLOWED_HOSTS = []
 
@@ -77,6 +90,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ProjetInfoL3.wsgi.application'
 
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'logfile': {
+            'level':'INFO',
+            'class':'logging.FileHandler',
+            'filename': BASE_DIR + "/../getbeaned.log",
+        },
+    },
+    'root': {
+        'level': 'DEBUG',
+        'handlers': ['console', 'logfile']
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -143,4 +177,15 @@ FIXTURE_DIRS = (
 HIJACK_USE_BOOTSTRAP = True
 HIJACK_ALLOW_GET_REQUESTS = True
 
-LOGIN_REDIRECT_URL = '/' # TODO: Changer l'URL vers laquelle les utilisateurs sont redirigés au login. Une sorte de *page d'acceuil* serait sympa, a voir :)
+LOGIN_REDIRECT_URL = '/login' # TODO: Changer l'URL vers laquelle les utilisateurs sont redirigés au login. Une sorte de *page d'acceuil* serait sympa, a voir :)
+
+
+# Security
+SECURE_SSL_REDIRECT = False  # Nginx
+SECURE_HSTS_SECONDS = 60
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
