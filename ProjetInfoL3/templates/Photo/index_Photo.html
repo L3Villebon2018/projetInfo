@@ -9,82 +9,34 @@
         </div>
     </header>
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <style>
-            div.gallery {
-                border: 1px solid #ccc;
-            }
-
-            div.gallery:hover {
-                border: 1px solid #777;
-            }
-
-            div.gallery img {
-                width: 100%;
-                height: auto;
-            }
-
-            div.desc {
-                padding: 15px;
-                text-align: center;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            .responsive {
-                padding: 0 6px;
-                float: left;
-                width: 24.99999%;
-            }
-
-            @media only screen and (max-width: 700px) {
-                .responsive {
-                    width: 49.99999%;
-                    margin: 6px 0;
-                }
-            }
-
-            @media only screen and (max-width: 500px) {
-                .responsive {
-                    width: 100%;
-                }
-            }
-
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        </style>
-    </head>
-    <body>
-    <br><br/>
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="{% static "/images/FA.PNG" %}">
-                <img src="{% static "/images/FA.PNG" %}" alt="Cinque Terre" width="600" height="400">
-            </a>
-            <div class="desc">Photo L1-L2-L3 2018</div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+    <div class="w3-row-padding">
+        <div class="w3-container w3-third">
+            <img src="{% static "/images/FA.PNG" %}" style="width:100%;cursor:pointer"
+                 onclick="onClick(this)" class="w3-hover-opacity">
+        </div>
+        <div class="w3-container w3-third">
+            <img src="{% static "/images/FA2.PNG" %}" style="width:100%;cursor:pointer"
+                 onclick="onClick(this)" class="w3-hover-opacity">
         </div>
     </div>
 
-
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="{% static "/images/FA2.PNG" %}">
-                <img src="{% static "/images/FA2.PNG" %}" alt="Forest" width="600" height="400">
-            </a>
-            <div class="desc">Photo test</div>
+    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+        <div class="w3-modal-content w3-animate-zoom">
+            <img id="img01" style="width:100%">
         </div>
     </div>
 
-    <div class="clearfix"></div>
+    <script>
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
+    </script>
 
     </body>
-    </html>
 
 {% endblock %}
