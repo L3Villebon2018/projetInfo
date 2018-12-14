@@ -111,8 +111,8 @@ def index_login(request):
 
 @login_required()
 def index_fil_actu(request):
-    promo = request.user.etudiant.promo
-    posts = PostFilActu.objects.filter(supprime=False, promo_ciblee = promo)
+    promos = request.user.etudiant.promo
+    posts = PostFilActu.objects.filter(supprime=False, promo_ciblee = promos)
     for post in posts:
         print(post.contenu)
     couleur = []
@@ -179,6 +179,8 @@ def nouveau_post_fil_actu(request):
             print(post.prive)
             post.save()
             form.save_m2m()
+            print(post.promo_ciblee.all())
+
 
         # form.save()
             print("PC:" + str(post.promo_ciblee.all()))
