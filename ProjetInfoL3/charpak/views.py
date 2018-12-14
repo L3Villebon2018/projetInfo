@@ -26,6 +26,7 @@ def index(request):
 
 @login_required()
 def index_arborescence(request):
+    logger.debug("chargement de la page du réseau")
     formation = request.GET.get('formation', None)
     promo = request.GET.get('promo', None)
 
