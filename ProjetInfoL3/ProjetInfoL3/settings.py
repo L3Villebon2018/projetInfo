@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import netifaces
-
-
 
 def ip_addresses():
     ip_list = []
@@ -23,6 +20,15 @@ def ip_addresses():
             if x in addrs:
                 ip_list.append(addrs[x][0]['addr'])
     return ip_list
+
+
+try:
+    import netifaces
+    ALLOWED_HOSTS = ["charpaknetwork.api-d.com", "localhost", "127.0.0.1"] + ip_addresses()
+
+except ImportError:
+    ALLOWED_HOSTS = ["charpaknetwork.api-d.com", "localhost", "127.0.0.1"]
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,9 +41,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-bt@shvj7=*985wz&@d*w^+$kux6et#zaf-an#qtuzpz8py1iz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["charpaknetwork.api-d.com", "localhost", "127.0.0.1"] + ip_addresses()
 
 #ALLOWED_HOSTS = []
 
@@ -162,8 +167,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 MEDIA_ROOT = SITE_ROOT + '/media/'
+
 
 STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'static/'),
