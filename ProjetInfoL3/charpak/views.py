@@ -293,6 +293,7 @@ class PostRecherche(BaseRecherche):
 def rechercher(request):
     terme = request.POST.get("terme")
     #print("terme : ", terme)
+    logger.debug("recherche de ", terme, "pour ", request.user)
     if terme:
         moteurs = [EtudiantRecherche(), PromoRecherche(), PostRecherche()]
         result = False
@@ -301,5 +302,8 @@ def rechercher(request):
             res = moteur.found(terme)
             if res:
                 return HttpResponseRedirect(moteur.url(res))
+            else:
+                logger.warning("not found", terme)
+
 
     return HttpResponseRedirect('/')
