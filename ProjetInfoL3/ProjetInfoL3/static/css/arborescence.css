@@ -91,3 +91,8 @@ h3 {
 .niveau1:hover {
     background-color: white;
 }
+
+.profile-pic {
+    border-radius:40%; 
+    margin-top: 3px;
+}

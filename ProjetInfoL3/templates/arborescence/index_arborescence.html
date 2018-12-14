@@ -73,9 +73,9 @@ Arborescence
                 <p>
                     <a href="{% url "profil-etudiant" etudiant_id=etudiant.id %}">
                         {% if etudiant.photo %}
-                        <img  src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60" style="border-radius:40%; border:1px solid black; margin-top: 3px"/>
+                        <img  class ="profile-pic" src="{{ etudiant.photo.url }}" alt="image de profil" width="60" height="60"/>
                         {% else %}
-                        <img src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60" style="border-radius:40%; border:1px solid black; margin-top: 3px"/>
+                        <img class ="profile-pic" src="{% static 'images/no_image.png' %}" alt="image de profil" width="60" height="60"/>
                         {% endif %}
                     </a>
                 </p>
