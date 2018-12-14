@@ -9,7 +9,7 @@ class FilActu_PostForm(ModelForm):
         labels = {
             'couleur':"Catégorie du post",
             'promo_ciblee':"Pour qui ?",
-            'prive':"Statut"
+            'prive':"Privé ? (Seulement les promos ciblees ci dessous pourront accéder au post) "
         }
 
 class FilActu_CommentsForm(ModelForm):
