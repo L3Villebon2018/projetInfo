@@ -291,7 +291,7 @@ class PostRecherche(BaseRecherche):
 
 def rechercher(request):
     terme = request.POST.get("terme")
-    print("terme : ", terme)
+    #print("terme : ", terme)
     if terme:
         moteurs = [EtudiantRecherche(), PromoRecherche(), PostRecherche()]
         result = False
