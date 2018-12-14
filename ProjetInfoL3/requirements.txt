@@ -15,3 +15,5 @@ django-hijack-admin
 
 # Pour les tests
 django-test-plus
+django-debug-toolbar
+django-cachalot

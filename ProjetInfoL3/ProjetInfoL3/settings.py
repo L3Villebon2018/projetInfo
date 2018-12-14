@@ -47,9 +47,19 @@ SECRET_KEY = '-bt@shvj7=*985wz&@d*w^+$kux6et#zaf-an#qtuzpz8py1iz'
 DEBUG = True
 
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache' if not DEBUG else os.path.join(BASE_DIR, 'cache'),
+        'TIMEOUT': 600,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+
 #ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = 'fil-actu-index'
 LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
@@ -64,7 +74,10 @@ INSTALLED_APPS = [
     'bootstrap4',
     'hijack',
     'hijack_admin',
-    'compat'
+    'compat',
+
+    'debug_toolbar',
+    'cachalot'
 ]
 
 MIDDLEWARE = [
@@ -75,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'ProjetInfoL3.urls'
@@ -189,19 +203,30 @@ FIXTURE_DIRS = (
 HIJACK_USE_BOOTSTRAP = True
 HIJACK_ALLOW_GET_REQUESTS = True
 
-LOGIN_REDIRECT_URL = '/login' # TODO: Changer l'URL vers laquelle les utilisateurs sont redirigés au login. Une sorte de *page d'acceuil* serait sympa, a voir :)
+LOGIN_REDIRECT_URL = '/' # TODO: Changer l'URL vers laquelle les utilisateurs sont redirigés au login. Une sorte de *page d'acceuil* serait sympa, a voir :)
 
 
 # Security
-SECURE_SSL_REDIRECT = False  # Nginx
-SECURE_HSTS_SECONDS = 60
-SECURE_HSTS_PRELOAD = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-X_FRAME_OPTIONS = 'DENY'
+if not DEBUG:
 
+    SECURE_SSL_REDIRECT = False  # Nginx
+    SECURE_HSTS_SECONDS = 60
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    X_FRAME_OPTIONS = 'DENY'
+
+
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 600
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
+
+def show_toolbar(request):
+    return not request.is_ajax() and request.user and request.user.username == "admin"
 
 
 DEBUG_TOOLBAR_PANELS = [
@@ -221,6 +246,6 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': 'getbeaned.settings.show_toolbar',
+    'SHOW_TOOLBAR_CALLBACK': 'ProjetInfoL3.settings.show_toolbar',
     # Rest of config
 }

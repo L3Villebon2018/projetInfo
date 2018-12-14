@@ -20,14 +20,17 @@ from django.urls import (path, include)
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from django.conf import settings
+from django.urls import include, path  # For django versions from 2.0 and up
+import debug_toolbar
 
 urlpatterns = [
+    path('__debug__/', include(debug_toolbar.urls)),
     path('', include('charpak.urls')),
     url(r'^hijack/', include('hijack.urls', namespace='hijack')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), # new
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG == True:
+if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
