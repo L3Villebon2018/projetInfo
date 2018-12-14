@@ -12,8 +12,10 @@ from .models import PostFilActu, Etudiant, Formation, Promo, Commentaire
 from .forms import FilActu_PostForm, FilActu_CommentsForm, index_modifierForm
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseForbidden
+import logging
 
-
+# Log
+logger = logging.getLogger(__name__)
 # Create your views here.
 
 def index(request):
