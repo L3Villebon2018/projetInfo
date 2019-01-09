@@ -42,7 +42,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-bt@shvj7=*985wz&@d*w^+$kux6et#zaf-an#qtuzpz8py1iz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 CACHES = {
@@ -185,8 +185,8 @@ MEDIA_URL = '/media/'
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 MEDIA_ROOT = SITE_ROOT + '/media/'
-#STATIC_ROOT = SITE_ROOT + '/static/'
 
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
 
 
 STATICFILES_DIRS = (
@@ -224,7 +224,7 @@ CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
 
 def show_toolbar(request):
-    return not request.is_ajax() and request.user and request.user.username == "admin"
+    return DEBUG and not request.is_ajax() and request.user and request.user.username == "admin"
 
 
 DEBUG_TOOLBAR_PANELS = [

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="526c60cc-6cdf-4959-881e-b1358510d66a" name="CharpakNetwork" url="http://charpaknetwork.api-d.com">
+        <fileTransfer host="charpaknetwork.api-d.com" port="22" privateKey="$USER_HOME$/.ssh/id_rsa" rootFolder="/home/django" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
