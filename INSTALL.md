@@ -1,4 +1,4 @@
-# Comment installer GetBeaned sur votre propre infrastructure ?
+# Comment installer CharpakNetwork sur votre propre infrastructure ?
 
 ## Prérequis
 
