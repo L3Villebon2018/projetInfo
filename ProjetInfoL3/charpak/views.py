@@ -201,7 +201,7 @@ def nouveau_post_fil_actu(request):
     else:
         form = FilActu_PostForm(new_choices=new_choises)
 
-    form.fields["promo_ciblee"] .queryset = Promo.objects.order_by('-nom')[:3]
+    #form.fields["promo_ciblee"] .queryset = Promo.objects.order_by('-nom')[:3]
     return render(request, 'fil_actu/nouveau_post_fil_actu.html', {'form': form})
 
 

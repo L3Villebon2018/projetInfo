@@ -20,12 +20,7 @@ class Promo(models.Model):
     def __str__(self):
         return f"Promo {self.nom}"
 
-    @property
-    def niveau_relatif(self):
-        A = timezone.now() - timedelta(days=180)
-        B = A.timetuple()
-        return 4 + B[0] - int(self.nom)
-
+bb
     @property
     def promo_parrains(self):
         return Promo.objects.filter(nom=str(int(self.nom) - 1)).first()

@@ -12,6 +12,11 @@ class FilActu_PostForm(ModelForm):
             'prive':"Privé ? (Seulement les promos ciblees ci dessous pourront accéder au post) "
         }
 
+    def __init__(self, *args, **kwargs):
+        new_choices = kwargs.pop("new_choices")
+        super().__init__(*args, **kwargs)
+        self.fields['couleur'].choices = new_choices
+
 class FilActu_CommentsForm(ModelForm):
     class Meta:
         model = Commentaire
