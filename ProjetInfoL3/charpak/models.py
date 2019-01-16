@@ -20,11 +20,9 @@ class Promo(models.Model):
     def __str__(self):
         return f"Promo {self.nom}"
 
-bb
     @property
     def promo_parrains(self):
         return Promo.objects.filter(nom=str(int(self.nom) - 1)).first()
-
 
 
 class Ecole(models.Model):
@@ -90,7 +88,6 @@ class PostFilActu(models.Model):
     supprime = models.BooleanField(default=False)
     prive = models.BooleanField(default=False)
 
-
     auteur = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None, blank=True, null=True,
                                related_name='posts')
 
@@ -128,7 +125,7 @@ class Commentaire(models.Model):
 class Bde(models.Model):
     nom = models.CharField(max_length=150, default="BDE de l'institut")
     annee = models.IntegerField()
-    membres = models.ManyToManyField(Etudiant, related_name="membre_bde",  default=None)
+    membres = models.ManyToManyField(Etudiant, related_name="membre_bde", default=None)
 
     photo = models.ImageField(default=None, blank=True, null=True, upload_to='images/bde/')
 
